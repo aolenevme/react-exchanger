@@ -58,6 +58,7 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
     "babel-plugin-styled-components": "^1.10.7",
     "babel-preset-mobx": "^2.0.0",
     "cache-loader": "4.1.0",
@@ -69,6 +70,10 @@
     "eslint-plugin-react": "^7.19.0",
     "html-loader": "0.5.5",
     "husky": "^4.2.3",
+    "jest": "^26.4.2",
+    "jest-environment-jsdom-fourteen": "^1.0.1",
+    "jest-styled-components": "^7.0.3",
+    "jest-watch-typeahead": "^0.6.0",
     "lint-staged": "^10.0.8",
     "prettier": "^1.19.1",
     "react-test-renderer": "^16.13.0",
@@ -82,6 +87,10 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --mode=production --config ./webpack.prod.js",
+    "serve": "node ./serve.js",
+    "test:unit": "cross-env NODE_ENV=test jest --config jest.config.js",
+    "test:unit:ci": "cross-env CI=true yarn run test:unit --passWithNoTests",
+    "test:e2e": "./node_modules/.bin/wdio wdio.conf.js",
     "lint:css": "stylelint './src/**/*.js'",
     "lint:js": "eslint ./src/**/*.js"
   },
@@ -104,8 +113,9 @@
   },
   "lint-staged": {
     "./src/**/*.js": [
-      "yarn run lint:js",
-      "yarn run lint:css"
+      "yarn lint:js",
+      "yarn lint:css",
+      "yarn test:unit:ci"
     ]
   }
 }
