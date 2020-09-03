@@ -3,6 +3,7 @@ import {observer} from "mobx-react-lite";
 
 import {dispatch} from "../lib/registry.js";
 import {dispatchFx} from "../lib/registryFx.js";
+import Button from "../components/button/button.js";
 import RateSelector from "../components/rate-selector/rate-selector.js";
 
 import queries from "./queries.js";
@@ -49,6 +50,7 @@ function UI() {
     return (
         <UIS>
             <h1>Hello World, it is now!</h1>
+            <Button>Exchange</Button>
             <RateSelector rate={1.457} currencySigns={{fromCurrencySign: "£", toCurrencySign: "$"}}/>
             <Clock time={time} timeColor={timeColor}/>
             <ColorInput timeColor={timeColor}/>

@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> is rendered correctly 1`] = `
+.c0 {
+  border-color: transparent;
+  background-color: transparent;
+  color: #f3f6ff;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  -webkit-transition: color 0.1s ease 0s;
+  transition: color 0.1s ease 0s;
+}
+
+.c0:active {
+  color: #5591f7;
+}
+
+.c0:disabled {
+  cursor: unset;
+}
+
+.c0:hover {
+  color: #5591f7;
+}
+
+<button
+  className="c0"
+  disabled={true}
+  onClick={[Function]}
+  type="button"
+/>
+`;
+
+exports[`<Button /> is rendered correctly 2`] = `
+.c0 {
+  border-color: transparent;
+  background-color: transparent;
+  color: #f3f6ff;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  -webkit-transition: color 0.1s ease 0s;
+  transition: color 0.1s ease 0s;
+}
+
+.c0:active {
+  color: #5591f7;
+}
+
+.c0:disabled {
+  cursor: unset;
+}
+
+.c0:hover {
+  color: #5591f7;
+}
+
+<button
+  className="c0"
+  disabled={false}
+  onClick={[Function]}
+  type="button"
+/>
+`;
