@@ -4,10 +4,12 @@ import styled from "styled-components";
 import colors from "../../lib/styles/colors/colors.js";
 
 const Value = styled.label`
-    display: block;
+    display: flex;
+    justify-content: flex-end;
 
     padding: 0;
 
+    width: 100%;
     height: 3rem;
 
     border: 0 solid transparent;
@@ -18,6 +20,8 @@ const Value = styled.label`
 
     font-size: 3rem;
     line-height: 3rem;
+    
+    cursor: pointer;
 
     &:focus-within {
       animation: caret-pulse 1.5s cubic-bezier(.215, .61, .355, 1) forwards infinite;
@@ -43,8 +47,6 @@ const Input = styled.input`
     
     border: 0;
 `;
-
-// const INPUT_REGEXP = "\\d+(\\.\\d{2})?";
 
 function MoneyInput({isDisabled = false, value = "", onChange = () => ({})}) {
     return (
