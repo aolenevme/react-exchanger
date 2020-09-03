@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import isNumber from "lodash/isNumber.js";
+import isString from "lodash/isString.js";
 
 import colors from "../../lib/styles/colors/colors.js";
-import splitDigits from "../../lib/helpers/splitDigits/splitDigits.js";
+import splitDigits from "../../lib/helpers/split-digits/split-digits.js";
 
 const Wrapper = styled.div`
     display: flex;
@@ -25,11 +27,11 @@ const Wrapper = styled.div`
 
     transition: border-color 0.1s ease 0s;
 
-&:active {
+    &:active {
         border-color: ${colors.secondary};
     }
 
-&:hover {
+    &:hover {
         border-color: ${colors.secondary};
     }
 `;
@@ -42,25 +44,33 @@ const TextRate = styled.span`
 
 const Decimals = styled.span`
     font-size: 0.8rem;
-
 `;
 
+function isSignValid(sign) {
+    return isString(sign) && sign.length === 1;
+}
+
 function shouldDisplay(ratio, {fromCurrencySign, toCurrencySign}) {
-    return Boolean(ratio && fromCurrencySign && toCurrencySign);
+    const isRatioNumberValid = isNumber(ratio);
+    const isFromCurrencySignValid = isSignValid(fromCurrencySign);
+    const isToCurrencySignValid = isSignValid(toCurrencySign);
+
+    return isRatioNumberValid && isFromCurrencySignValid && isToCurrencySignValid;
+}
+
+function SelectorText({ratio, currencySigns}) {
+    const [digits, firstTwoDecimals, lastTwoDecimals] = splitDigits(ratio);
+    const {fromCurrencySign, toCurrencySign} = currencySigns;
+
+    const mainText = `${fromCurrencySign}1 = ${toCurrencySign}${digits}.${firstTwoDecimals}`;
+
+    return <TextRate>{mainText}<Decimals>{lastTwoDecimals}</Decimals></TextRate>;
 }
 
 function Selector({ratio, currencySigns}) {
-    const [integerDigits, decimalFirstTwo, decimalLastTwo] = splitDigits(ratio);
-    const {fromCurrencySign, toCurrencySign} = currencySigns;
-
     return shouldDisplay(ratio, currencySigns) ? (
         <Wrapper>
-            <TextRate>
-                <span>{`${fromCurrencySign}1`}</span>
-                <span> = </span>
-                <span>{`${toCurrencySign}${integerDigits}.${decimalFirstTwo}`}</span>
-                <Decimals>{`${decimalLastTwo} `}</Decimals>
-            </TextRate>
+            <SelectorText ratio={ratio} currencySigns={currencySigns}/>
         </Wrapper>
     ) : null;
 }
