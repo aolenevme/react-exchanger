@@ -49,7 +49,7 @@ function UI() {
     return (
         <UIS>
             <h1>Hello World, it is now!</h1>
-            <Selector ratio={1.457} currencySigns={{fromCurrencySign: "₽", toCurrencySign: "$"}}/>
+            <Selector ratio={1.457} currencySigns={{fromCurrencySign: "£", toCurrencySign: "$"}}/>
             <Clock time={time} timeColor={timeColor}/>
             <ColorInput timeColor={timeColor}/>
         </UIS>
