@@ -38,13 +38,14 @@ function defineColor(props) {
 function Button({
     children, isDisabled = false, onClick = () => ({})
 }) {
-    return <Wrapper
-        disabled={isDisabled}
-        type="button"
-        onClick={onClick}
-    >
-        {children}
-    </Wrapper>;
+    return (
+        <Wrapper
+            disabled={isDisabled}
+            type="button"
+            onClick={onClick}
+        >
+            {children}
+        </Wrapper>);
 }
 
 export default Button;
