@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MainText /> is rendered correctly 1`] = `
+.c0 {
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #f3f6ff;
+}
+
+<span
+  className="c0"
+>
+  GBP
+</span>
+`;
