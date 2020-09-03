@@ -1,7 +1,7 @@
 import colors from "../colors";
 
-describe('Colors', () => {
-    it('are correct', () => {
+describe("Colors", () => {
+    it("are correct", () => {
         expect(colors).toEqual({
             textPrimary: "#f3f6ff",
             textPrimaryDark: "#5591f7",
