@@ -4,7 +4,7 @@ import isNumber from "lodash/isNumber.js";
 import isString from "lodash/isString.js";
 
 import colors from "../../lib/styles/colors/colors.js";
-import splitDigits from "../../lib/helpers/split-digits/split-digits.js";
+import rateFormatter from "../../lib/helpers/rate-formatter/rate-formatter.js";
 
 const Wrapper = styled.div`
     display: flex;
@@ -60,12 +60,12 @@ function shouldDisplay(ratio, {fromCurrencySign, toCurrencySign}) {
 
 // eslint-disable-next-line no-shadow
 function Text({ratio, currencySigns}) {
-    const [digits, firstTwoDecimals, lastTwoDecimals] = splitDigits(ratio);
+    const [integer, firstTwoFractions, lastTwoFractions] = rateFormatter(ratio);
     const {fromCurrencySign, toCurrencySign} = currencySigns;
 
-    const mainText = `${fromCurrencySign}1 = ${toCurrencySign}${digits}.${firstTwoDecimals}`;
+    const mainText = `${fromCurrencySign}1 = ${toCurrencySign}${integer}.${firstTwoFractions}`;
 
-    return <TextRate>{mainText}<LastDecimals>{lastTwoDecimals}</LastDecimals></TextRate>;
+    return <TextRate>{mainText}<LastDecimals>{lastTwoFractions}</LastDecimals></TextRate>;
 }
 
 function RateSelector({ratio, currencySigns}) {
