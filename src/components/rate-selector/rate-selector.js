@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import isNumber from "lodash/isNumber.js";
+import isArray from "lodash/isArray.js";
 import isString from "lodash/isString.js";
 
 import colors from "../../lib/styles/colors/colors.js";
@@ -50,17 +50,18 @@ function isSignValid(sign) {
     return isString(sign) && sign.length === 1;
 }
 
-function shouldDisplay(ratio, {fromCurrencySign, toCurrencySign}) {
-    const isRatioNumberValid = isNumber(ratio);
+function shouldShow(formattedRate, {fromCurrencySign, toCurrencySign}) {
+    const isRateValid = isArray(formattedRate) && formattedRate.length;
+
     const isFromCurrencySignValid = isSignValid(fromCurrencySign);
     const isToCurrencySignValid = isSignValid(toCurrencySign);
 
-    return isRatioNumberValid && isFromCurrencySignValid && isToCurrencySignValid;
+    return isRateValid && isFromCurrencySignValid && isToCurrencySignValid;
 }
 
 // eslint-disable-next-line no-shadow
-function Text({ratio, currencySigns}) {
-    const [integer, firstTwoFractions, lastTwoFractions] = rateFormatter(ratio);
+function Text({formattedRate, currencySigns}) {
+    const [integer, firstTwoFractions, lastTwoFractions] = formattedRate;
     const {fromCurrencySign, toCurrencySign} = currencySigns;
 
     const mainText = `${fromCurrencySign}1 = ${toCurrencySign}${integer}.${firstTwoFractions}`;
@@ -68,10 +69,12 @@ function Text({ratio, currencySigns}) {
     return <TextRate>{mainText}<LastDecimals>{lastTwoFractions}</LastDecimals></TextRate>;
 }
 
-function RateSelector({ratio, currencySigns}) {
-    return shouldDisplay(ratio, currencySigns) ? (
+function RateSelector({rate, currencySigns}) {
+    const formattedRate = rateFormatter(rate);
+
+    return shouldShow(formattedRate, currencySigns) ? (
         <Wrapper>
-            <Text ratio={ratio} currencySigns={currencySigns}/>
+            <Text formattedRate={formattedRate} currencySigns={currencySigns}/>
         </Wrapper>
     ) : null;
 }
