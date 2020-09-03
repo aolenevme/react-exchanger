@@ -38,27 +38,27 @@ const Value = styled.label`
     }
 `;
 
-const Input = styled.input`
+const Controller = styled.input`
     margin: 0;
     padding: 0;
-    
+
     width: 0;
     height: 0; 
-    
+
     border: 0;
 `;
 
-function MoneyInput({isDisabled = false, value = "", onChange = () => ({})}) {
+function Input({isDisabled = false, value = "", onInput = () => ({})}) {
     return (
         <Value>
             {value}
-            <Input
+            <Controller
                 type="number"
                 disabled={isDisabled}
                 value={value}
-                onInput={onChange}
+                onInput={onInput}
             />
         </Value>);
 }
 
-export default MoneyInput;
+export default Input;

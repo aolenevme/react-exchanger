@@ -56,7 +56,7 @@ function UI() {
         <UIS>
             <h1>Hello World, it is now!</h1>
             <Button>Exchange</Button>
-            <Input value={count} onChange={(inputEvent) => setCount(inputEvent.target.value)}/>
+            <Input value={count} onInput={(inputEvent) => setCount(inputEvent.target.value)}/>
             <RateSelector rate={1.457} currencySigns={{
                 fromCurrencySign: "£",
                 toCurrencySign: "$"
