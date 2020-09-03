@@ -13,4 +13,18 @@ describe("<Button />", () => {
             .create(<Button isDisabled={false}/>)
             .toJSON()).toMatchSnapshot();
     });
+
+    describe("events", () => {
+        it("reacts to onClick", () => {
+            const onClick = jest.fn();
+
+            const tree = renderer
+                .create(<Button onClick={onClick}/>)
+                .toJSON();
+
+            tree.props.onClick();
+
+            expect(onClick).toHaveBeenCalled();
+        });
+    });
 });
