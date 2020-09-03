@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+
+    font-size: 14px;
+    font-family: Roboto, 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif;
+    text-rendering: optimizeLegibility;
+
+    line-height: 1.5rem;
+
+    user-select: none;
+
+    outline: none;
+}

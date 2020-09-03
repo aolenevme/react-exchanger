@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Selector /> is not rendered when props are incorrect 1`] = `null`;
+
+exports[`<Selector /> is not rendered when props are incorrect 2`] = `null`;
+
+exports[`<Selector /> is not rendered when props are incorrect 3`] = `null`;
+
+exports[`<Selector /> is rendered correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0.2rem 0.5rem;
+  min-height: 2rem;
+  border: 1px solid #5591f7;
+  border-radius: 4px;
+  background-color: #2c5bcd;
+  color: #f3f6ff;
+  font-weight: 400;
+  cursor: pointer;
+  -webkit-transition: border-color 0.1s ease 0s;
+  transition: border-color 0.1s ease 0s;
+}
+
+.c0:active {
+  border-color: #f3f6ff;
+}
+
+.c0:hover {
+  border-color: #f3f6ff;
+}
+
+.c1 {
+  width: 100%;
+  text-align: center;
+}
+
+.c2 {
+  font-size: 0.8rem;
+}
+
+<div
+  className="c0"
+>
+  <span
+    className="c1"
+  >
+    £1 = $1.45
+    <span
+      className="c2"
+    >
+      70
+    </span>
+  </span>
+</div>
+`;

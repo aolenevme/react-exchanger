@@ -1,12 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 import {observer} from "mobx-react-lite";
 
 import {dispatch} from "../lib/registry.js";
 import {dispatchFx} from "../lib/registryFx.js";
+import Button from "../components/button/button.js";
+import Input from "../components/input/input.js";
+import MainText from "../components/main-text/main-text.js";
+import InfoText from "../components/info-text/info-text.js";
+import RateSelector from "../components/rate-selector/rate-selector.js";
 
 import queries from "./queries.js";
 import storeEventIds from "./events.js";
 import fxEventIds from "./effects.js";
+// eslint-disable-next-line import/max-dependencies
 import {ClockS, UIS} from "./styled.js";
 
 const CHANGE_TIME_TIMEOUT = 1000;
@@ -44,10 +50,21 @@ function UI() {
     // Get queries
     const {time, timeColor} = queries();
 
+    // eslint-disable-next-line no-magic-numbers
+    const [count, setCount] = useState(5);
+
     // Return view
     return (
         <UIS>
+            <MainText>GBP</MainText>
+            <InfoText>Bingo!</InfoText>
             <h1>Hello World, it is now!</h1>
+            <Button>Exchange</Button>
+            <Input value={count} onInput={(inputEvent) => setCount(inputEvent.target.value)}/>
+            <RateSelector rate={1.457} currencySigns={{
+                fromCurrencySign: "£",
+                toCurrencySign: "$"
+            }}/>
             <Clock time={time} timeColor={timeColor}/>
             <ColorInput timeColor={timeColor}/>
         </UIS>
