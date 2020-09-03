@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InfoText /> is rendered correctly 1`] = `
+.c0 {
+  font-size: 0.8rem;
+  color: #7199e6;
+}
+
+<span
+  className="c0"
+>
+  Bingo!
+</span>
+`;

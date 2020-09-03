@@ -39,6 +39,10 @@ exports[`<Input /> is rendered correctly 1`] = `
   border: 0;
 }
 
+.c1:invalid {
+  box-shadow: none;
+}
+
 <label
   className="c0"
 >
@@ -90,6 +94,10 @@ exports[`<Input /> is rendered correctly 2`] = `
   width: 0;
   height: 0;
   border: 0;
+}
+
+.c1:invalid {
+  box-shadow: none;
 }
 
 <label
@@ -145,6 +153,10 @@ exports[`<Input /> is rendered correctly 3`] = `
   border: 0;
 }
 
+.c1:invalid {
+  box-shadow: none;
+}
+
 <label
   className="c0"
 >
@@ -196,6 +208,10 @@ exports[`<Input /> is rendered correctly 4`] = `
   width: 0;
   height: 0;
   border: 0;
+}
+
+.c1:invalid {
+  box-shadow: none;
 }
 
 <label

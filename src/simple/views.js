@@ -5,6 +5,8 @@ import {dispatch} from "../lib/registry.js";
 import {dispatchFx} from "../lib/registryFx.js";
 import Button from "../components/button/button.js";
 import Input from "../components/input/input.js";
+import MainText from "../components/main-text/main-text.js";
+import InfoText from "../components/info-text/info-text.js";
 import RateSelector from "../components/rate-selector/rate-selector.js";
 
 import queries from "./queries.js";
@@ -54,6 +56,8 @@ function UI() {
     // Return view
     return (
         <UIS>
+            <MainText>GBP</MainText>
+            <InfoText>Bingo!</InfoText>
             <h1>Hello World, it is now!</h1>
             <Button>Exchange</Button>
             <Input value={count} onInput={(inputEvent) => setCount(inputEvent.target.value)}/>
