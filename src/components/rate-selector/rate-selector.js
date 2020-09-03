@@ -42,7 +42,7 @@ const TextRate = styled.span`
     text-align: center;
 `;
 
-const LastDecimals = styled.span`
+const LastRateTwoFractions = styled.span`
     font-size: 0.8rem;
 `;
 
@@ -66,7 +66,7 @@ function Text({formattedRate, currencySigns}) {
 
     const mainText = `${fromCurrencySign}1 = ${toCurrencySign}${integer}.${firstTwoFractions}`;
 
-    return <TextRate>{mainText}<LastDecimals>{lastTwoFractions}</LastDecimals></TextRate>;
+    return <TextRate>{mainText}<LastRateTwoFractions>{lastTwoFractions}</LastRateTwoFractions></TextRate>;
 }
 
 function RateSelector({rate, currencySigns}) {
