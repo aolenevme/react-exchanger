@@ -46,6 +46,10 @@ const Controller = styled.input`
     height: 0; 
 
     border: 0;
+    
+    &:invalid {
+      box-shadow: none;
+    }
 `;
 
 function Input({isDisabled = false, value = "", onInput = () => ({})}) {
