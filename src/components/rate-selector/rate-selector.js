@@ -42,7 +42,7 @@ const TextRate = styled.span`
     text-align: center;
 `;
 
-const Decimals = styled.span`
+const LastDecimals = styled.span`
     font-size: 0.8rem;
 `;
 
@@ -58,21 +58,22 @@ function shouldDisplay(ratio, {fromCurrencySign, toCurrencySign}) {
     return isRatioNumberValid && isFromCurrencySignValid && isToCurrencySignValid;
 }
 
-function SelectorText({ratio, currencySigns}) {
+// eslint-disable-next-line no-shadow
+function Text({ratio, currencySigns}) {
     const [digits, firstTwoDecimals, lastTwoDecimals] = splitDigits(ratio);
     const {fromCurrencySign, toCurrencySign} = currencySigns;
 
     const mainText = `${fromCurrencySign}1 = ${toCurrencySign}${digits}.${firstTwoDecimals}`;
 
-    return <TextRate>{mainText}<Decimals>{lastTwoDecimals}</Decimals></TextRate>;
+    return <TextRate>{mainText}<LastDecimals>{lastTwoDecimals}</LastDecimals></TextRate>;
 }
 
-function Selector({ratio, currencySigns}) {
+function RateSelector({ratio, currencySigns}) {
     return shouldDisplay(ratio, currencySigns) ? (
         <Wrapper>
-            <SelectorText ratio={ratio} currencySigns={currencySigns}/>
+            <Text ratio={ratio} currencySigns={currencySigns}/>
         </Wrapper>
     ) : null;
 }
 
-export default Selector;
+export default RateSelector;

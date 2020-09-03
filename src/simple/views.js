@@ -3,7 +3,7 @@ import {observer} from "mobx-react-lite";
 
 import {dispatch} from "../lib/registry.js";
 import {dispatchFx} from "../lib/registryFx.js";
-import Selector from "../components/selector/selector.js";
+import RateSelector from "../components/rate-selector/rate-selector.js";
 
 import queries from "./queries.js";
 import storeEventIds from "./events.js";
@@ -49,7 +49,7 @@ function UI() {
     return (
         <UIS>
             <h1>Hello World, it is now!</h1>
-            <Selector ratio={1.457} currencySigns={{fromCurrencySign: "£", toCurrencySign: "$"}}/>
+            <RateSelector ratio={1.457} currencySigns={{fromCurrencySign: "£", toCurrencySign: "$"}}/>
             <Clock time={time} timeColor={timeColor}/>
             <ColorInput timeColor={timeColor}/>
         </UIS>
