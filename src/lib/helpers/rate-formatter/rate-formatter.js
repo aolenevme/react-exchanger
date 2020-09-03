@@ -10,7 +10,7 @@ function rateFormatter(rate) {
 
         const [integer, fractionNumber] = split(fixedRate, ".");
 
-        const subfractions = createArrayOfTwoSubfractions(fractionNumber);
+        const subfractions = createArrayOfSubfractions(fractionNumber);
 
         return [integer, ...subfractions]
     }
@@ -22,7 +22,7 @@ function isValidRateNumber(rate) {
    return isNumber(rate) && rate > 0;
 }
 
-function createArrayOfTwoSubfractions(fractionNumber) {
+function createArrayOfSubfractions(fractionNumber) {
     if (isString(fractionNumber)) {
         const firstTwoFractions = fractionNumber.substring(0, 2);
         const lastTwoFractions = fractionNumber.substring(2, 4);
