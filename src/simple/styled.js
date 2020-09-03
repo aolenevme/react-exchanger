@@ -5,6 +5,19 @@ const ClockS = styled.div`
 `;
 
 const UIS = styled.div`
+* {
+    box-sizing: border-box;
+
+    font-size: 14px;
+    font-family: Roboto, 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif;
+    font-variant: small-caps;
+    text-rendering: optimizeLegibility;
+
+    line-height: 1.5rem;
+
+    outline: none;
+}
+
   display: flex;
   flex-direction: column;
   align-items: center;
