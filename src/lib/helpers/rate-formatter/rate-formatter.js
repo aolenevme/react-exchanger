@@ -26,8 +26,11 @@ function createArrayOfTwoSubfractions(fractionNumber) {
     if (isString(fractionNumber)) {
         const firstTwoFractions = fractionNumber.substring(0, 2);
         const lastTwoFractions = fractionNumber.substring(2, 4);
+        const isLastTwoFractionsExtra = Boolean(Number(lastTwoFractions));
 
-        return [firstTwoFractions, lastTwoFractions];
+        return !isLastTwoFractionsExtra ?
+            [firstTwoFractions] :
+            [firstTwoFractions, lastTwoFractions];
     }
 
     return [];
