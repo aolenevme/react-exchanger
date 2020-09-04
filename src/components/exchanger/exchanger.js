@@ -7,20 +7,18 @@ import InfoText from "../info-text/info-text.js";
 import MainText from "../main-text/main-text.js";
 
 const Wrapper = styled.div`
-    width: 88%;
+    width: 100%;
 `;
 
 const Content = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+    margin-bottom: 1rem;
 `;
 
-const CurrencyAbbreviation = styled(MainText)`
-    margin: 0;
-`;
-
-const Balance = styled.div`
+const WalletInfo = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,21 +26,17 @@ const Balance = styled.div`
     padding: 0 0.3rem;
 `;
 
-const BalanceText = styled(InfoText)`
-    margin: 1rem 0;
-`;
-
 function Exchanger() {
     return <Wrapper>
         <Content>
-            <CurrencyAbbreviation>USD</CurrencyAbbreviation>
+            <MainText>USD</MainText>
             <Input prefix={constant("-")} value={14.57}/>
         </Content>
 
-        <Balance>
-            <BalanceText>You have 58.33 dollars</BalanceText>
-            <BalanceText>£1 = $1.45</BalanceText>
-        </Balance>
+        <WalletInfo>
+            <InfoText>You have 58.33 dollars</InfoText>
+            <InfoText>£1 = $1.45</InfoText>
+        </WalletInfo>
     </Wrapper>;
 }
 
