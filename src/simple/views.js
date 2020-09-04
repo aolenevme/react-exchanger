@@ -8,6 +8,7 @@ import Input from "../components/input/input.js";
 import MainText from "../components/main-text/main-text.js";
 import InfoText from "../components/info-text/info-text.js";
 import RateSelector from "../components/rate-selector/rate-selector.js";
+import Exchanger from "../components/exchanger/exchanger.js";
 
 import queries from "./queries.js";
 import storeEventIds from "./events.js";
@@ -65,6 +66,7 @@ function UI() {
                 fromCurrencySign: "£",
                 toCurrencySign: "$"
             }}/>
+            <Exchanger />
             <Clock time={time} timeColor={timeColor}/>
             <ColorInput timeColor={timeColor}/>
         </UIS>

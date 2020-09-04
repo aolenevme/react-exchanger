@@ -1,0 +1,51 @@
+import React from "react";
+import styled from "styled-components";
+
+import Input from "../input/input.js";
+import InfoText from "../info-text/info-text.js";
+import MainText from "../main-text/main-text.js";
+
+const Wrapper = styled.div`
+  width: 88%;
+`;
+
+const Content = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+const CurrencyAbbreviation = styled(MainText)`
+    margin: 0;
+`;
+
+const BalanceText = styled(InfoText)`
+margin: 1rem 0;`;
+
+const Balance = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 0.3rem;
+`;
+
+function Exchanger() {
+    return <Wrapper>
+        <Content>
+            <CurrencyAbbreviation>USD</CurrencyAbbreviation>
+            <div>
+                <MainText>-</MainText>
+                <Input
+                    value={14.57}
+                />
+            </div>
+        </Content>
+
+        <Balance>
+            <BalanceText>You have 58.33 dollars</BalanceText>
+        </Balance>
+    </Wrapper>;
+}
+
+export default Exchanger;
