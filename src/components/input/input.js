@@ -41,6 +41,13 @@ const InputController = styled.input`
 
     border: 0;
     
+    -moz-appearance: textfield;
+    
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+    
     &:invalid {
       box-shadow: none;
     }

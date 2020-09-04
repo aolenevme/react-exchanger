@@ -27,16 +27,18 @@ exports[`<Input /> is rendered correctly 1`] = `
   animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
 }
 
-.c0::selection {
-  background-color: transparent;
-}
-
 .c1 {
   margin: 0;
   padding: 0;
   width: 0;
   height: 0;
   border: 0;
+  -moz-appearance: textfield;
+}
+
+.c1::-webkit-outer-spin-button,
+.c1::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
 .c1:invalid {
@@ -85,16 +87,18 @@ exports[`<Input /> is rendered correctly 2`] = `
   animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
 }
 
-.c0::selection {
-  background-color: transparent;
-}
-
 .c1 {
   margin: 0;
   padding: 0;
   width: 0;
   height: 0;
   border: 0;
+  -moz-appearance: textfield;
+}
+
+.c1::-webkit-outer-spin-button,
+.c1::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
 .c1:invalid {
@@ -142,16 +146,18 @@ exports[`<Input /> is rendered correctly 3`] = `
   animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
 }
 
-.c0::selection {
-  background-color: transparent;
-}
-
 .c1 {
   margin: 0;
   padding: 0;
   width: 0;
   height: 0;
   border: 0;
+  -moz-appearance: textfield;
+}
+
+.c1::-webkit-outer-spin-button,
+.c1::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
 .c1:invalid {
@@ -199,16 +205,18 @@ exports[`<Input /> is rendered correctly 4`] = `
   animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
 }
 
-.c0::selection {
-  background-color: transparent;
-}
-
 .c1 {
   margin: 0;
   padding: 0;
   width: 0;
   height: 0;
   border: 0;
+  -moz-appearance: textfield;
+}
+
+.c1::-webkit-outer-spin-button,
+.c1::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
 .c1:invalid {
@@ -256,16 +264,18 @@ exports[`<Input /> is rendered correctly 5`] = `
   animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
 }
 
-.c0::selection {
-  background-color: transparent;
-}
-
 .c1 {
   margin: 0;
   padding: 0;
   width: 0;
   height: 0;
   border: 0;
+  -moz-appearance: textfield;
+}
+
+.c1::-webkit-outer-spin-button,
+.c1::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
 .c1:invalid {

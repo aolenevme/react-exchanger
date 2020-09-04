@@ -33,16 +33,18 @@ exports[`<Exchanger /> is rendered correctly 1`] = `
   animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
 }
 
-.c3::selection {
-  background-color: transparent;
-}
-
 .c4 {
   margin: 0;
   padding: 0;
   width: 0;
   height: 0;
   border: 0;
+  -moz-appearance: textfield;
+}
+
+.c4::-webkit-outer-spin-button,
+.c4::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
 .c4:invalid {
@@ -105,13 +107,13 @@ exports[`<Exchanger /> is rendered correctly 1`] = `
       className="c3"
     >
       -
-      14.57
+      145.57
       <input
         className="c4"
         disabled={false}
         onInput={[Function]}
         type="number"
-        value={14.57}
+        value={145.57}
       />
     </label>
   </div>
