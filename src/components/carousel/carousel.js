@@ -8,11 +8,11 @@ const Wrapper = styled.div`
     width: 30%;
     
     overflow-y: auto;
-    overflow: -moz-scrollbars-none;
     -ms-overflow-style: none;
+    scrollbar-width: none;
     
     &::-webkit-scrollbar { 
-      width: 0 !important 
+        display: none;
     }
 `;
 
