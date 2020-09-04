@@ -20,16 +20,16 @@ const CurrencyAbbreviation = styled(MainText)`
     margin: 0;
 `;
 
-const BalanceText = styled(InfoText)`
-    margin: 1rem 0;
-`;
-
 const Balance = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     padding: 0 0.3rem;
+`;
+
+const BalanceText = styled(InfoText)`
+    margin: 1rem 0;
 `;
 
 function Exchanger() {
@@ -41,6 +41,7 @@ function Exchanger() {
 
         <Balance>
             <BalanceText>You have 58.33 dollars</BalanceText>
+            <BalanceText>£1 = $1.45</BalanceText>
         </Balance>
     </Wrapper>;
 }
