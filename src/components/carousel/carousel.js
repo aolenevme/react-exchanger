@@ -7,13 +7,7 @@ const Wrapper = styled.div`
     display: flex;
     width: 233px;
     
-    overflow-y: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    
-    &::-webkit-scrollbar { 
-        display: none;
-    }
+    overflow: hidden;
 `;
 
 // eslint-disable-next-line max-len
