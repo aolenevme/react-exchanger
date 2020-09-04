@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import constant from "lodash/constant.js";
 
 import colors from "../../lib/styles/colors/colors.js";
 
-const Value = styled.label`
+const Wrapper = styled.label`
     display: flex;
     justify-content: flex-end;
 
@@ -38,7 +39,7 @@ const Value = styled.label`
     }
 `;
 
-const Controller = styled.input`
+const InputController = styled.input`
     margin: 0;
     padding: 0;
 
@@ -52,17 +53,20 @@ const Controller = styled.input`
     }
 `;
 
-function Input({isDisabled = false, value = "", onInput = () => ({})}) {
+function Input({
+    isDisabled = false, prefix = constant(null), value = "", onInput = () => ({})
+}) {
     return (
-        <Value>
+        <Wrapper>
+            {prefix()}
             {value}
-            <Controller
+            <InputController
                 type="number"
                 disabled={isDisabled}
                 value={value}
                 onInput={onInput}
             />
-        </Value>);
+        </Wrapper>);
 }
 
 export default Input;

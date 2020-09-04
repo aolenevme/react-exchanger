@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import constant from "lodash/constant.js";
 
 import Input from "../input/input.js";
 import InfoText from "../info-text/info-text.js";
 import MainText from "../main-text/main-text.js";
 
 const Wrapper = styled.div`
-  width: 88%;
+    width: 88%;
 `;
 
 const Content = styled.div`
@@ -20,7 +21,8 @@ const CurrencyAbbreviation = styled(MainText)`
 `;
 
 const BalanceText = styled(InfoText)`
-margin: 1rem 0;`;
+    margin: 1rem 0;
+`;
 
 const Balance = styled.div`
     display: flex;
@@ -34,12 +36,7 @@ function Exchanger() {
     return <Wrapper>
         <Content>
             <CurrencyAbbreviation>USD</CurrencyAbbreviation>
-            <div>
-                <MainText>-</MainText>
-                <Input
-                    value={14.57}
-                />
-            </div>
+            <Input prefix={constant("-")} value={14.57}/>
         </Content>
 
         <Balance>
