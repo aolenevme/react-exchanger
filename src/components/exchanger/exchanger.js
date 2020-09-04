@@ -30,7 +30,7 @@ function Exchanger() {
     return <Wrapper>
         <Content>
             <MainText>USD</MainText>
-            <Input prefix={constant("-")} value={14.57}/>
+            <Input prefix={constant("-")} value={145.57}/>
         </Content>
 
         <WalletInfo>

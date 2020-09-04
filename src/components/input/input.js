@@ -25,10 +25,6 @@ const Wrapper = styled(MainText)`
       animation: caret-pulse 1.5s cubic-bezier(.215, .61, .355, 1) forwards infinite;
     }
 
-    &::selection {
-      background-color: transparent;
-    }
-
     @keyframes caret-pulse {
       50% {
         border-color: ${colors.textSecondary};
