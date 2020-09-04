@@ -2,6 +2,9 @@
 
 exports[`<Input /> is rendered correctly 1`] = `
 .c0 {
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #f3f6ff;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -15,10 +18,7 @@ exports[`<Input /> is rendered correctly 1`] = `
   height: 3rem;
   border: 0 solid transparent;
   border-right: 1px solid transparent;
-  color: #f3f6ff;
   background-color: transparent;
-  font-size: 3rem;
-  line-height: 3rem;
   cursor: pointer;
 }
 
@@ -44,7 +44,7 @@ exports[`<Input /> is rendered correctly 1`] = `
 }
 
 <label
-  className="c0"
+  className="main-text__MainText-c4b6rt-0 c0"
 >
   +
   2020
@@ -60,6 +60,9 @@ exports[`<Input /> is rendered correctly 1`] = `
 
 exports[`<Input /> is rendered correctly 2`] = `
 .c0 {
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #f3f6ff;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -73,10 +76,7 @@ exports[`<Input /> is rendered correctly 2`] = `
   height: 3rem;
   border: 0 solid transparent;
   border-right: 1px solid transparent;
-  color: #f3f6ff;
   background-color: transparent;
-  font-size: 3rem;
-  line-height: 3rem;
   cursor: pointer;
 }
 
@@ -102,7 +102,7 @@ exports[`<Input /> is rendered correctly 2`] = `
 }
 
 <label
-  className="c0"
+  className="main-text__MainText-c4b6rt-0 c0"
 >
   
   <input
@@ -117,6 +117,9 @@ exports[`<Input /> is rendered correctly 2`] = `
 
 exports[`<Input /> is rendered correctly 3`] = `
 .c0 {
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #f3f6ff;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -130,10 +133,7 @@ exports[`<Input /> is rendered correctly 3`] = `
   height: 3rem;
   border: 0 solid transparent;
   border-right: 1px solid transparent;
-  color: #f3f6ff;
   background-color: transparent;
-  font-size: 3rem;
-  line-height: 3rem;
   cursor: pointer;
 }
 
@@ -159,7 +159,7 @@ exports[`<Input /> is rendered correctly 3`] = `
 }
 
 <label
-  className="c0"
+  className="main-text__MainText-c4b6rt-0 c0"
 >
   
   <input
@@ -174,6 +174,9 @@ exports[`<Input /> is rendered correctly 3`] = `
 
 exports[`<Input /> is rendered correctly 4`] = `
 .c0 {
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #f3f6ff;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -187,10 +190,7 @@ exports[`<Input /> is rendered correctly 4`] = `
   height: 3rem;
   border: 0 solid transparent;
   border-right: 1px solid transparent;
-  color: #f3f6ff;
   background-color: transparent;
-  font-size: 3rem;
-  line-height: 3rem;
   cursor: pointer;
 }
 
@@ -216,7 +216,7 @@ exports[`<Input /> is rendered correctly 4`] = `
 }
 
 <label
-  className="c0"
+  className="main-text__MainText-c4b6rt-0 c0"
 >
   2020
   <input
@@ -231,6 +231,9 @@ exports[`<Input /> is rendered correctly 4`] = `
 
 exports[`<Input /> is rendered correctly 5`] = `
 .c0 {
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #f3f6ff;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -244,10 +247,7 @@ exports[`<Input /> is rendered correctly 5`] = `
   height: 3rem;
   border: 0 solid transparent;
   border-right: 1px solid transparent;
-  color: #f3f6ff;
   background-color: transparent;
-  font-size: 3rem;
-  line-height: 3rem;
   cursor: pointer;
 }
 
@@ -273,7 +273,7 @@ exports[`<Input /> is rendered correctly 5`] = `
 }
 
 <label
-  className="c0"
+  className="main-text__MainText-c4b6rt-0 c0"
 >
   2020
   <input

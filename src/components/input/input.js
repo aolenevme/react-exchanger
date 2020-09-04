@@ -2,9 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import constant from "lodash/constant.js";
 
+import MainText from "../main-text/main-text.js";
 import colors from "../../lib/styles/colors/colors.js";
 
-const Wrapper = styled.label`
+const Wrapper = styled(MainText)`
     display: flex;
     justify-content: flex-end;
 
@@ -16,12 +17,8 @@ const Wrapper = styled.label`
     border: 0 solid transparent;
     border-right: 1px solid transparent;
 
-    color: ${colors.textPrimary};
     background-color: transparent;
 
-    font-size: 3rem;
-    line-height: 3rem;
-    
     cursor: pointer;
 
     &:focus-within {
@@ -57,7 +54,7 @@ function Input({
     isDisabled = false, prefix = constant(null), value = "", onInput = () => ({})
 }) {
     return (
-        <Wrapper>
+        <Wrapper as="label">
             {prefix()}
             {value}
             <InputController
