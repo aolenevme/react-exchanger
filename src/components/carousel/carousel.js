@@ -26,7 +26,7 @@ function Pockets() {
     return map(pockets, (info) => <Pocket {...info} />);
 }
 
-function Carousel() {
+function Carousel({className}) {
     const [exchangerIdx, updateExchangerIdx] = useState(0);
     const [startX, setStartX] = useState(0);
     const [endX, setEndX] = useState(0);
@@ -49,6 +49,7 @@ function Carousel() {
 
     return (
         <Wrapper
+            className={className}
             ref={carouselElement}
             onMouseUp={(mouseEvent) => setStartX(mouseEvent.clientX)}
             onMouseDown={(mouseEvent) => setEndX(mouseEvent.clientX)}>
