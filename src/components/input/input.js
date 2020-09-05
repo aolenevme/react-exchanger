@@ -41,11 +41,11 @@ const InputController = styled.input`
 
     border: 0;
     
-    -moz-appearance: textfield;
+    appearance: none;
     
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
+      appearance: none;
     }
     
     &:invalid {
