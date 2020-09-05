@@ -3,7 +3,7 @@ import styled from "styled-components";
 import constant from "lodash/constant.js";
 import map from "lodash/map.js";
 
-import Exchanger from "../exchanger/exchanger.js";
+import Pocket from "../pocket/pocket.js";
 
 const Wrapper = styled.div`
     display: flex;
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
     overflow: hidden;
 `;
 
-const exchangerInfo = Object.freeze({
+const pocketInfo = Object.freeze({
     currencyName: "USD",
     prefix: constant("-"),
     typedMoney: 145.67,
@@ -20,10 +20,10 @@ const exchangerInfo = Object.freeze({
     formattedRate: "£1 = $1.45"
 });
 
-const wallets = [exchangerInfo, exchangerInfo, exchangerInfo];
+const pockets = [pocketInfo, pocketInfo, pocketInfo];
 
-function Exchangers() {
-    return map(wallets, (info) => <Exchanger info={info} />);
+function Pockets() {
+    return map(pockets, (info) => <Pocket info={info} />);
 }
 
 function Carousel() {
@@ -34,7 +34,7 @@ function Carousel() {
     const carouselElement = useRef(null);
 
     useEffect(() => {
-        if (startX < endX && exchangerIdx !== wallets.length - 1) {
+        if (startX < endX && exchangerIdx !== pockets.length - 1) {
             updateExchangerIdx(exchangerIdx + 1);
         } else if (startX > endX && exchangerIdx !== 0) {
             updateExchangerIdx(exchangerIdx - 1);
@@ -52,7 +52,7 @@ function Carousel() {
             ref={carouselElement}
             onMouseUp={(mouseEvent) => setStartX(mouseEvent.clientX)}
             onMouseDown={(mouseEvent) => setEndX(mouseEvent.clientX)}>
-            <Exchangers />
+            <Pockets />
         </Wrapper>);
 }
 

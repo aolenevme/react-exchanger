@@ -33,12 +33,16 @@ exports[`<Input /> is rendered correctly 1`] = `
   width: 0;
   height: 0;
   border: 0;
-  -moz-appearance: textfield;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .c1::-webkit-outer-spin-button,
 .c1::-webkit-inner-spin-button {
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .c1:invalid {
@@ -93,12 +97,16 @@ exports[`<Input /> is rendered correctly 2`] = `
   width: 0;
   height: 0;
   border: 0;
-  -moz-appearance: textfield;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .c1::-webkit-outer-spin-button,
 .c1::-webkit-inner-spin-button {
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .c1:invalid {
@@ -152,12 +160,16 @@ exports[`<Input /> is rendered correctly 3`] = `
   width: 0;
   height: 0;
   border: 0;
-  -moz-appearance: textfield;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .c1::-webkit-outer-spin-button,
 .c1::-webkit-inner-spin-button {
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .c1:invalid {
@@ -211,12 +223,16 @@ exports[`<Input /> is rendered correctly 4`] = `
   width: 0;
   height: 0;
   border: 0;
-  -moz-appearance: textfield;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .c1::-webkit-outer-spin-button,
 .c1::-webkit-inner-spin-button {
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .c1:invalid {
@@ -270,12 +286,16 @@ exports[`<Input /> is rendered correctly 5`] = `
   width: 0;
   height: 0;
   border: 0;
-  -moz-appearance: textfield;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .c1::-webkit-outer-spin-button,
 .c1::-webkit-inner-spin-button {
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .c1:invalid {
