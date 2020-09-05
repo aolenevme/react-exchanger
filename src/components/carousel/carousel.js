@@ -16,6 +16,10 @@ const Wrapper = styled.div`
     overflow: hidden;
 `;
 
+const FlexedPocket = styled(Pocket)`
+    flex: 0 0 100%;
+`;
+
 const pocketInfo = Object.freeze({
     currency: "USD",
     input: constant(<Input prefix={constant("-")} value={145.67} />),
@@ -26,7 +30,7 @@ const pocketInfo = Object.freeze({
 const pockets = [pocketInfo, pocketInfo, pocketInfo];
 
 function Pockets() {
-    return map(pockets, (info) => <Pocket {...info} />);
+    return map(pockets, (info) => <FlexedPocket {...info} />);
 }
 
 function Carousel({className}) {

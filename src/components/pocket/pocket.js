@@ -9,8 +9,6 @@ import MainText from "../main-text/main-text.js";
 
 const Wrapper = styled.div`
     width: 100%;
-    
-    flex: 0 0 100%;
 `;
 
 const Content = styled.div`
@@ -47,10 +45,10 @@ function shouldShow(currency, input) {
 }
 
 function Pocket({
-    currency = null, input = constant(null), balance = null, rate = null
+    className, currency = null, input = constant(null), balance = null, rate = null
 }) {
     return shouldShow(currency, input)
-        ? <Wrapper>
+        ? <Wrapper className={className}>
             <Content>
                 <MainText>{currency}</MainText>
                 {input()}
