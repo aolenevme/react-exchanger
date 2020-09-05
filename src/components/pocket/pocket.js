@@ -9,6 +9,8 @@ import MainText from "../main-text/main-text.js";
 
 const Wrapper = styled.div`
     width: 100%;
+    
+    flex: 0 0 100%;
 `;
 
 const Content = styled.div`

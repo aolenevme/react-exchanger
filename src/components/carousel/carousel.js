@@ -1,17 +1,15 @@
 import React, {
-    useEffect, useLayoutEffect, useRef, useState
+    useEffect, useRef, useState
 } from "react";
 import styled from "styled-components";
 import constant from "lodash/constant.js";
-import get from "lodash/get.js";
 import map from "lodash/map.js";
 
 import Input from "../input/input.js";
 import Pocket from "../pocket/pocket.js";
 
 const Wrapper = styled.div`
-    display: grid;
-    grid-template-columns: ${({pocketWidth}) => `${pocketWidth}px ${pocketWidth}px ${pocketWidth}px`};
+    display: flex;
     
     width: 100%;
     
@@ -33,7 +31,6 @@ function Pockets() {
 
 function Carousel({className}) {
     const [exchangerIdx, updateExchangerIdx] = useState(0);
-    const [pocketWidth, updatePocketWidth] = useState(0);
     const [startX, setStartX] = useState(0);
     const [endX, setEndX] = useState(0);
 
@@ -53,17 +50,10 @@ function Carousel({className}) {
         carouselElement.current.children[exchangerIdx].scrollIntoView({block: "start", inline: "nearest", behavior: "smooth"});
     }, [exchangerIdx]);
 
-    useLayoutEffect(() => {
-        const newPocketWidth = get(carouselElement, "current.offsetWidth", 0);
-
-        updatePocketWidth(newPocketWidth);
-    }, [carouselElement && carouselElement.current && carouselElement.current.offsetWidth]);
-
     return (
         <Wrapper
             className={className}
             ref={carouselElement}
-            pocketWidth={pocketWidth}
             onMouseUp={(mouseEvent) => setStartX(mouseEvent.clientX)}
             onMouseDown={(mouseEvent) => setEndX(mouseEvent.clientX)}>
             <Pockets />
