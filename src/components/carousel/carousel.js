@@ -7,10 +7,10 @@ import Input from "../input/input.js";
 import Pocket from "../pocket/pocket.js";
 
 const Wrapper = styled.div`
-    display: flex;
-    width: 100%;
+    display: grid;
+    grid-template-columns: 400px 400px 400px;
     
-    padding: 1rem;
+    width: 100%;
     
     overflow: hidden;
 `;
