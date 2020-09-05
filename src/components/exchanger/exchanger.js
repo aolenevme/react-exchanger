@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import constant from "lodash/constant.js";
 
 import Input from "../input/input.js";
 import InfoText from "../info-text/info-text.js";
@@ -26,16 +25,20 @@ const WalletInfo = styled.div`
     padding: 0 0.3rem;
 `;
 
-function Exchanger() {
+function Exchanger({info}) {
+    const {
+        currencyName, prefix, typedMoney, accountInfo, formattedRate
+    } = info;
+
     return <Wrapper>
         <Content>
-            <MainText>USD</MainText>
-            <Input prefix={constant("-")} value={145.57}/>
+            <MainText>{currencyName}</MainText>
+            <Input prefix={prefix} value={typedMoney}/>
         </Content>
 
         <WalletInfo>
-            <InfoText>You have 58.33 dollars</InfoText>
-            <InfoText>£1 = $1.45</InfoText>
+            <InfoText>{accountInfo}</InfoText>
+            <InfoText>{formattedRate}</InfoText>
         </WalletInfo>
     </Wrapper>;
 }
