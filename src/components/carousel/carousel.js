@@ -3,6 +3,7 @@ import styled from "styled-components";
 import constant from "lodash/constant.js";
 import map from "lodash/map.js";
 
+import Input from "../input/input.js";
 import Pocket from "../pocket/pocket.js";
 
 const Wrapper = styled.div`
@@ -13,17 +14,16 @@ const Wrapper = styled.div`
 `;
 
 const pocketInfo = Object.freeze({
-    currencyName: "USD",
-    prefix: constant("-"),
-    typedMoney: 145.67,
-    accountInfo: "You have 58.33 dollars",
-    formattedRate: "£1 = $1.45"
+    currency: "USD",
+    input: constant(<Input prefix={constant("-")} value={145.67} />),
+    balance: "You have 58.33$",
+    rate: "£1 = $1.45"
 });
 
 const pockets = [pocketInfo, pocketInfo, pocketInfo];
 
 function Pockets() {
-    return map(pockets, (info) => <Pocket info={info} />);
+    return map(pockets, (info) => <Pocket {...info} />);
 }
 
 function Carousel() {
