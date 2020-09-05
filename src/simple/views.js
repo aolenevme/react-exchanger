@@ -3,7 +3,7 @@ import {observer} from "mobx-react-lite";
 
 import {dispatch} from "../lib/registry.js";
 import {dispatchFx} from "../lib/registryFx.js";
-import Carousel from "../components/carousel/carousel.js";
+import App from "../components/app/app.js";
 
 import queries from "./queries.js";
 import storeEventIds from "./events.js";
@@ -48,7 +48,7 @@ function UI() {
     // Return view
     return (
         <UIS>
-            <Carousel />
+            <App />
             <Clock time={time} timeColor={timeColor}/>
             <ColorInput timeColor={timeColor}/>
         </UIS>

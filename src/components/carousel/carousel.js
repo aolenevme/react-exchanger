@@ -8,7 +8,7 @@ import Pocket from "../pocket/pocket.js";
 
 const Wrapper = styled.div`
     display: flex;
-    width: 233px;
+    width: 100%;
     
     overflow: hidden;
 `;
