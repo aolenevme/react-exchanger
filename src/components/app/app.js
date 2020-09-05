@@ -44,6 +44,8 @@ const Triangle = styled.div`
 `;
 
 const BottomCarousel = styled(Carousel)`
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
     background-color: ${colors.primaryDark};
 `;
 
