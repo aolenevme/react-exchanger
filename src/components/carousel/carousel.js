@@ -10,6 +10,8 @@ const Wrapper = styled.div`
     display: flex;
     width: 100%;
     
+    padding: 1rem;
+    
     overflow: hidden;
 `;
 
