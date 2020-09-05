@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import styled from "styled-components";
 
 import Exchanger from "../exchanger/exchanger.js";
@@ -15,7 +15,12 @@ const Wrapper = styled.div`
 // How to scroll!!
 
 function Carousel() {
-    return <Wrapper>
+    const carouselElement = useRef(null);
+
+    // eslint-disable-next-line max-len
+    // useEffect(() => carouselElement.current.children[1].scrollIntoView({block: "start", inline: "nearest", behavior: "smooth"}), []);
+
+    return <Wrapper ref={carouselElement}>
         <Exchanger />
         <Exchanger />
         <Exchanger />
