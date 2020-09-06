@@ -7,25 +7,25 @@ import Carousel from "../carousel.js";
 import Input from "../../input/input.js";
 
 describe("<Carousel />", () => {
+    const pockets = [{
+        currency: "USD",
+        input: constant(<Input prefix={constant("-")} value={145.67} />),
+        balance: "You have 58.33$",
+        rate: "£1 = $1.45"
+    }, {
+        currency: "EUR",
+        input: constant(<Input prefix={constant("-")} value={145.67} />),
+        balance: "You have 58.33$",
+        rate: "£1 = $1.45"
+    }, {
+        currency: "GBP",
+        input: constant(<Input prefix={constant("-")} value={145.67} />),
+        balance: "You have 58.33$",
+        rate: "£1 = $1.45"
+    }];
+
     describe("rendering", () => {
         it("is rendered correctly", () => {
-            const pockets = [{
-                currency: "USD",
-                input: constant(<Input prefix={constant("-")} value={145.67} />),
-                balance: "You have 58.33$",
-                rate: "£1 = $1.45"
-            }, {
-                currency: "EUR",
-                input: constant(<Input prefix={constant("-")} value={145.67} />),
-                balance: "You have 58.33$",
-                rate: "£1 = $1.45"
-            }, {
-                currency: "GBP",
-                input: constant(<Input prefix={constant("-")} value={145.67} />),
-                balance: "You have 58.33$",
-                rate: "£1 = $1.45"
-            }];
-
             expect(renderer
                 .create(<Carousel pockets={pockets} />)
                 .toJSON()).toMatchSnapshot();
@@ -54,7 +54,7 @@ describe("<Carousel />", () => {
             React.useRef = jest.fn().mockReturnValue({current: {children: [{}, {}, {scrollIntoView}]}});
 
             renderer
-                .create(<Carousel />);
+                .create(<Carousel pockets={pockets} />);
 
             expect(scrollIntoView).toHaveBeenCalledWith({block: "start", inline: "nearest", behavior: "smooth"});
         });
