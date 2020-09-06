@@ -7,7 +7,10 @@ describe("Store", () => {
             selectedCurrency: currencies.USD.abbreviation,
             targetCurrency: currencies.GBP.abbreviation,
             exchangeAmount: "",
-            exchangeRate: "",
+            rates: {
+                toTargetCurrency: "",
+                toSelectedCurrency: ""
+            },
             wallets: {
                 [currencies.USD.abbreviation]: 53.45,
                 [currencies.EUR.abbreviation]: 100,
