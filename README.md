@@ -1,1 +1,1 @@
-# Crypto currency widget in React
+# Crypto currency widget with React

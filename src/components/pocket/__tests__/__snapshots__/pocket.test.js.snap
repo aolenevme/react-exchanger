@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Pocket /> is fully rendered 1`] = `
+.c4 {
+  font-size: 0.8rem;
+  color: #7199e6;
+}
+
+.c2 {
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #f3f6ff;
+}
+
+.c0 {
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 0.3rem;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <span
+      className="c2"
+    >
+      USD
+    </span>
+    <input />
+  </div>
+  <div
+    className="c3"
+  >
+    <span
+      className="c4"
+    >
+      You have $51.12
+    </span>
+    <span
+      className="c4"
+    >
+      1$ = 0.69£
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Pocket /> is not rendered 1`] = `null`;
+
+exports[`<Pocket /> is not rendered 2`] = `null`;
+
+exports[`<Pocket /> is not rendered 3`] = `null`;
+
+exports[`<Pocket /> is partially rendered 1`] = `
+.c2 {
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #f3f6ff;
+}
+
+.c0 {
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 0.3rem;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <span
+      className="c2"
+    >
+      USD
+    </span>
+    <input />
+  </div>
+  <div
+    className="c3"
+  />
+</div>
+`;

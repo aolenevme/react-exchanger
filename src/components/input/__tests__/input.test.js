@@ -1,10 +1,15 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import constant from "lodash/constant.js";
 
 import Input from "../input.js";
 
 describe("<Input />", () => {
     it("is rendered correctly", () => {
+        expect(renderer
+            .create(<Input prefix={constant("+")} value="2020"/>)
+            .toJSON()).toMatchSnapshot();
+
         expect(renderer
             .create(<Input isDisabled/>)
             .toJSON()).toMatchSnapshot();
