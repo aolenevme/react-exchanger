@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> is rendered correctly 1`] = `
+<app__Wrapper>
+  <app__Header>
+    <Button>
+      Cancel
+    </Button>
+    <RateSelector
+      currencySigns={
+        Object {
+          "fromCurrencySign": "£",
+          "toCurrencySign": "$",
+        }
+      }
+      rate={1.457}
+    />
+    <Button>
+      Exchange
+    </Button>
+  </app__Header>
+  <Carousel />
+  <app__Triangle />
+  <app__BottomCarousel />
+</app__Wrapper>
+`;
