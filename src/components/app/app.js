@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import constant from "lodash/constant.js";
 
 import colors from "../../lib/styles/colors/colors.js";
 import Carousel from "../carousel/carousel.js";
 import Button from "../button/button.js";
 import RateSelector from "../rate-selector/rate-selector.js";
+import Input from "../input/input.js";
 
 const Wrapper = styled.div`
     display: flex;
@@ -51,6 +53,23 @@ const BottomCarousel = styled(Carousel)`
     background-color: ${colors.primaryDark};
 `;
 
+const pockets = [{
+    currency: "USD",
+    input: constant(<Input prefix={constant("-")} value={145.67} />),
+    balance: "You have 58.33$",
+    rate: "£1 = $1.45"
+}, {
+    currency: "EUR",
+    input: constant(<Input prefix={constant("-")} value={145.67} />),
+    balance: "You have 58.33$",
+    rate: "£1 = $1.45"
+}, {
+    currency: "GBP",
+    input: constant(<Input prefix={constant("-")} value={145.67} />),
+    balance: "You have 58.33$",
+    rate: "£1 = $1.45"
+}];
+
 function App() {
     return <Wrapper>
         <Header>
@@ -61,9 +80,9 @@ function App() {
             }} />
             <Button>Exchange</Button>
         </Header>
-        <Carousel />
+        <Carousel pockets={pockets} />
         <Triangle />
-        <BottomCarousel />
+        <BottomCarousel pockets={pockets} />
     </Wrapper>;
 }
 
