@@ -51,7 +51,10 @@ function Dots({currentPocketIdx = 0, pockets}) {
     return map(pockets, (pocket, index) => <Dot key={pocket.currency} isActive={index === currentPocketIdx}/>);
 }
 
-function scrollToPocket(carouselElement, nextPocketIdx) {
+function scrollToPocket(carouselElement, updateCurrentPocketIdx, getNextPocketIdx) {
+    const nextPocketIdx = getNextPocketIdx();
+
+    updateCurrentPocketIdx(nextPocketIdx);
     // eslint-disable-next-line max-len
     carouselElement.current.children[nextPocketIdx].scrollIntoView({block: "start", inline: "nearest", behavior: "smooth"});
 }
@@ -65,15 +68,9 @@ function Carousel({className, pockets = []}) {
 
     useEffect(() => {
         if (startX < endX && currentPocketIdx !== pockets.length - 1) {
-            const nextPocketIdx = currentPocketIdx + 1;
-
-            updateCurrentPocketIdx(nextPocketIdx);
-            scrollToPocket(carouselElement, nextPocketIdx);
+            scrollToPocket(carouselElement, updateCurrentPocketIdx, () => currentPocketIdx + 1);
         } else if (startX > endX && currentPocketIdx !== 0) {
-            const nextPocketIdx = currentPocketIdx - 1;
-
-            updateCurrentPocketIdx(nextPocketIdx);
-            scrollToPocket(carouselElement, nextPocketIdx);
+            scrollToPocket(carouselElement, updateCurrentPocketIdx, () => currentPocketIdx - 1);
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [startX]);
