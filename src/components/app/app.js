@@ -7,6 +7,7 @@ import Carousel from "../carousel/carousel.js";
 import Button from "../button/button.js";
 import RateSelector from "../rate-selector/rate-selector.js";
 import Input from "../input/input.js";
+import rateFormatter from "../../lib/helpers/rate-formatter/rate-formatter.js";
 
 const Wrapper = styled.div`
     display: flex;
@@ -71,18 +72,37 @@ const toPockets = [{
     currency: "USD",
     input: constant(<Input isDisabled prefix={constant("+")} value={145.67} />),
     balance: "You have 58.33$",
-    rate: "£1 = $1.45"
+    // eslint-disable-next-line no-magic-numbers
+    rate: formRateString(145.67, {
+        fromCurrencySign: "£",
+        toCurrencySign: "$"
+    })
 }, {
     currency: "EUR",
     input: constant(<Input isDisabled prefix={constant("+")} value={145.67} />),
     balance: "You have 58.33$",
-    rate: "£1 = $1.45"
+    // eslint-disable-next-line no-magic-numbers
+    rate: formRateString(145.67, {
+        fromCurrencySign: "£",
+        toCurrencySign: "$"
+    })
 }, {
     currency: "GBP",
     input: constant(<Input isDisabled prefix={constant("+")} value={145.67} />),
     balance: "You have 58.33$",
-    rate: "£1 = $1.45"
+    // eslint-disable-next-line no-magic-numbers
+    rate: formRateString(145.67, {
+        fromCurrencySign: "£",
+        toCurrencySign: "$"
+    })
 }];
+
+function formRateString(rate, currencySigns) {
+    const [integer, firstTwoFractions, lastTwoFractions] = rateFormatter(rate);
+    const {fromCurrencySign, toCurrencySign} = currencySigns;
+
+    return `${fromCurrencySign}1 = ${toCurrencySign}${integer}.${firstTwoFractions}${lastTwoFractions || ""}`;
+}
 
 function App() {
     return <Wrapper>
