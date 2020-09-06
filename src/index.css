@@ -12,4 +12,6 @@ html {
     -webkit-touch-callout:none;
 
     outline: none;
+
+    overflow: hidden;
 }
