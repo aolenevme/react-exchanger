@@ -28,8 +28,11 @@ describe("<Carousel />", () => {
                 .mockReturnValueOnce([startX, jest.fn()])
                 .mockReturnValueOnce([endX, jest.fn()]);
 
-            // eslint-disable-next-line fp/no-mutation,no-import-assign
-            React.useRef = jest.fn(() => [{current: {children: [{}, {}, {scrollIntoView}]}}]);
+            // // eslint-disable-next-line fp/no-mutation,no-import-assign
+            React.useRef = () => ({current: {children: [{}, {}, {scrollIntoView}]}});
+
+            renderer
+                .create(<Carousel />);
 
             expect(scrollIntoView).toHaveBeenCalledWith({block: "start", inline: "nearest", behavior: "smooth"});
         });

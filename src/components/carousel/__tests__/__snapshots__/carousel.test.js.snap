@@ -202,7 +202,7 @@ exports[`<Carousel /> rendering is rendered correctly 1`] = `
         <span
           className="c4"
         >
-          USD
+          EUR
         </span>
         <label
           className="c5"
@@ -242,7 +242,7 @@ exports[`<Carousel /> rendering is rendered correctly 1`] = `
         <span
           className="c4"
         >
-          USD
+          GBP
         </span>
         <label
           className="c5"

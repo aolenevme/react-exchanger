@@ -45,17 +45,25 @@ const Dot = styled.span`
     transition: background-color 0.1s ease 0s;
 `;
 
-const pocketInfo = Object.freeze({
+const pockets = [{
     currency: "USD",
     input: constant(<Input prefix={constant("-")} value={145.67} />),
     balance: "You have 58.33$",
     rate: "£1 = $1.45"
-});
-
-const pockets = [pocketInfo, pocketInfo, pocketInfo];
+}, {
+    currency: "EUR",
+    input: constant(<Input prefix={constant("-")} value={145.67} />),
+    balance: "You have 58.33$",
+    rate: "£1 = $1.45"
+}, {
+    currency: "GBP",
+    input: constant(<Input prefix={constant("-")} value={145.67} />),
+    balance: "You have 58.33$",
+    rate: "£1 = $1.45"
+}];
 
 function Pockets() {
-    return map(pockets, (info) => <FlexedPocket {...info} />);
+    return map(pockets, (pocket) => <FlexedPocket key={pocket.currency} {...pocket} />);
 }
 
 function Dots({currentPocketIdx = 0}) {
@@ -79,6 +87,7 @@ function Carousel({className}) {
     }, [startX]);
 
     useEffect(() => {
+        console.log(carouselElement);
         // eslint-disable-next-line max-len
         carouselElement.current.children[currentPocketIdx].scrollIntoView({block: "start", inline: "nearest", behavior: "smooth"});
     }, [currentPocketIdx]);
