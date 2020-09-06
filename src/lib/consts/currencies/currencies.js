@@ -1,7 +1,16 @@
 const currencies = Object.freeze({
-    USD: "USD",
-    EUR: "EUR",
-    GBP: "GBP",
+    USD: {
+        abbreviation: "USD",
+        symbol: "$"
+    },
+    EUR: {
+        abbreviation: "EUR",
+        symbol: "€"
+    },
+    GBP: {
+        abbreviation: "GBP",
+        symbol: "£"
+    }
 })
 
 export default currencies;
