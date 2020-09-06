@@ -8,9 +8,11 @@ import InfoText from "../info-text/info-text.js";
 import MainText from "../main-text/main-text.js";
 
 const Wrapper = styled.div`
+    padding: 2rem;
+    
     width: 100%;
     
-    padding: 2rem;
+    box-sizing: border-box;
 `;
 
 const Content = styled.div`

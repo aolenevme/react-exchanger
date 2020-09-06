@@ -1,6 +1,4 @@
-* {
-    box-sizing: border-box;
-
+html {
     font-size: 14px;
     font-family: Roboto, 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif;
     text-rendering: optimizeLegibility;

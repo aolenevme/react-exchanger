@@ -13,8 +13,9 @@ exports[`<Pocket /> is fully rendered 1`] = `
 }
 
 .c0 {
-  width: 100%;
   padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .c1 {
@@ -93,8 +94,9 @@ exports[`<Pocket /> is partially rendered 1`] = `
 }
 
 .c0 {
-  width: 100%;
   padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .c1 {
