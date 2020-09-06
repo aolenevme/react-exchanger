@@ -29,6 +29,9 @@ describe("<Carousel />", () => {
             expect(renderer
                 .create(<Carousel pockets={pockets} />)
                 .toJSON()).toMatchSnapshot();
+            expect(renderer
+                .create(<Carousel />)
+                .toJSON()).toMatchSnapshot();
         });
     });
 

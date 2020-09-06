@@ -289,3 +289,37 @@ exports[`<Carousel /> rendering is rendered correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`<Carousel /> rendering is rendered correctly 2`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+
+<div>
+  <div
+    className="c0"
+    onMouseDown={[Function]}
+    onMouseUp={[Function]}
+  />
+  <div
+    className="c1"
+  />
+</div>
+`;
