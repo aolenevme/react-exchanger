@@ -7,8 +7,9 @@ import map from "lodash/map.js";
 
 import Input from "../input/input.js";
 import Pocket from "../pocket/pocket.js";
+import colors from "../../lib/styles/colors/colors.js";
 
-const Wrapper = styled.div`
+const PocketsWrapper = styled.div`
     display: flex;
     
     width: 100%;
@@ -18,6 +19,30 @@ const Wrapper = styled.div`
 
 const FlexedPocket = styled(Pocket)`
     flex: 0 0 100%;
+`;
+
+const DotsWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    
+    padding-bottom: 2rem;
+`;
+
+const Dot = styled.span`
+    display: inline-block;
+
+    margin: 0 0.142rem;
+
+    width: 0.5rem;
+    height: 0.5rem;
+
+    border-radius: 50%;
+
+    background-color: ${({isActive}) => (isActive
+    ? colors.textPrimary
+    : colors.textPrimaryDark)};
+
+    transition: background-color 0.1s ease 0s;
 `;
 
 const pocketInfo = Object.freeze({
@@ -55,13 +80,19 @@ function Carousel({className}) {
     }, [exchangerIdx]);
 
     return (
-        <Wrapper
-            className={className}
-            ref={carouselElement}
-            onMouseUp={(mouseEvent) => setStartX(mouseEvent.clientX)}
-            onMouseDown={(mouseEvent) => setEndX(mouseEvent.clientX)}>
-            <Pockets />
-        </Wrapper>);
+        <div className={className}>
+            <PocketsWrapper
+                ref={carouselElement}
+                onMouseUp={(mouseEvent) => setStartX(mouseEvent.clientX)}
+                onMouseDown={(mouseEvent) => setEndX(mouseEvent.clientX)}>
+                <Pockets />
+            </PocketsWrapper>
+            <DotsWrapper>
+                <Dot isActive />
+                <Dot />
+                <Dot />
+            </DotsWrapper>
+        </div>);
 }
 
 export default Carousel;
