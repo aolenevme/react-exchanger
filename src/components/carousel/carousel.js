@@ -87,7 +87,6 @@ function Carousel({className}) {
     }, [startX]);
 
     useEffect(() => {
-        console.log(carouselElement);
         // eslint-disable-next-line max-len
         carouselElement.current.children[currentPocketIdx].scrollIntoView({block: "start", inline: "nearest", behavior: "smooth"});
     }, [currentPocketIdx]);
