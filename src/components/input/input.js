@@ -19,7 +19,9 @@ const Wrapper = styled(MainText)`
 
     background-color: transparent;
 
-    cursor: pointer;
+    cursor: ${({isDisabled}) => (isDisabled
+                ? "initial"
+                : "pointer")};
 
     &:focus-within {
       animation: caret-pulse 1.5s cubic-bezier(.215, .61, .355, 1) forwards infinite;
@@ -57,7 +59,7 @@ function Input({
     isDisabled = false, prefix = constant(null), value = "", onInput = () => ({})
 }) {
     return (
-        <Wrapper as="label">
+        <Wrapper as="label" isDisabled={isDisabled}>
             {prefix()}
             {value}
             <InputController

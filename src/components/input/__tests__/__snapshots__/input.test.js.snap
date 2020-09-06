@@ -83,7 +83,7 @@ exports[`<Input /> is rendered correctly 2`] = `
   border: 0 solid transparent;
   border-right: 1px solid transparent;
   background-color: transparent;
-  cursor: pointer;
+  cursor: initial;
 }
 
 .c0:focus-within {
@@ -209,7 +209,7 @@ exports[`<Input /> is rendered correctly 4`] = `
   border: 0 solid transparent;
   border-right: 1px solid transparent;
   background-color: transparent;
-  cursor: pointer;
+  cursor: initial;
 }
 
 .c0:focus-within {
