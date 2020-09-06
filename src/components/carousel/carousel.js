@@ -58,26 +58,31 @@ function Pockets() {
     return map(pockets, (info) => <FlexedPocket {...info} />);
 }
 
+function Dots({currentPocketIdx = 0}) {
+    // eslint-disable-next-line lodash/prefer-lodash-method
+    return pockets.map((pocket, index) => <Dot key={pocket.currency} isActive={index === currentPocketIdx}/>);
+}
+
 function Carousel({className}) {
-    const [exchangerIdx, updateExchangerIdx] = useState(0);
+    const [currentPocketIdx, updateCurrentPocketIdx] = useState(0);
     const [startX, setStartX] = useState(0);
     const [endX, setEndX] = useState(0);
 
     const carouselElement = useRef(null);
 
     useEffect(() => {
-        if (startX < endX && exchangerIdx !== pockets.length - 1) {
-            updateExchangerIdx(exchangerIdx + 1);
-        } else if (startX > endX && exchangerIdx !== 0) {
-            updateExchangerIdx(exchangerIdx - 1);
+        if (startX < endX && currentPocketIdx !== pockets.length - 1) {
+            updateCurrentPocketIdx(currentPocketIdx + 1);
+        } else if (startX > endX && currentPocketIdx !== 0) {
+            updateCurrentPocketIdx(currentPocketIdx - 1);
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [startX]);
 
     useEffect(() => {
         // eslint-disable-next-line max-len
-        carouselElement.current.children[exchangerIdx].scrollIntoView({block: "start", inline: "nearest", behavior: "smooth"});
-    }, [exchangerIdx]);
+        carouselElement.current.children[currentPocketIdx].scrollIntoView({block: "start", inline: "nearest", behavior: "smooth"});
+    }, [currentPocketIdx]);
 
     return (
         <div className={className}>
@@ -88,9 +93,7 @@ function Carousel({className}) {
                 <Pockets />
             </PocketsWrapper>
             <DotsWrapper>
-                <Dot isActive />
-                <Dot />
-                <Dot />
+                <Dots currentPocketIdx={currentPocketIdx} />
             </DotsWrapper>
         </div>);
 }
