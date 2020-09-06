@@ -53,19 +53,33 @@ const BottomCarousel = styled(Carousel)`
     background-color: ${colors.primaryDark};
 `;
 
-const pockets = [{
+const fromPockets = [{
     currency: "USD",
     input: constant(<Input prefix={constant("-")} value={145.67} />),
+    balance: "You have 58.33$"
+}, {
+    currency: "EUR",
+    input: constant(<Input prefix={constant("-")} value={145.67} />),
+    balance: "You have 58.33$"
+}, {
+    currency: "GBP",
+    input: constant(<Input prefix={constant("-")} value={145.67} />),
+    balance: "You have 58.33$"
+}];
+
+const toPockets = [{
+    currency: "USD",
+    input: constant(<Input isDisabled prefix={constant("+")} value={145.67} />),
     balance: "You have 58.33$",
     rate: "£1 = $1.45"
 }, {
     currency: "EUR",
-    input: constant(<Input prefix={constant("-")} value={145.67} />),
+    input: constant(<Input isDisabled prefix={constant("+")} value={145.67} />),
     balance: "You have 58.33$",
     rate: "£1 = $1.45"
 }, {
     currency: "GBP",
-    input: constant(<Input prefix={constant("-")} value={145.67} />),
+    input: constant(<Input isDisabled prefix={constant("+")} value={145.67} />),
     balance: "You have 58.33$",
     rate: "£1 = $1.45"
 }];
@@ -80,9 +94,9 @@ function App() {
             }} />
             <Button>Exchange</Button>
         </Header>
-        <Carousel pockets={pockets} />
+        <Carousel pockets={fromPockets} />
         <Triangle />
-        <BottomCarousel pockets={pockets} />
+        <BottomCarousel pockets={toPockets} />
     </Wrapper>;
 }
 

@@ -26,19 +26,16 @@ exports[`<App /> is rendered correctly 1`] = `
           "balance": "You have 58.33$",
           "currency": "USD",
           "input": [Function],
-          "rate": "£1 = $1.45",
         },
         Object {
           "balance": "You have 58.33$",
           "currency": "EUR",
           "input": [Function],
-          "rate": "£1 = $1.45",
         },
         Object {
           "balance": "You have 58.33$",
           "currency": "GBP",
           "input": [Function],
-          "rate": "£1 = $1.45",
         },
       ]
     }
