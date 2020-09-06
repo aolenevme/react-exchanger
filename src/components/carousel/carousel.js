@@ -59,8 +59,7 @@ function Pockets() {
 }
 
 function Dots({currentPocketIdx = 0}) {
-    // eslint-disable-next-line lodash/prefer-lodash-method
-    return pockets.map((pocket, index) => <Dot key={pocket.currency} isActive={index === currentPocketIdx}/>);
+    return map(pockets, (pocket, index) => <Dot key={pocket.currency} isActive={index === currentPocketIdx}/>);
 }
 
 function Carousel({className}) {
