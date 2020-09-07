@@ -23,9 +23,15 @@ describe("<CarouselInput />", () => {
     });
 
     describe("events", () => {
-        it("mutates store with new value", () => {
+        beforeEach(() => {
             registry.dispatch = jest.fn();
+        });
 
+        afterEach(() => {
+            registry.dispatch.mockClear();
+        });
+
+        it("updates store with a new digit value", () => {
             const testInputEvent = {target: {value: 123}};
 
             // eslint-disable-next-line no-magic-numbers
@@ -36,8 +42,20 @@ describe("<CarouselInput />", () => {
 
             expect(dispatchId).toEqual(MUTATE_STORE);
             expect(mutationEvent()).toEqual([["exchangeAmount"], testInputEvent.target.value]);
+        });
 
-            registry.dispatch.mockClear();
+        it("updates store with a previous input value in an emergency case", () => {
+            const prevInputValue = 123;
+            const testInputEvent = {target: {value: ""}};
+
+            // eslint-disable-next-line no-magic-numbers,max-len
+            renderer.create(<CarouselInput value={prevInputValue} />).toJSON().children[2].props.onInput(testInputEvent);
+
+            // eslint-disable-next-line prefer-destructuring
+            const [dispatchId, mutationEvent] = registry.dispatch.mock.calls[0];
+
+            expect(dispatchId).toEqual(MUTATE_STORE);
+            expect(mutationEvent()).toEqual([["exchangeAmount"], prevInputValue]);
         });
     });
 });

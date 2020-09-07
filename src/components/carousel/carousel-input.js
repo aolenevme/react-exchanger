@@ -6,6 +6,16 @@ import Input from "../input/input.js";
 import {dispatch} from "../../lib/state-management/registry.js";
 import MUTATE_STORE from "../../events/mutate-store.js";
 
+function defineEventPayload(inputEvent, value) {
+    const newValue = inputEvent.target.value;
+
+    if (newValue === "") {
+        return [["exchangeAmount"], value];
+    }
+
+    return [["exchangeAmount"], newValue];
+}
+
 function Prefix({exchangeAmount, prefixSymbol}) {
     const valueNumber = Number(exchangeAmount);
 
@@ -19,7 +29,7 @@ function CarouselInput({value = 0, prefixSymbol = "", isDisabled = false}) {
         isDisabled={isDisabled}
         prefix={constant(<Prefix exchangeAmount={value} prefixSymbol={prefixSymbol}/>)}
         value={value}
-        onInput={(inputEvent) => dispatch(MUTATE_STORE, () => [["exchangeAmount"], inputEvent.target.value])}
+        onInput={(inputEvent) => dispatch(MUTATE_STORE, () => defineEventPayload(inputEvent, value))}
     />;
 }
 
