@@ -167,6 +167,7 @@ exports[`<CarouselFactory /> is rendered correctly 1`] = `
         <label
           className="c5"
         >
+          
           12
           <input
             className="c6"
@@ -201,6 +202,7 @@ exports[`<CarouselFactory /> is rendered correctly 1`] = `
         <label
           className="c5"
         >
+          
           12
           <input
             className="c6"
@@ -235,6 +237,7 @@ exports[`<CarouselFactory /> is rendered correctly 1`] = `
         <label
           className="c5"
         >
+          
           12
           <input
             className="c6"
@@ -297,7 +300,7 @@ exports[`<CarouselFactory /> is rendered correctly 2`] = `
   border: 0 solid transparent;
   border-right: 1px solid transparent;
   background-color: transparent;
-  cursor: pointer;
+  cursor: initial;
 }
 
 .c5:focus-within {
@@ -439,14 +442,14 @@ exports[`<CarouselFactory /> is rendered correctly 2`] = `
         <label
           className="c5"
         >
-          -
-          12
+          
+          17.484
           <input
             className="c6"
-            disabled={false}
+            disabled={true}
             onInput={[Function]}
             type="number"
-            value={12}
+            value={17.484}
           />
         </label>
       </div>
@@ -457,6 +460,11 @@ exports[`<CarouselFactory /> is rendered correctly 2`] = `
           className="c8"
         >
           You have $53.45
+        </span>
+        <span
+          className="c8"
+        >
+          $1 = £1.4570
         </span>
       </div>
     </div>
@@ -474,14 +482,14 @@ exports[`<CarouselFactory /> is rendered correctly 2`] = `
         <label
           className="c5"
         >
-          -
-          12
+          
+          17.484
           <input
             className="c6"
-            disabled={false}
+            disabled={true}
             onInput={[Function]}
             type="number"
-            value={12}
+            value={17.484}
           />
         </label>
       </div>
@@ -492,6 +500,11 @@ exports[`<CarouselFactory /> is rendered correctly 2`] = `
           className="c8"
         >
           You have €100
+        </span>
+        <span
+          className="c8"
+        >
+          $1 = £1.4570
         </span>
       </div>
     </div>
@@ -509,14 +522,14 @@ exports[`<CarouselFactory /> is rendered correctly 2`] = `
         <label
           className="c5"
         >
-          -
-          12
+          
+          17.484
           <input
             className="c6"
-            disabled={false}
+            disabled={true}
             onInput={[Function]}
             type="number"
-            value={12}
+            value={17.484}
           />
         </label>
       </div>
@@ -527,6 +540,11 @@ exports[`<CarouselFactory /> is rendered correctly 2`] = `
           className="c8"
         >
           You have £80.15
+        </span>
+        <span
+          className="c8"
+        >
+          $1 = £1.4570
         </span>
       </div>
     </div>

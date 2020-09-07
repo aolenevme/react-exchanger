@@ -1,12 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import constant from "lodash/constant.js";
 
 import CarouselFactory from "../carousel/carousel-factory.js";
 import Button from "../button/button.js";
 import RateSelector from "../rate-selector/rate-selector.js";
 import colors from "../../lib/styles/colors/colors.js";
-import formatRate from "../../lib/helpers/format-rate/format-rate.js";
 
 const Wrapper = styled.div`
     display: flex;
@@ -54,9 +52,6 @@ const TargetCarouselFactory = styled(CarouselFactory)`
 `;
 
 function App() {
-    const getSelectedWalletsSpecification = constant({inputSign: "-", isDisabled: false, getRate: constant(null)});
-    const getTargetWalletsSpecification = constant({inputSign: "+", isDisabled: true, getRate: formatRate});
-
     return <Wrapper>
         <Header>
             <Button>Cancel</Button>
@@ -66,9 +61,9 @@ function App() {
             }} />
             <Button>Exchange</Button>
         </Header>
-        <CarouselFactory getSpecification={getSelectedWalletsSpecification} />
+        <CarouselFactory />
         <Triangle />
-        <TargetCarouselFactory getSpecification={getTargetWalletsSpecification} />
+        <TargetCarouselFactory areTargetPockets />
     </Wrapper>;
 }
 

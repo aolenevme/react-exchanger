@@ -19,12 +19,10 @@ exports[`<App /> is rendered correctly 1`] = `
       Exchange
     </Button>
   </app__Header>
-  <Memo(CarouselFactory)
-    getSpecification={[Function]}
-  />
+  <Memo(CarouselFactory) />
   <app__Triangle />
   <app__TargetCarouselFactory
-    getSpecification={[Function]}
+    areTargetPockets={true}
   />
 </app__Wrapper>
 `;

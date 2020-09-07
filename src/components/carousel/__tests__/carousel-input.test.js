@@ -13,7 +13,7 @@ describe("<CarouselInput />", () => {
                 .toMatchSnapshot();
 
             expect(renderer
-                .create(<CarouselInput isDisabled exchangeAmount={12} inputSign="£" />).toJSON())
+                .create(<CarouselInput isDisabled inputSign="£" value={12} />).toJSON())
                 .toMatchSnapshot();
         });
     });

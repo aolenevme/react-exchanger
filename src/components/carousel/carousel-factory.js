@@ -6,9 +6,38 @@ import map from "lodash/map.js";
 
 import store from "../../store/store.js";
 import currencies from "../../lib/consts/currencies/currencies.js";
+import formatRate from "../../lib/helpers/format-rate/format-rate.js";
 
 import CarouselInput from "./carousel-input.js";
 import Carousel from "./carousel.js";
+
+function createPockets(atp = false) {
+    const wallets = get(store, "wallets", {});
+    const inputValue = calculateInputValue(atp);
+    const prefixSymbol = getInputPrefix(atp);
+
+    return map(wallets, (balance, currency) => ({
+        currency,
+        input: constant(<CarouselInput value={inputValue} prefixSymbol={prefixSymbol} isDisabled={atp} />),
+        balance: walletBalance(currency),
+        rate: calculateRate(atp)
+    }));
+}
+
+function calculateInputValue(atp) {
+    const exchangeAmount = get(store, "exchangeAmount", "");
+    const targetRate = get(store, "rates.target", "");
+
+    return atp
+    ? exchangeAmount * targetRate
+        : exchangeAmount;
+}
+
+function getInputPrefix(atp) {
+    return atp
+        ? "+"
+        : "-";
+}
 
 function walletBalance(currency) {
     const balanceNumber = get(store, `wallets[${currency}]`, "");
@@ -17,29 +46,20 @@ function walletBalance(currency) {
     return `You have ${currencySymbol}${balanceNumber}`;
 }
 
-function createPockets(getSpecification = constant({inputSign: null, isDisabled: false, getRate: constant(null)})) {
-    const {inputSign, isDisabled, getRate} = getSpecification();
-
-    const exchangeAmount = get(store, "exchangeAmount", "");
+function calculateRate(atp) {
     const targetRate = get(store, "rates.target", "");
     const selectedCurrency = get(store, "selectedCurrency", "");
     const targetCurrency = get(store, "targetCurrency", "");
-    const wallets = get(store, "wallets", {});
-
     const selectedCurrencySymbol = get(currencies, `[${selectedCurrency}].symbol`, "");
     const targetCurrencySymbol = get(currencies, `[${targetCurrency}].symbol`, "");
 
-    return map(wallets, (balance, currency) => ({
-        currency,
-        // eslint-disable-next-line max-len
-        input: constant(<CarouselInput exchangeAmount={exchangeAmount} inputSign={inputSign} isDisabled={isDisabled} />),
-        balance: walletBalance(currency),
-        rate: getRate(targetRate, {selectedCurrencySymbol, targetCurrencySymbol})
-    }));
+    return atp
+        ? formatRate(targetRate, {selectedCurrencySymbol, targetCurrencySymbol})
+        : null;
 }
 
-function CarouselFactory({className, getSpecification}) {
-    const pockets = createPockets(getSpecification);
+function CarouselFactory({className, areTargetPockets = false}) {
+    const pockets = createPockets(areTargetPockets);
 
     return <Carousel className={className} pockets={pockets} />;
 }

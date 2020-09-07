@@ -11,11 +11,11 @@ function Prefix({exchangeAmount, inputSign}) {
         : null;
 }
 
-function CarouselInput({exchangeAmount = 0, inputSign = "", isDisabled = false}) {
+function CarouselInput({value = 0, inputSign = "", isDisabled = false}) {
     return <Input
         isDisabled={isDisabled}
-        prefix={constant(<Prefix exchangeAmount={exchangeAmount} inputSign={inputSign}/>)}
-        value={exchangeAmount}
+        prefix={constant(<Prefix exchangeAmount={value} inputSign={inputSign}/>)}
+        value={value}
         onInput={(inputEvent) => dispatch(MUTATE_STORE, () => [["exchangeAmount"], inputEvent.target.value])}
     />;
 }
