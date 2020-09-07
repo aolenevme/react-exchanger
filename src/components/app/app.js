@@ -68,8 +68,7 @@ function formRateString(rate, rateCurrencies) {
 
 function App() {
     const getSelectedWalletsSpecification = constant({inputSign: "-", isDisabled: false, getRate: constant(null)});
-    // eslint-disable-next-line max-len
-    const getTargetWalletsSpecification = constant({inputSign: "+", isDisabled: true, getRate: (rate, currencySymbols) => formRateString(rate, currencySymbols)});
+    const getTargetWalletsSpecification = constant({inputSign: "+", isDisabled: true, getRate: formRateString});
 
     return <Wrapper>
         <Header>
