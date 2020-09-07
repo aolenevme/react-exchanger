@@ -18,18 +18,18 @@ function Prefix({exchangeAmount, inputSign}) {
 function createPockets(getSpecification = constant({inputSign: null, isDisabled: false, getRate: constant(null)})) {
     const {inputSign, isDisabled, getRate} = getSpecification();
 
-    const wallets = get(store, "wallets", {});
-    const toTargetCurrencyRate = get(store, "rates.toTargetCurrency", "");
-    const exchangeAmount = get(store, "exchangeAmount", "");
     const selectedCurrency = get(store, "selectedCurrency", "");
     const targetCurrency = get(store, "targetCurrency", "");
+    const exchangeAmount = get(store, "exchangeAmount", "");
+    const toTargetRate = get(store, "rates.toTargetRate", "");
+    const wallets = get(store, "wallets", {});
 
     return map(wallets, (balance, currency) => ({
         currency,
         // eslint-disable-next-line max-len
         input: constant(<Input isDisabled={isDisabled} prefix={constant(<Prefix exchangeAmount={exchangeAmount} inputSign={inputSign}/>)} value={exchangeAmount}/>),
         balance: walletBalance(currency),
-        rate: getRate(toTargetCurrencyRate, {selectedCurrency, targetCurrency})
+        rate: getRate(toTargetRate, {selectedCurrency, targetCurrency})
     }));
 }
 
