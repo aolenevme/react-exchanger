@@ -1,14 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import constant from "lodash/constant.js";
-import get from "lodash/get.js";
 
 import CarouselFactory from "../carousel/carousel-factory.js";
 import Button from "../button/button.js";
 import RateSelector from "../rate-selector/rate-selector.js";
 import colors from "../../lib/styles/colors/colors.js";
-import rateFormatter from "../../lib/helpers/rate-formatter/rate-formatter.js";
-import currencies from "../../lib/consts/currencies/currencies.js";
+import rateString from "../../lib/helpers/rate-formatter/rate-string.js";
 
 const Wrapper = styled.div`
     display: flex;
@@ -55,20 +53,9 @@ const TargetCarouselFactory = styled(CarouselFactory)`
     background-color: ${colors.primaryDark};
 `;
 
-function formRateString(rate, rateCurrencies) {
-    const [integer, firstTwoFractions, lastTwoFractions] = rateFormatter(rate);
-    const {selectedCurrency, targetCurrency} = rateCurrencies;
-
-    const selectedCurrencySymbol = get(currencies, `${selectedCurrency}.symbol`, "");
-    const targetCurrencySymbol = get(currencies, `${targetCurrency}.symbol`, "");
-
-    // eslint-disable-next-line max-len
-    return `${selectedCurrencySymbol}1 = ${targetCurrencySymbol}${integer}.${firstTwoFractions}${lastTwoFractions || ""}`;
-}
-
 function App() {
     const getSelectedWalletsSpecification = constant({inputSign: "-", isDisabled: false, getRate: constant(null)});
-    const getTargetWalletsSpecification = constant({inputSign: "+", isDisabled: true, getRate: formRateString});
+    const getTargetWalletsSpecification = constant({inputSign: "+", isDisabled: true, getRate: rateString});
 
     return <Wrapper>
         <Header>

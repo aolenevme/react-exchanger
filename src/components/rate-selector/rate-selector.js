@@ -1,10 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import isArray from "lodash/isArray.js";
-import isString from "lodash/isString.js";
 
 import colors from "../../lib/styles/colors/colors.js";
-import rateFormatter from "../../lib/helpers/rate-formatter/rate-formatter.js";
+import rateString from "../../lib/helpers/rate-formatter/rate-string.js";
 
 const Wrapper = styled.div`
     display: flex;
@@ -42,39 +40,12 @@ const TextRate = styled.span`
     text-align: center;
 `;
 
-const LastTwoRateFractions = styled.span`
-    font-size: 0.8rem;
-`;
-
-function isSignValid(sign) {
-    return isString(sign) && sign.length === 1;
-}
-
-function shouldShow(formattedRate, {selectedCurrencySymbol, targetCurrencySymbol}) {
-    const isRateValid = isArray(formattedRate) && formattedRate.length;
-
-    const isSelectedCurrencySymbolValid = isSignValid(selectedCurrencySymbol);
-    const isTargetCurrencySymbolValid = isSignValid(targetCurrencySymbol);
-
-    return isRateValid && isSelectedCurrencySymbolValid && isTargetCurrencySymbolValid;
-}
-
-// eslint-disable-next-line no-shadow
-function Text({formattedRate, currencySymbols}) {
-    const [integer, firstTwoFractions, lastTwoFractions] = formattedRate;
-    const {selectedCurrencySymbol, targetCurrencySymbol} = currencySymbols;
-
-    const mainText = `${selectedCurrencySymbol}1 = ${targetCurrencySymbol}${integer}.${firstTwoFractions}`;
-
-    return <TextRate>{mainText}<LastTwoRateFractions>{lastTwoFractions || ""}</LastTwoRateFractions></TextRate>;
-}
-
 function RateSelector({rate, currencySymbols}) {
-    const formattedRate = rateFormatter(rate);
+    const formattedRate = rateString(rate, currencySymbols);
 
-    return shouldShow(formattedRate, currencySymbols) ? (
+    return formattedRate ? (
         <Wrapper>
-            <Text formattedRate={formattedRate} currencySymbols={currencySymbols}/>
+            <TextRate>{formattedRate}</TextRate>
         </Wrapper>
     ) : null;
 }

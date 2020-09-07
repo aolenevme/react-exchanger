@@ -36,7 +36,8 @@ function createPockets(getSpecification = constant({inputSign: null, isDisabled:
         // eslint-disable-next-line max-len
         input: constant(<Input isDisabled={isDisabled} prefix={constant(<Prefix exchangeAmount={exchangeAmount} inputSign={inputSign}/>)} value={exchangeAmount}/>),
         balance: walletBalance(currency),
-        rate: getRate(toTargetRate, {selectedCurrency, targetCurrency})
+        // eslint-disable-next-line max-len
+        rate: getRate(toTargetRate, {selectedCurrencySymbol: currencies[selectedCurrency].symbol, targetCurrencySymbol: currencies[targetCurrency].symbol})
     }));
 }
 
