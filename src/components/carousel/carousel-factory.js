@@ -49,7 +49,9 @@ function getTargetInputValue(exchangeAmount) {
     const targetInputValue = Number(exchangeAmount) * Number(targetRate);
     const PRECISION = 4;
 
-    return targetInputValue.toPrecision(PRECISION);
+    return exchangeAmount === ""
+        ? exchangeAmount
+        : targetInputValue.toPrecision(PRECISION);
 }
 
 function getInputPrefix(atp) {
