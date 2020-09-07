@@ -116,13 +116,13 @@ exports[`<Input /> is rendered correctly 2`] = `
 <label
   className="main-text__MainText-c4b6rt-0 c0"
 >
-  
+  0
   <input
     className="c1"
     disabled={true}
     onInput={[Function]}
     type="number"
-    value=""
+    value={0}
   />
 </label>
 `;
@@ -179,13 +179,13 @@ exports[`<Input /> is rendered correctly 3`] = `
 <label
   className="main-text__MainText-c4b6rt-0 c0"
 >
-  
+  0
   <input
     className="c1"
     disabled={false}
     onInput={[Function]}
     type="number"
-    value=""
+    value={0}
   />
 </label>
 `;
@@ -368,13 +368,13 @@ exports[`<Input /> is rendered correctly 6`] = `
 <label
   className="main-text__MainText-c4b6rt-0 c0"
 >
-  
+  0
   <input
     className="c1"
     disabled={false}
     onInput={[Function]}
     type="number"
-    value=""
+    value={0}
   />
 </label>
 `;

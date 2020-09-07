@@ -59,7 +59,7 @@ const InputController = styled.input`
 function validateValue(value) {
     const valueNumber = Number(value);
 
-    return isNumber(valueNumber) && valueNumber > 0
+    return isNumber(valueNumber) && valueNumber >= 0
         ? valueNumber
         : "";
 }
