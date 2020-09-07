@@ -44,7 +44,7 @@ describe("<CarouselInput />", () => {
             expect(mutationEvent()).toEqual([["exchangeAmount"], testInputEvent.target.value]);
         });
 
-        it("updates store with a previous input value in an emergency case", () => {
+        it("updates the html input element with a previous input value and resets store in an emergency case", () => {
             const prevInputValue = 123;
             const testInputEvent = {target: {value: ""}};
 
@@ -55,7 +55,8 @@ describe("<CarouselInput />", () => {
             const [dispatchId, mutationEvent] = registry.dispatch.mock.calls[0];
 
             expect(dispatchId).toEqual(MUTATE_STORE);
-            expect(mutationEvent()).toEqual([["exchangeAmount"], prevInputValue]);
+            expect(mutationEvent()).toEqual([["exchangeAmount"], ""]);
+            expect(testInputEvent.target.value).toEqual(prevInputValue);
         });
     });
 });

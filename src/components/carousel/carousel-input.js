@@ -10,7 +10,8 @@ function defineEventPayload(inputEvent, value) {
     const newValue = inputEvent.target.value;
 
     if (newValue === "") {
-        return [["exchangeAmount"], value];
+        // eslint-disable-next-line fp/no-mutation,no-param-reassign
+        inputEvent.target.value = value;
     }
 
     return [["exchangeAmount"], newValue];
