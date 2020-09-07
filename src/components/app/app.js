@@ -80,9 +80,9 @@ function App() {
             }} />
             <Button>Exchange</Button>
         </Header>
-        <CarouselFactory specification={getSelectedWalletsSpecification} />
+        <CarouselFactory getSpecification={getSelectedWalletsSpecification} />
         <Triangle />
-        <TargetCarouselFactory specification={getTargetWalletsSpecification} />
+        <TargetCarouselFactory getSpecification={getTargetWalletsSpecification} />
     </Wrapper>;
 }
 

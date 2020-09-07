@@ -19,54 +19,12 @@ exports[`<App /> is rendered correctly 1`] = `
       Exchange
     </Button>
   </app__Header>
-  <Carousel
-    pockets={
-      Array [
-        Object {
-          "balance": "You have $53.45",
-          "currency": "USD",
-          "input": [Function],
-          "rate": null,
-        },
-        Object {
-          "balance": "You have €100",
-          "currency": "EUR",
-          "input": [Function],
-          "rate": null,
-        },
-        Object {
-          "balance": "You have £80.15",
-          "currency": "GBP",
-          "input": [Function],
-          "rate": null,
-        },
-      ]
-    }
+  <CarouselFactory
+    getSpecification={[Function]}
   />
   <app__Triangle />
-  <app__BottomCarousel
-    pockets={
-      Array [
-        Object {
-          "balance": "You have $53.45",
-          "currency": "USD",
-          "input": [Function],
-          "rate": "$1 = £1.4570",
-        },
-        Object {
-          "balance": "You have €100",
-          "currency": "EUR",
-          "input": [Function],
-          "rate": "$1 = £1.4570",
-        },
-        Object {
-          "balance": "You have £80.15",
-          "currency": "GBP",
-          "input": [Function],
-          "rate": "$1 = £1.4570",
-        },
-      ]
-    }
+  <app__TargetCarouselFactory
+    getSpecification={[Function]}
   />
 </app__Wrapper>
 `;

@@ -40,8 +40,8 @@ function walletBalance(currency) {
     return `You have ${currencySymbol}${balanceNumber}`;
 }
 
-function CarouselFactory({className, specification}) {
-    return <Carousel className={className} pockets={createPockets(specification)} />;
+function CarouselFactory({className, getSpecification}) {
+    return <Carousel className={className} pockets={createPockets(getSpecification)} />;
 }
 
 export default CarouselFactory;
