@@ -3,35 +3,35 @@ import renderer from "react-test-renderer";
 
 import RateSelector from "../rate-selector.js";
 
-describe("<Selector />", () => {
+describe("<RateSelector />", () => {
     it("is rendered correctly", () => {
         expect(renderer
-            .create(<RateSelector rate={1.457} currencySigns={{
-                fromCurrencySign: "£",
-                toCurrencySign: "$"
+            .create(<RateSelector rate={1.457} currencySymbols={{
+                selectedCurrencySymbol: "£",
+                targetCurrencySymbol: "$"
             }}/>)
             .toJSON()).toMatchSnapshot();
     });
 
     it("is not rendered when props are incorrect", () => {
         expect(renderer
-            .create(<RateSelector rate="it-is-not-a-number" currencySigns={{
-                fromCurrencySign: "£",
-                toCurrencySign: "$"
+            .create(<RateSelector rate="it-is-not-a-number" currencySymbols={{
+                selectedCurrencySymbol: "£",
+                targetCurrencySymbol: "$"
             }}/>).toJSON())
             .toMatchSnapshot();
 
         expect(renderer
-            .create(<RateSelector rate={1.457} currencySigns={{
-                fromCurrencySign: {not: "char"},
-                toCurrencySign: "$"
+            .create(<RateSelector rate={1.457} currencySymbols={{
+                selectedCurrencySymbol: {not: "char"},
+                targetCurrencySymbol: "$"
             }}/>).toJSON())
             .toMatchSnapshot();
 
         expect(renderer
-            .create(<RateSelector rate={1.457} currencySigns={{
-                fromCurrencySign: "£",
-                toCurrencySign: {not: "char"}
+            .create(<RateSelector rate={1.457} currencySymbols={{
+                selectedCurrencySymbol: "£",
+                targetCurrencySymbol: {not: "char"}
             }}/>).toJSON())
             .toMatchSnapshot();
     });

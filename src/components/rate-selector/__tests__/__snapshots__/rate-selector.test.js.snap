@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Selector /> is not rendered when props are incorrect 1`] = `null`;
+exports[`<RateSelector /> is not rendered when props are incorrect 1`] = `null`;
 
-exports[`<Selector /> is not rendered when props are incorrect 2`] = `null`;
+exports[`<RateSelector /> is not rendered when props are incorrect 2`] = `null`;
 
-exports[`<Selector /> is not rendered when props are incorrect 3`] = `null`;
+exports[`<RateSelector /> is not rendered when props are incorrect 3`] = `null`;
 
-exports[`<Selector /> is rendered correctly 1`] = `
+exports[`<RateSelector /> is rendered correctly 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;

@@ -50,13 +50,13 @@ function isSignValid(sign) {
     return isString(sign) && sign.length === 1;
 }
 
-function shouldShow(formattedRate, {fromCurrencySign, toCurrencySign}) {
+function shouldShow(formattedRate, {selectedCurrencySymbol, targetCurrencySymbol}) {
     const isRateValid = isArray(formattedRate) && formattedRate.length;
 
-    const isFromCurrencySignValid = isSignValid(fromCurrencySign);
-    const isToCurrencySignValid = isSignValid(toCurrencySign);
+    const isSelectedCurrencySymbolValid = isSignValid(selectedCurrencySymbol);
+    const isTargetCurrencySymbolValid = isSignValid(targetCurrencySymbol);
 
-    return isRateValid && isFromCurrencySignValid && isToCurrencySignValid;
+    return isRateValid && isSelectedCurrencySymbolValid && isTargetCurrencySymbolValid;
 }
 
 // eslint-disable-next-line no-shadow
@@ -66,7 +66,7 @@ function Text({formattedRate, currencySymbols}) {
 
     const mainText = `${selectedCurrencySymbol}1 = ${targetCurrencySymbol}${integer}.${firstTwoFractions}`;
 
-    return <TextRate>{mainText}<LastTwoRateFractions>{lastTwoFractions}</LastTwoRateFractions></TextRate>;
+    return <TextRate>{mainText}<LastTwoRateFractions>{lastTwoFractions || ""}</LastTwoRateFractions></TextRate>;
 }
 
 function RateSelector({rate, currencySymbols}) {

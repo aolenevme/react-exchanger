@@ -1,14 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import constant from "lodash/constant.js";
+import get from "lodash/get.js";
+import map from "lodash/map.js";
 
-import colors from "../../lib/styles/colors/colors.js";
 import Carousel from "../carousel/carousel.js";
-import CarouselFactory from "../carousel/carousel-factory.js";
 import Button from "../button/button.js";
 import RateSelector from "../rate-selector/rate-selector.js";
 import Input from "../input/input.js";
+import colors from "../../lib/styles/colors/colors.js";
 import rateFormatter from "../../lib/helpers/rate-formatter/rate-formatter.js";
+import store from "../../store/store.js";
+// eslint-disable-next-line import/max-dependencies
+import currencies from "../../lib/consts/currencies/currencies.js";
 
 const Wrapper = styled.div`
     display: flex;
@@ -55,44 +59,45 @@ const BottomCarousel = styled(Carousel)`
     background-color: ${colors.primaryDark};
 `;
 
-const toPockets = [{
-    currency: "USD",
-    input: constant(<Input isDisabled prefix={constant("+")} value={145.67} />),
-    balance: "You have 58.33$",
-    // eslint-disable-next-line no-magic-numbers
-    rate: formRateString(145.67, {
-        selectedCurrencySymbol: "£",
-        targetCurrencySymbol: "$"
-    })
-}, {
-    currency: "EUR",
-    input: constant(<Input isDisabled prefix={constant("+")} value={145.67} />),
-    balance: "You have 58.33$",
-    // eslint-disable-next-line no-magic-numbers
-    rate: formRateString(145.67, {
-        selectedCurrencySymbol: "£",
-        targetCurrencySymbol: "$"
-    })
-}, {
-    currency: "GBP",
-    input: constant(<Input isDisabled prefix={constant("+")} value={145.67} />),
-    balance: "You have 58.33$",
-    // eslint-disable-next-line no-magic-numbers
-    rate: formRateString(145.67, {
-        selectedCurrencySymbol: "£",
-        targetCurrencySymbol: "$"
-    })
-}];
+function createPockets(getSpecification = constant({inputSign: null, getRate: constant(null)})) {
+    const {inputSign, getRate} = getSpecification();
 
-function formRateString(rate, currencySymbols) {
+    const wallets = get(store, "wallets", {});
+    const toTargetCurrencyRate = get(store, "rates.toTargetCurrency", "");
+    const selectedCurrency = get(store, "selectedCurrency", "");
+    const targetCurrency = get(store, "targetCurrency", "");
+
+    return map(wallets, (balance, currency) => ({
+        currency,
+        input: constant(<Input prefix={constant(inputSign)} value={balance}/>),
+        balance: walletBalance(currency),
+        rate: getRate(toTargetCurrencyRate, {selectedCurrency, targetCurrency})
+    }));
+}
+
+function walletBalance(currency) {
+    const balanceNumber = get(store, `wallets[${currency}]`, "");
+    const currencySymbol = get(currencies, `${currency}.symbol`, "");
+
+    return `You have ${currencySymbol}${balanceNumber}`;
+}
+
+function formRateString(rate, rateCurrencies) {
     const [integer, firstTwoFractions, lastTwoFractions] = rateFormatter(rate);
-    const {selectedCurrencySymbol, targetCurrencySymbol} = currencySymbols;
+    const {selectedCurrency, targetCurrency} = rateCurrencies;
+
+    const selectedCurrencySymbol = get(currencies, `${selectedCurrency}.symbol`, "");
+    const targetCurrencySymbol = get(currencies, `${targetCurrency}.symbol`, "");
 
     // eslint-disable-next-line max-len
     return `${selectedCurrencySymbol}1 = ${targetCurrencySymbol}${integer}.${firstTwoFractions}${lastTwoFractions || ""}`;
 }
 
 function App() {
+    const getSelectedWalletsSpecification = constant({inputSign: "-", getRate: constant(null)});
+    // eslint-disable-next-line max-len
+    const getTargetWalletsSpecification = constant({inputSign: "+", getRate: (rate, currencySymbols) => formRateString(rate, currencySymbols)});
+
     return <Wrapper>
         <Header>
             <Button>Cancel</Button>
@@ -102,9 +107,9 @@ function App() {
             }} />
             <Button>Exchange</Button>
         </Header>
-        <CarouselFactory />
+        <Carousel pockets={createPockets(getSelectedWalletsSpecification)} />
         <Triangle />
-        <BottomCarousel pockets={toPockets} />
+        <BottomCarousel pockets={createPockets(getTargetWalletsSpecification)} />
     </Wrapper>;
 }
 
