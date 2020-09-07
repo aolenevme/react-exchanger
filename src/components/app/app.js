@@ -6,7 +6,7 @@ import CarouselFactory from "../carousel/carousel-factory.js";
 import Button from "../button/button.js";
 import RateSelector from "../rate-selector/rate-selector.js";
 import colors from "../../lib/styles/colors/colors.js";
-import rateString from "../../lib/helpers/rate-formatter/rate-string.js";
+import formatRate from "../../lib/helpers/format-rate/format-rate.js";
 
 const Wrapper = styled.div`
     display: flex;
@@ -55,7 +55,7 @@ const TargetCarouselFactory = styled(CarouselFactory)`
 
 function App() {
     const getSelectedWalletsSpecification = constant({inputSign: "-", isDisabled: false, getRate: constant(null)});
-    const getTargetWalletsSpecification = constant({inputSign: "+", isDisabled: true, getRate: rateString});
+    const getTargetWalletsSpecification = constant({inputSign: "+", isDisabled: true, getRate: formatRate});
 
     return <Wrapper>
         <Header>

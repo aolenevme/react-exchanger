@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import colors from "../../lib/styles/colors/colors.js";
-import rateString from "../../lib/helpers/rate-formatter/rate-string.js";
+import formatRate from "../../lib/helpers/format-rate/format-rate.js";
 
 const Wrapper = styled.div`
     display: flex;
@@ -41,7 +41,7 @@ const TextRate = styled.span`
 `;
 
 function RateSelector({rate, currencySymbols}) {
-    const formattedRate = rateString(rate, currencySymbols);
+    const formattedRate = formatRate(rate, currencySymbols);
 
     return formattedRate ? (
         <Wrapper>
