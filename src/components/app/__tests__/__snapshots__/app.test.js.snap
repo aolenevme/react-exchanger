@@ -19,7 +19,7 @@ exports[`<App /> is rendered correctly 1`] = `
       Exchange
     </Button>
   </app__Header>
-  <CarouselFactory
+  <Memo(CarouselFactory)
     getSpecification={[Function]}
   />
   <app__Triangle />

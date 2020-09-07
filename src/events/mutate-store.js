@@ -20,10 +20,10 @@ function mutateStore(store, getMutateStoreSpecification) {
 function pathIsValid(path) {
     const isPathArray = isArray(path);
 
-    return isArrayConsistOfString(isPathArray, path);
+    return doesArrayConsistOfStrings(isPathArray, path);
 }
 
-function isArrayConsistOfString(isPathArray, path) {
+function doesArrayConsistOfStrings(isPathArray, path) {
     return (
         isPathArray
         && reduce(
@@ -38,5 +38,4 @@ regEventStore(MUTATE_STORE, mutateStore);
 
 export {mutateStore};
 
-// eslint-disable-next-line import/no-unused-modules
 export default MUTATE_STORE;

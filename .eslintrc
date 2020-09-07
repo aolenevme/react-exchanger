@@ -27,5 +27,16 @@
         "varsIgnorePattern": "React"
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.js"],
+      "rules": {
+        "fp/no-mutation": "off",
+        "no-import-assign": "off",
+        "import/namespace": "off",
+        "import/no-namespace": "off"
+      }
+    }
+  ]
 }

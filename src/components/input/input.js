@@ -11,6 +11,7 @@ const Wrapper = styled(MainText)`
 
     padding: 0;
 
+    min-width: 3rem;
     height: 3rem;
 
     border: 0 solid transparent;

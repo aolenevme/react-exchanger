@@ -14,6 +14,7 @@ exports[`<Input /> is rendered correctly 1`] = `
   -ms-flex-pack: end;
   justify-content: flex-end;
   padding: 0;
+  min-width: 3rem;
   height: 3rem;
   border: 0 solid transparent;
   border-right: 1px solid transparent;
@@ -77,6 +78,7 @@ exports[`<Input /> is rendered correctly 2`] = `
   -ms-flex-pack: end;
   justify-content: flex-end;
   padding: 0;
+  min-width: 3rem;
   height: 3rem;
   border: 0 solid transparent;
   border-right: 1px solid transparent;
@@ -139,6 +141,7 @@ exports[`<Input /> is rendered correctly 3`] = `
   -ms-flex-pack: end;
   justify-content: flex-end;
   padding: 0;
+  min-width: 3rem;
   height: 3rem;
   border: 0 solid transparent;
   border-right: 1px solid transparent;
@@ -201,6 +204,7 @@ exports[`<Input /> is rendered correctly 4`] = `
   -ms-flex-pack: end;
   justify-content: flex-end;
   padding: 0;
+  min-width: 3rem;
   height: 3rem;
   border: 0 solid transparent;
   border-right: 1px solid transparent;
@@ -263,6 +267,7 @@ exports[`<Input /> is rendered correctly 5`] = `
   -ms-flex-pack: end;
   justify-content: flex-end;
   padding: 0;
+  min-width: 3rem;
   height: 3rem;
   border: 0 solid transparent;
   border-right: 1px solid transparent;
