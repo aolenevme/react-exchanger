@@ -28,7 +28,7 @@ function createPockets(getSpecification = constant({inputSign: null, isDisabled:
     const selectedCurrency = get(store, "selectedCurrency", "");
     const targetCurrency = get(store, "targetCurrency", "");
     const exchangeAmount = get(store, "exchangeAmount", "");
-    const toTargetRate = get(store, "rates.toTargetRate", "");
+    const targetRate = get(store, "rates.target", "");
     const wallets = get(store, "wallets", {});
 
     return map(wallets, (balance, currency) => ({
@@ -37,7 +37,7 @@ function createPockets(getSpecification = constant({inputSign: null, isDisabled:
         input: constant(<Input isDisabled={isDisabled} prefix={constant(<Prefix exchangeAmount={exchangeAmount} inputSign={inputSign}/>)} value={exchangeAmount}/>),
         balance: walletBalance(currency),
         // eslint-disable-next-line max-len
-        rate: getRate(toTargetRate, {selectedCurrencySymbol: currencies[selectedCurrency].symbol, targetCurrencySymbol: currencies[targetCurrency].symbol})
+        rate: getRate(targetRate, {selectedCurrencySymbol: currencies[selectedCurrency].symbol, targetCurrencySymbol: currencies[targetCurrency].symbol})
     }));
 }
 

@@ -7,8 +7,8 @@ export default observable({
     targetCurrency: currencies.GBP.abbreviation,
     exchangeAmount: 12,
     rates: {
-        toTargetRate: 1.457,
-        toSelectedRate: 1.457
+        target: 1.457,
+        selected: 1.457
     },
     wallets: {
         [currencies.USD.abbreviation]: 53.45,
