@@ -45,22 +45,13 @@ exports[`<RateSelector /> is rendered correctly 1`] = `
   text-align: center;
 }
 
-.c2 {
-  font-size: 0.8rem;
-}
-
 <div
   className="c0"
 >
   <span
     className="c1"
   >
-    £1 = $1.45
-    <span
-      className="c2"
-    >
-      70
-    </span>
+    £1 = $1.4570
   </span>
 </div>
 `;

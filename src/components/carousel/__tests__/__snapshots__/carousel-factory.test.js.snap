@@ -20,7 +20,6 @@ exports[`<CarouselFactory /> is rendered correctly 1`] = `
   -ms-flex-pack: end;
   justify-content: flex-end;
   padding: 0;
-  width: 100%;
   height: 3rem;
   border: 0 solid transparent;
   border-right: 1px solid transparent;
@@ -292,7 +291,6 @@ exports[`<CarouselFactory /> is rendered correctly 2`] = `
   -ms-flex-pack: end;
   justify-content: flex-end;
   padding: 0;
-  width: 100%;
   height: 3rem;
   border: 0 solid transparent;
   border-right: 1px solid transparent;
