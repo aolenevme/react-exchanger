@@ -59,17 +59,25 @@ const BottomCarousel = styled(Carousel)`
     background-color: ${colors.primaryDark};
 `;
 
-function createPockets(getSpecification = constant({inputSign: null, getRate: constant(null)})) {
-    const {inputSign, getRate} = getSpecification();
+function Prefix({exchangeAmount, inputSign}) {
+    return exchangeAmount
+        ? inputSign
+        : null;
+}
+
+function createPockets(getSpecification = constant({inputSign: null, isDisabled: false, getRate: constant(null)})) {
+    const {inputSign, isDisabled, getRate} = getSpecification();
 
     const wallets = get(store, "wallets", {});
     const toTargetCurrencyRate = get(store, "rates.toTargetCurrency", "");
+    const exchangeAmount = get(store, "exchangeAmount", "");
     const selectedCurrency = get(store, "selectedCurrency", "");
     const targetCurrency = get(store, "targetCurrency", "");
 
     return map(wallets, (balance, currency) => ({
         currency,
-        input: constant(<Input prefix={constant(inputSign)} value={balance}/>),
+        // eslint-disable-next-line max-len
+        input: constant(<Input isDisabled={isDisabled} prefix={constant(<Prefix exchangeAmount={exchangeAmount} inputSign={inputSign}/>)} value={exchangeAmount}/>),
         balance: walletBalance(currency),
         rate: getRate(toTargetCurrencyRate, {selectedCurrency, targetCurrency})
     }));
@@ -94,9 +102,9 @@ function formRateString(rate, rateCurrencies) {
 }
 
 function App() {
-    const getSelectedWalletsSpecification = constant({inputSign: "-", getRate: constant(null)});
+    const getSelectedWalletsSpecification = constant({inputSign: "-", isDisabled: false, getRate: constant(null)});
     // eslint-disable-next-line max-len
-    const getTargetWalletsSpecification = constant({inputSign: "+", getRate: (rate, currencySymbols) => formRateString(rate, currencySymbols)});
+    const getTargetWalletsSpecification = constant({inputSign: "+", isDisabled: true, getRate: (rate, currencySymbols) => formRateString(rate, currencySymbols)});
 
     return <Wrapper>
         <Header>

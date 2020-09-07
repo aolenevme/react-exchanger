@@ -5,7 +5,7 @@ import currencies from "../lib/consts/currencies/currencies.js";
 export default observable({
     selectedCurrency: currencies.USD.abbreviation,
     targetCurrency: currencies.GBP.abbreviation,
-    exchangeAmount: "",
+    exchangeAmount: 12,
     rates: {
         toTargetCurrency: 1.457,
         toSelectedCurrency: 1.457
