@@ -60,21 +60,21 @@ function shouldShow(formattedRate, {fromCurrencySign, toCurrencySign}) {
 }
 
 // eslint-disable-next-line no-shadow
-function Text({formattedRate, currencySigns}) {
+function Text({formattedRate, currencySymbols}) {
     const [integer, firstTwoFractions, lastTwoFractions] = formattedRate;
-    const {fromCurrencySign, toCurrencySign} = currencySigns;
+    const {selectedCurrencySymbol, targetCurrencySymbol} = currencySymbols;
 
-    const mainText = `${fromCurrencySign}1 = ${toCurrencySign}${integer}.${firstTwoFractions}`;
+    const mainText = `${selectedCurrencySymbol}1 = ${targetCurrencySymbol}${integer}.${firstTwoFractions}`;
 
     return <TextRate>{mainText}<LastTwoRateFractions>{lastTwoFractions}</LastTwoRateFractions></TextRate>;
 }
 
-function RateSelector({rate, currencySigns}) {
+function RateSelector({rate, currencySymbols}) {
     const formattedRate = rateFormatter(rate);
 
-    return shouldShow(formattedRate, currencySigns) ? (
+    return shouldShow(formattedRate, currencySymbols) ? (
         <Wrapper>
-            <Text formattedRate={formattedRate} currencySigns={currencySigns}/>
+            <Text formattedRate={formattedRate} currencySymbols={currencySymbols}/>
         </Wrapper>
     ) : null;
 }

@@ -4,6 +4,7 @@ import constant from "lodash/constant.js";
 
 import colors from "../../lib/styles/colors/colors.js";
 import Carousel from "../carousel/carousel.js";
+import CarouselFactory from "../carousel/carousel-factory.js";
 import Button from "../button/button.js";
 import RateSelector from "../rate-selector/rate-selector.js";
 import Input from "../input/input.js";
@@ -54,28 +55,14 @@ const BottomCarousel = styled(Carousel)`
     background-color: ${colors.primaryDark};
 `;
 
-const fromPockets = [{
-    currency: "USD",
-    input: constant(<Input prefix={constant("-")} value={145.67} />),
-    balance: "You have 58.33$"
-}, {
-    currency: "EUR",
-    input: constant(<Input prefix={constant("-")} value={145.67} />),
-    balance: "You have 58.33$"
-}, {
-    currency: "GBP",
-    input: constant(<Input prefix={constant("-")} value={145.67} />),
-    balance: "You have 58.33$"
-}];
-
 const toPockets = [{
     currency: "USD",
     input: constant(<Input isDisabled prefix={constant("+")} value={145.67} />),
     balance: "You have 58.33$",
     // eslint-disable-next-line no-magic-numbers
     rate: formRateString(145.67, {
-        fromCurrencySign: "£",
-        toCurrencySign: "$"
+        selectedCurrencySymbol: "£",
+        targetCurrencySymbol: "$"
     })
 }, {
     currency: "EUR",
@@ -83,8 +70,8 @@ const toPockets = [{
     balance: "You have 58.33$",
     // eslint-disable-next-line no-magic-numbers
     rate: formRateString(145.67, {
-        fromCurrencySign: "£",
-        toCurrencySign: "$"
+        selectedCurrencySymbol: "£",
+        targetCurrencySymbol: "$"
     })
 }, {
     currency: "GBP",
@@ -92,29 +79,30 @@ const toPockets = [{
     balance: "You have 58.33$",
     // eslint-disable-next-line no-magic-numbers
     rate: formRateString(145.67, {
-        fromCurrencySign: "£",
-        toCurrencySign: "$"
+        selectedCurrencySymbol: "£",
+        targetCurrencySymbol: "$"
     })
 }];
 
-function formRateString(rate, currencySigns) {
+function formRateString(rate, currencySymbols) {
     const [integer, firstTwoFractions, lastTwoFractions] = rateFormatter(rate);
-    const {fromCurrencySign, toCurrencySign} = currencySigns;
+    const {selectedCurrencySymbol, targetCurrencySymbol} = currencySymbols;
 
-    return `${fromCurrencySign}1 = ${toCurrencySign}${integer}.${firstTwoFractions}${lastTwoFractions || ""}`;
+    // eslint-disable-next-line max-len
+    return `${selectedCurrencySymbol}1 = ${targetCurrencySymbol}${integer}.${firstTwoFractions}${lastTwoFractions || ""}`;
 }
 
 function App() {
     return <Wrapper>
         <Header>
             <Button>Cancel</Button>
-            <RateSelector rate={1.457} currencySigns={{
-                fromCurrencySign: "£",
-                toCurrencySign: "$"
+            <RateSelector rate={1.457} currencySymbols={{
+                selectedCurrencySymbol: "£",
+                targetCurrencySymbol: "$"
             }} />
             <Button>Exchange</Button>
         </Header>
-        <Carousel pockets={fromPockets} />
+        <CarouselFactory />
         <Triangle />
         <BottomCarousel pockets={toPockets} />
     </Wrapper>;
