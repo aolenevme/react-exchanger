@@ -4,8 +4,8 @@ import get from "lodash/get.js";
 import map from "lodash/map.js";
 
 import store from "../../store/store.js";
-import Input from "../input/input.js";
 import currencies from "../../lib/consts/currencies/currencies.js";
+import Input from "../input/input.js";
 
 import Carousel from "./carousel.js";
 
@@ -13,6 +13,13 @@ function Prefix({exchangeAmount, inputSign}) {
     return exchangeAmount
         ? inputSign
         : null;
+}
+
+function walletBalance(currency) {
+    const balanceNumber = get(store, `wallets[${currency}]`, "");
+    const currencySymbol = get(currencies, `${currency}.symbol`, "");
+
+    return `You have ${currencySymbol}${balanceNumber}`;
 }
 
 function createPockets(getSpecification = constant({inputSign: null, isDisabled: false, getRate: constant(null)})) {
@@ -31,13 +38,6 @@ function createPockets(getSpecification = constant({inputSign: null, isDisabled:
         balance: walletBalance(currency),
         rate: getRate(toTargetRate, {selectedCurrency, targetCurrency})
     }));
-}
-
-function walletBalance(currency) {
-    const balanceNumber = get(store, `wallets[${currency}]`, "");
-    const currencySymbol = get(currencies, `${currency}.symbol`, "");
-
-    return `You have ${currencySymbol}${balanceNumber}`;
 }
 
 function CarouselFactory({className, getSpecification}) {
