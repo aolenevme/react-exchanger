@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CarouselInput /> rendering is rendered correctly 1`] = `
+.c0 {
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #f3f6ff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 0;
+  min-width: 3rem;
+  height: 3rem;
+  border: 0 solid transparent;
+  border-right: 1px solid transparent;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.c0:focus-within {
+  -webkit-animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
+  animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
+}
+
+.c1 {
+  margin: 0;
+  padding: 0;
+  width: 0;
+  height: 0;
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c1::-webkit-outer-spin-button,
+.c1::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c1:invalid {
+  box-shadow: none;
+}
+
+<label
+  className="main-text__MainText-c4b6rt-0 c0"
+>
+  0
+  <input
+    className="c1"
+    disabled={false}
+    onInput={[Function]}
+    type="number"
+    value={0}
+  />
+</label>
+`;
+
+exports[`<CarouselInput /> rendering is rendered correctly 2`] = `
+.c0 {
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #f3f6ff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 0;
+  min-width: 3rem;
+  height: 3rem;
+  border: 0 solid transparent;
+  border-right: 1px solid transparent;
+  background-color: transparent;
+  cursor: initial;
+}
+
+.c0:focus-within {
+  -webkit-animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
+  animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
+}
+
+.c1 {
+  margin: 0;
+  padding: 0;
+  width: 0;
+  height: 0;
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c1::-webkit-outer-spin-button,
+.c1::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c1:invalid {
+  box-shadow: none;
+}
+
+<label
+  className="main-text__MainText-c4b6rt-0 c0"
+>
+  £
+  12
+  <input
+    className="c1"
+    disabled={true}
+    onInput={[Function]}
+    type="number"
+    value={12}
+  />
+</label>
+`;
