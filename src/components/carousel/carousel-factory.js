@@ -12,14 +12,14 @@ import CarouselInput from "./carousel-input.js";
 import Carousel from "./carousel.js";
 
 function createPockets(atp = false) {
-    const wallets = get(store, "wallets", {});
+    const balances = get(store, "balances", {});
     const inputValue = calculateInputValue(atp);
     const prefixSymbol = getInputPrefix(atp);
 
-    return map(wallets, (balance, currency) => ({
+    return map(balances, (balance, currency) => ({
         currency,
         input: constant(<CarouselInput value={inputValue} prefixSymbol={prefixSymbol} isDisabled={atp} />),
-        balance: walletBalance(currency),
+        balance: pocketBalance(currency),
         rate: calculateRate(atp)
     }));
 }
@@ -46,8 +46,8 @@ function getInputPrefix(atp) {
         : "-";
 }
 
-function walletBalance(currency) {
-    const balanceNumber = get(store, `wallets[${currency}]`, "");
+function pocketBalance(currency) {
+    const balanceNumber = get(store, `balances[${currency}]`, "");
     const currencySymbol = get(currencies, `${currency}.symbol`, "");
 
     return `You have ${currencySymbol}${balanceNumber}`;
