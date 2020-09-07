@@ -29,7 +29,7 @@ function calculateInputValue(atp) {
     const targetRate = get(store, "rates.target", "");
 
     return atp
-    ? exchangeAmount * targetRate
+        ? Number(exchangeAmount) * Number(targetRate)
         : exchangeAmount;
 }
 

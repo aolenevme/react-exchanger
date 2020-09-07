@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import constant from "lodash/constant.js";
+import isNumber from "lodash/isNumber.js";
 
 import MainText from "../main-text/main-text.js";
 import colors from "../../lib/styles/colors/colors.js";
@@ -55,17 +56,27 @@ const InputController = styled.input`
     }
 `;
 
+function validateValue(value) {
+    const valueNumber = Number(value);
+
+    return isNumber(valueNumber) && valueNumber > 0
+        ? valueNumber
+        : "";
+}
+
 function Input({
     isDisabled = false, prefix = constant(null), value = "", onInput = () => ({})
 }) {
+    const validValue = validateValue(value);
+
     return (
         <Wrapper as="label" isDisabled={isDisabled}>
             {prefix()}
-            {value}
+            {validValue}
             <InputController
                 type="number"
                 disabled={isDisabled}
-                value={value}
+                value={validValue}
                 onInput={onInput}
             />
         </Wrapper>);

@@ -25,6 +25,10 @@ describe("<Input />", () => {
         expect(renderer
             .create(<Input isDisabled={false} value="2020"/>)
             .toJSON()).toMatchSnapshot();
+
+        expect(renderer
+            .create(<Input isDisabled={false} value="0"/>)
+            .toJSON()).toMatchSnapshot();
     });
 
     describe("events", () => {

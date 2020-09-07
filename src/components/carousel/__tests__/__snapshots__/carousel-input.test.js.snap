@@ -52,13 +52,13 @@ exports[`<CarouselInput /> rendering is rendered correctly 1`] = `
 <label
   className="main-text__MainText-c4b6rt-0 c0"
 >
-  0
+  
   <input
     className="c1"
     disabled={false}
     onInput={[Function]}
     type="number"
-    value={0}
+    value=""
   />
 </label>
 `;
