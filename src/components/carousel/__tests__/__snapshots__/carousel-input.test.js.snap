@@ -115,7 +115,7 @@ exports[`<CarouselInput /> rendering is rendered correctly 2`] = `
 <label
   className="main-text__MainText-c4b6rt-0 c0"
 >
-  £
+  
   12
   <input
     className="c1"
