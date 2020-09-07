@@ -6,27 +6,9 @@ import map from "lodash/map.js";
 
 import store from "../../store/store.js";
 import currencies from "../../lib/consts/currencies/currencies.js";
-import MUTATE_STORE from "../../events/mutate-store.js";
-import {dispatch} from "../../lib/state-management/registry.js";
-import Input from "../input/input.js";
 
-// eslint-disable-next-line import/max-dependencies
+import CarouselInput from "./carousel-input.js";
 import Carousel from "./carousel.js";
-
-function Prefix({exchangeAmount, inputSign}) {
-    return exchangeAmount
-        ? inputSign
-        : null;
-}
-
-function inputFactory(exchangeAmount = 0, inputSign = "", isDisabled = false) {
-    return <Input
-        isDisabled={isDisabled}
-        prefix={constant(<Prefix exchangeAmount={exchangeAmount} inputSign={inputSign}/>)}
-        value={exchangeAmount}
-        onInput={(inputEvent) => dispatch(MUTATE_STORE, () => [["exchangeAmount"], inputEvent.target.value])}
-    />;
-}
 
 function walletBalance(currency) {
     const balanceNumber = get(store, `wallets[${currency}]`, "");
@@ -44,19 +26,22 @@ function createPockets(getSpecification = constant({inputSign: null, isDisabled:
     const targetCurrency = get(store, "targetCurrency", "");
     const wallets = get(store, "wallets", {});
 
+    const selectedCurrencySymbol = get(currencies, `[${selectedCurrency}].symbol`, "");
+    const targetCurrencySymbol = get(currencies, `[${targetCurrency}].symbol`, "");
+
     return map(wallets, (balance, currency) => ({
         currency,
-        input: inputFactory(exchangeAmount, inputSign, isDisabled),
-        balance: walletBalance(currency),
         // eslint-disable-next-line max-len
-        rate: getRate(targetRate, {selectedCurrencySymbol: currencies[selectedCurrency].symbol, targetCurrencySymbol: currencies[targetCurrency].symbol})
+        input: constant(<CarouselInput exchangeAmount={exchangeAmount} inputSign={inputSign} isDisabled={isDisabled} />),
+        balance: walletBalance(currency),
+        rate: getRate(targetRate, {selectedCurrencySymbol, targetCurrencySymbol})
     }));
 }
 
 function CarouselFactory({className, getSpecification}) {
-    return <Carousel className={className} pockets={createPockets(getSpecification)} />;
-}
+    const pockets = createPockets(getSpecification);
 
-export {inputFactory};
+    return <Carousel className={className} pockets={pockets} />;
+}
 
 export default observer(CarouselFactory);
