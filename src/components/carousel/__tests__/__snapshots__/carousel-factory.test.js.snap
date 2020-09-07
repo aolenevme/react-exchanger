@@ -443,13 +443,13 @@ exports[`<CarouselFactory /> is rendered correctly 2`] = `
           className="c5"
         >
           +
-          17.484
+          17.48
           <input
             className="c6"
             disabled={true}
             onInput={[Function]}
             type="number"
-            value={17.484}
+            value={17.48}
           />
         </label>
       </div>
@@ -483,13 +483,13 @@ exports[`<CarouselFactory /> is rendered correctly 2`] = `
           className="c5"
         >
           +
-          17.484
+          17.48
           <input
             className="c6"
             disabled={true}
             onInput={[Function]}
             type="number"
-            value={17.484}
+            value={17.48}
           />
         </label>
       </div>
@@ -523,13 +523,13 @@ exports[`<CarouselFactory /> is rendered correctly 2`] = `
           className="c5"
         >
           +
-          17.484
+          17.48
           <input
             className="c6"
             disabled={true}
             onInput={[Function]}
             type="number"
-            value={17.484}
+            value={17.48}
           />
         </label>
       </div>

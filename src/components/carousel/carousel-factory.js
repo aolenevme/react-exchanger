@@ -26,11 +26,18 @@ function createPockets(atp = false) {
 
 function calculateInputValue(atp) {
     const exchangeAmount = get(store, "exchangeAmount", "");
-    const targetRate = get(store, "rates.target", "");
 
     return atp
-        ? Number(exchangeAmount) * Number(targetRate)
+        ? getTargetInputValue(exchangeAmount)
         : exchangeAmount;
+}
+
+function getTargetInputValue(exchangeAmount) {
+    const targetRate = get(store, "rates.target", "");
+    const targetInputValue = Number(exchangeAmount) * Number(targetRate);
+    const PRECISION = 4;
+
+    return targetInputValue.toPrecision(PRECISION);
 }
 
 function getInputPrefix(atp) {

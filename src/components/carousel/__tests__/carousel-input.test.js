@@ -15,6 +15,10 @@ describe("<CarouselInput />", () => {
             expect(renderer
                 .create(<CarouselInput isDisabled inputSign="£" value={12} />).toJSON())
                 .toMatchSnapshot();
+
+            expect(renderer
+                .create(<CarouselInput isDisabled inputSign="£" value="0.00" />).toJSON())
+                .toMatchSnapshot();
         });
     });
 
@@ -24,7 +28,8 @@ describe("<CarouselInput />", () => {
 
             const testInputEvent = {target: {value: 123}};
 
-            renderer.create(<CarouselInput />).toJSON().children[1].props.onInput(testInputEvent);
+            // eslint-disable-next-line no-magic-numbers
+            renderer.create(<CarouselInput />).toJSON().children[2].props.onInput(testInputEvent);
 
             // eslint-disable-next-line prefer-destructuring
             const [dispatchId, mutationEvent] = registry.dispatch.mock.calls[0];
