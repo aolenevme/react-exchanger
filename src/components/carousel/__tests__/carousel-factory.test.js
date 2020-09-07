@@ -33,6 +33,8 @@ describe("<CarouselFactory />", () => {
 
             expect(dispatchId).toEqual(MUTATE_STORE);
             expect(mutationEvent()).toEqual([["exchangeAmount"], testInputEvent.target.value]);
+
+            registry.dispatch.mockClear();
         });
     });
 });
