@@ -87,7 +87,16 @@ function Carousel({
             <PocketsWrapper
                 ref={carouselElement}
                 onMouseUp={(mouseEvent) => setStartX(mouseEvent.clientX)}
-                onMouseDown={(mouseEvent) => setEndX(mouseEvent.clientX)}>
+                onMouseDown={(mouseEvent) => setEndX(mouseEvent.clientX)}
+                onTouchStart={(touchEvent) => {
+                    touchEvent.stopPropagation();
+                    setStartX(touchEvent.changedTouches[0].pageX);
+                }}
+                onTouchEnd={(touchEvent) => {
+                    touchEvent.stopPropagation();
+                    setEndX(touchEvent.changedTouches[0].pageX);
+                }}
+            >
                 <Pockets pockets={pockets}/>
             </PocketsWrapper>
             <DotsWrapper>
