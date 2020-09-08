@@ -160,10 +160,11 @@ exports[`<Carousel /> rendering is rendered correctly 1`] = `
           145.67
           <input
             className="c6"
-            defaultValue={145.67}
             disabled={false}
+            onChange={[Function]}
             onInput={[Function]}
             type="number"
+            value={145.67}
           />
         </label>
       </div>
@@ -200,10 +201,11 @@ exports[`<Carousel /> rendering is rendered correctly 1`] = `
           145.67
           <input
             className="c6"
-            defaultValue={145.67}
             disabled={false}
+            onChange={[Function]}
             onInput={[Function]}
             type="number"
+            value={145.67}
           />
         </label>
       </div>
@@ -240,10 +242,11 @@ exports[`<Carousel /> rendering is rendered correctly 1`] = `
           145.67
           <input
             className="c6"
-            defaultValue={145.67}
             disabled={false}
+            onChange={[Function]}
             onInput={[Function]}
             type="number"
+            value={145.67}
           />
         </label>
       </div>

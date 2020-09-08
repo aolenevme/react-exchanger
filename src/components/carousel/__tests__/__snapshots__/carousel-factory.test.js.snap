@@ -171,10 +171,11 @@ exports[`<CarouselFactory /> rendering is rendered correctly 1`] = `
           
           <input
             className="c6"
-            defaultValue=""
             disabled={false}
+            onChange={[Function]}
             onInput={[Function]}
             type="number"
+            value=""
           />
         </label>
       </div>
@@ -206,10 +207,11 @@ exports[`<CarouselFactory /> rendering is rendered correctly 1`] = `
           
           <input
             className="c6"
-            defaultValue=""
             disabled={false}
+            onChange={[Function]}
             onInput={[Function]}
             type="number"
+            value=""
           />
         </label>
       </div>
@@ -241,10 +243,11 @@ exports[`<CarouselFactory /> rendering is rendered correctly 1`] = `
           
           <input
             className="c6"
-            defaultValue=""
             disabled={false}
+            onChange={[Function]}
             onInput={[Function]}
             type="number"
+            value=""
           />
         </label>
       </div>
@@ -446,10 +449,11 @@ exports[`<CarouselFactory /> rendering is rendered correctly 2`] = `
           
           <input
             className="c6"
-            defaultValue=""
             disabled={true}
+            onChange={[Function]}
             onInput={[Function]}
             type="number"
+            value=""
           />
         </label>
       </div>
@@ -486,10 +490,11 @@ exports[`<CarouselFactory /> rendering is rendered correctly 2`] = `
           
           <input
             className="c6"
-            defaultValue=""
             disabled={true}
+            onChange={[Function]}
             onInput={[Function]}
             type="number"
+            value=""
           />
         </label>
       </div>
@@ -526,10 +531,11 @@ exports[`<CarouselFactory /> rendering is rendered correctly 2`] = `
           
           <input
             className="c6"
-            defaultValue=""
             disabled={true}
+            onChange={[Function]}
             onInput={[Function]}
             type="number"
+            value=""
           />
         </label>
       </div>
@@ -736,10 +742,11 @@ exports[`<CarouselFactory /> rendering is rendered correctly with mocked store 1
           
           <input
             className="c6"
-            defaultValue=""
             disabled={true}
+            onChange={[Function]}
             onInput={[Function]}
             type="number"
+            value=""
           />
         </label>
       </div>
@@ -776,10 +783,11 @@ exports[`<CarouselFactory /> rendering is rendered correctly with mocked store 1
           
           <input
             className="c6"
-            defaultValue=""
             disabled={true}
+            onChange={[Function]}
             onInput={[Function]}
             type="number"
+            value=""
           />
         </label>
       </div>
@@ -816,10 +824,11 @@ exports[`<CarouselFactory /> rendering is rendered correctly with mocked store 1
           
           <input
             className="c6"
-            defaultValue=""
             disabled={true}
+            onChange={[Function]}
             onInput={[Function]}
             type="number"
+            value=""
           />
         </label>
       </div>
@@ -1026,10 +1035,11 @@ exports[`<CarouselFactory /> rendering is rendered correctly with mocked store 2
           
           <input
             className="c6"
-            defaultValue=""
             disabled={false}
+            onChange={[Function]}
             onInput={[Function]}
             type="number"
+            value=""
           />
         </label>
       </div>
@@ -1061,10 +1071,11 @@ exports[`<CarouselFactory /> rendering is rendered correctly with mocked store 2
           
           <input
             className="c6"
-            defaultValue=""
             disabled={false}
+            onChange={[Function]}
             onInput={[Function]}
             type="number"
+            value=""
           />
         </label>
       </div>
@@ -1096,10 +1107,11 @@ exports[`<CarouselFactory /> rendering is rendered correctly with mocked store 2
           
           <input
             className="c6"
-            defaultValue=""
             disabled={false}
+            onChange={[Function]}
             onInput={[Function]}
             type="number"
+            value=""
           />
         </label>
       </div>

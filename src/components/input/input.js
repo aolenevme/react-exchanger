@@ -65,7 +65,7 @@ function validateValue(value) {
 }
 
 function Input({
-    isDisabled = false, prefix = constant(null), value = "", onInput = () => ({})
+    isDisabled = false, prefix = constant(null), value = "", onChange = () => ({}), onInput = () => ({})
 }) {
     const validValue = validateValue(value);
 
@@ -76,8 +76,9 @@ function Input({
             <InputController
                 type="number"
                 disabled={isDisabled}
-                defaultValue={validValue}
+                value={validValue}
                 onInput={onInput}
+                onChange={onChange}
             />
         </Wrapper>);
 }

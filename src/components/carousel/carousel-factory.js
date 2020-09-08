@@ -43,16 +43,11 @@ function createPockets(atp = false) {
 
 function calculateInputValue(atp) {
     const exchangeAmount = get(store, "exchangeAmount", "");
-
-    return atp
-        ? getTargetInputValue(exchangeAmount)
-        : exchangeAmount;
-}
-
-function getTargetInputValue(exchangeAmount) {
     const targetRate = get(store, "rates.target", "");
 
-    return exchangeStrategy(exchangeAmount, targetRate);
+    return atp
+        ? exchangeStrategy(exchangeAmount, targetRate)
+        : exchangeAmount;
 }
 
 function getInputPrefix(atp) {
