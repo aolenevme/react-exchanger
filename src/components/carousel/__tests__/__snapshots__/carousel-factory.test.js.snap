@@ -315,8 +315,8 @@ exports[`<CarouselFactory /> rendering is rendered correctly 2`] = `
 }
 
 .c5:focus-within {
-  -webkit-animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
-  animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
+  -webkit-animation: none;
+  animation: none;
 }
 
 .c6 {
@@ -600,8 +600,8 @@ exports[`<CarouselFactory /> rendering is rendered correctly with mocked store 1
 }
 
 .c5:focus-within {
-  -webkit-animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
-  animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
+  -webkit-animation: none;
+  animation: none;
 }
 
 .c6 {

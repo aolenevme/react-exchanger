@@ -27,7 +27,9 @@ const Wrapper = styled(MainText)`
                 : "pointer")};
 
     &:focus-within {
-      animation: caret-pulse 1.5s cubic-bezier(.215, .61, .355, 1) forwards infinite;
+      animation: ${({isDisabled}) => (isDisabled
+                    ? "none"
+                    : "caret-pulse 1.5s cubic-bezier(.215, .61, .355, 1) forwards infinite")};
     }
 
     @keyframes caret-pulse {
