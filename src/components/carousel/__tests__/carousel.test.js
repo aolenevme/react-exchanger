@@ -49,9 +49,18 @@ describe("<Carousel />", () => {
                 .mockReturnValueOnce([endX, jest.fn()]);
 
             renderer
-                .create(<Carousel activeCurrency={pockets[0].currency} pockets={pockets} />);
+                .create(<Carousel
+                    activeCurrency={pockets[0].currency}
+                    pockets={pockets} />);
 
-            expect(scrollToPocket.default).toHaveBeenCalled();
+            expect(scrollToPocket.default).toHaveBeenCalledWith(
+                expect.any(Function),
+                expect.any(Function),
+                {current: null},
+                []
+            );
+            scrollToPocket.default.mockClear();
+            React.useState.mockClear();
         });
     });
 });
