@@ -4,7 +4,7 @@ exports[`<Button /> is rendered correctly 1`] = `
 .c0 {
   border-color: transparent;
   background-color: transparent;
-  color: #f3f6ff;
+  color: #5591f7;
   -webkit-tap-highlight-color: transparent;
   font-size: 1rem;
   cursor: pointer;

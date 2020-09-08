@@ -1,4 +1,5 @@
 import React from "react";
+import {observer} from "mobx-react-lite";
 import styled from "styled-components";
 
 import colors from "../../lib/styles/colors/colors.js";
@@ -30,7 +31,7 @@ const Wrapper = styled.button`
 `;
 
 function defineColor(props) {
-    return props.isDisabled
+    return props.disabled
         ? colors.textPrimaryDark
         : colors.textPrimary;
 }
@@ -48,4 +49,4 @@ function Button({
         </Wrapper>);
 }
 
-export default Button;
+export default observer(Button);
