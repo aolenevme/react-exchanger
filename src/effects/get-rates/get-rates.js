@@ -48,16 +48,15 @@ function postEffect(store, rateEntry) {
     const selectedCurrency = get(store, "selectedCurrency", "");
     const [currency, rate] = rateEntry;
 
-    const next = currency === selectedCurrency
+    const rateType = currency === selectedCurrency
         ? "target"
         : "selected";
 
-    dispatch(MUTATE_STORE, () => [["rates", next], rate]);
+    dispatch(MUTATE_STORE, () => [["rates", rateType], rate]);
 }
 
 regEventFx(GET_RATES_FX, preEffect, effect, postEffect);
 
-// eslint-disable-next-line import/no-unused-modules
 export {preEffect, effect, postEffect};
 
 export default GET_RATES_FX;

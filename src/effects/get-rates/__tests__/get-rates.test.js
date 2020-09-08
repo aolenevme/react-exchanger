@@ -1,6 +1,9 @@
-import {preEffect, effect} from "../get-rates.js";
+import {preEffect, effect, postEffect} from "../get-rates.js";
 import currencies from "../../../lib/consts/currencies/currencies.js";
 import * as httpClient from "../../../services/http-client/http-client.js";
+import * as registry from "../../../lib/state-management/registry.js";
+import checkStoreMutations from "../../../lib/tests/check-store-mutations.js";
+import MUTATE_STORE from "../../../events/mutate-store.js";
 
 describe("Get rates effect", () => {
     it("preEffect is correct", () => {
@@ -42,31 +45,34 @@ describe("Get rates effect", () => {
         });
     });
 
-    // describe("postEffect", () => {
-    //     function checkMutateStore(
-    //         dispatchIdx,
-    //         goldenDispatchId,
-    //         goldenMutationEvent
-    //     ) {
-    //         const [dispatchId, mutationEvent] = registry.dispatch.mock.calls[
-    //             dispatchIdx
-    //             ];
-    //
-    //         expect(dispatchId).toEqual(goldenDispatchId);
-    //         mutationEvent && expect(mutationEvent()).toEqual(goldenMutationEvent);
-    //     }
-    //
-    //     it("set scenario after all", () => {
-    //         registry.dispatch = jest.fn();
-    //
-    //         const testScenario = scenarios.UC1;
-    //
-    //         postEffect({}, testScenario);
-    //
-    //         checkMutateStore(0, MUTATE_STORE, [["scenario"], testScenario]);
-    //         checkMutateStore(1, NAVIGATE);
-    //
-    //         registry.dispatch.mockClear();
-    //     });
-    // });
+    describe("postEffect", () => {
+        afterEach(() => {
+            registry.dispatch.mockClear();
+        });
+        it("correctly sets target rate", () => {
+            registry.dispatch = jest.fn();
+
+            const testStore = {selectedCurrency: currencies.USD.abbreviation};
+
+            // eslint-disable-next-line no-magic-numbers
+            const testEntry = [currencies.USD.abbreviation, 123];
+
+            postEffect(testStore, testEntry);
+
+            checkStoreMutations(0, MUTATE_STORE, [["rates", "target"], testEntry[1]]);
+        });
+
+        it("correctly sets selected rate", () => {
+            registry.dispatch = jest.fn();
+
+            const testStore = {selectedCurrency: currencies.EUR.abbreviation};
+
+            // eslint-disable-next-line no-magic-numbers
+            const testEntry = [currencies.USD.abbreviation, 123];
+
+            postEffect(testStore, testEntry);
+
+            checkStoreMutations(0, MUTATE_STORE, [["rates", "selected"], testEntry[1]]);
+        });
+    });
 });
