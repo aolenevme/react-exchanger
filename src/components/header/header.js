@@ -8,7 +8,7 @@ import RateSelector from "../rate-selector/rate-selector.js";
 import {dispatch} from "../../lib/state-management/registry.js";
 import MUTATE_STORE from "../../events/mutate-store.js";
 import store from "../../store/store.js";
-import exchangeStrategy
+import exchangeStrategy, {PRECISION}
     from "../../lib/helpers/exchange-strategy/exchange-strategy.js";
 
 const Wrapper = styled.div`
@@ -44,8 +44,8 @@ function exchangeBetweenPockets() {
     const oldSelectedBalance = get(store, `balances[${selectedCurrency}]`, "");
     const oldTargetBalance = get(store, `balances[${targetCurrency}]`, "");
 
-    const newSelectedBalance = (Number(oldSelectedBalance) - Number(exchangeAmount)).toFixed(2);
-    const newTargetBalance = (Number(oldTargetBalance) + Number(targetAmount)).toFixed(2);
+    const newSelectedBalance = (Number(oldSelectedBalance) - Number(exchangeAmount)).toFixed(PRECISION);
+    const newTargetBalance = (Number(oldTargetBalance) + Number(targetAmount)).toFixed(PRECISION);
 
     dispatch(MUTATE_STORE, () => [["balances", selectedCurrency], newSelectedBalance]);
     dispatch(MUTATE_STORE, () => [["balances", targetCurrency], newTargetBalance]);
