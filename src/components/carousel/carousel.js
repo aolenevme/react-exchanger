@@ -1,11 +1,15 @@
 import React, {
     useEffect, useRef, useState
 } from "react";
+import {observer} from "mobx-react-lite";
 import styled from "styled-components";
+import findIndex from "lodash/findIndex.js";
 import map from "lodash/map.js";
 
-import Pocket from "../pocket/pocket.js";
 import colors from "../../lib/styles/colors/colors.js";
+import Pocket from "../pocket/pocket.js";
+
+import scrollToPocket from "./scroll-to-pocket.js";
 
 const PocketsWrapper = styled.div`
     display: flex;
@@ -43,36 +47,39 @@ const Dot = styled.span`
     transition: background-color 0.1s ease 0s;
 `;
 
-function Pockets({pockets}) {
+function getActivePocketIdx(activeCurrency = "", pockets = []) {
+    return findIndex(pockets, ({currency}) => currency === activeCurrency);
+}
+
+function Pockets({pockets = []}) {
     return map(pockets, (pocket) => <FlexedPocket key={pocket.currency} {...pocket} />);
 }
 
-function Dots({currentPocketIdx = 0, pockets}) {
+function Dots({currentPocketIdx = 0, pockets = []}) {
     return map(pockets, (pocket, index) => <Dot key={pocket.currency} isActive={index === currentPocketIdx}/>);
 }
 
-function scrollToPocket(carouselElement, updateCurrentPocketIdx, getNextPocketIdx) {
-    const nextPocketIdx = getNextPocketIdx();
-
-    updateCurrentPocketIdx(nextPocketIdx);
-    // eslint-disable-next-line max-len
-    carouselElement.current.children[nextPocketIdx].scrollIntoView({block: "start", inline: "nearest", behavior: "smooth"});
-}
-
-function Carousel({className, pockets = []}) {
-    const [currentPocketIdx, updateCurrentPocketIdx] = useState(0);
+function Carousel({
+    className, activeCurrency = "", pockets = [], onScroll = () => ({})
+}) {
+    const currentPocketIdx = getActivePocketIdx(activeCurrency, pockets);
     const [startX, setStartX] = useState(0);
     const [endX, setEndX] = useState(0);
 
     const carouselElement = useRef(null);
 
     useEffect(() => {
+        scrollToPocket(() => currentPocketIdx, onScroll, carouselElement, pockets);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
         if (startX < endX && currentPocketIdx !== pockets.length - 1) {
-            scrollToPocket(carouselElement, updateCurrentPocketIdx, () => currentPocketIdx + 1);
+            scrollToPocket(() => currentPocketIdx + 1, onScroll, carouselElement, pockets);
         } else if (startX > endX && currentPocketIdx !== 0) {
-            scrollToPocket(carouselElement, updateCurrentPocketIdx, () => currentPocketIdx - 1);
+            scrollToPocket(() => currentPocketIdx - 1, onScroll, carouselElement, pockets);
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [startX]);
 
     return (
@@ -89,4 +96,4 @@ function Carousel({className, pockets = []}) {
         </div>);
 }
 
-export default Carousel;
+export default observer(Carousel);

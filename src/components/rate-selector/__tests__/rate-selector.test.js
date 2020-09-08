@@ -1,38 +1,36 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
+import * as store from "../../../store/store.js";
 import RateSelector from "../rate-selector.js";
+import currencies from "../../../lib/consts/currencies/currencies.js";
 
-describe("<Selector />", () => {
-    it("is rendered correctly", () => {
+describe("<RateSelector />", () => {
+    it("is rendered", () => {
+        store.default = {
+            ...store.default,
+            ...{
+                selectedCurrency: currencies.USD.abbreviation,
+                targetCurrency: currencies.EUR.abbreviation
+            }
+        };
+
         expect(renderer
-            .create(<RateSelector rate={1.457} currencySigns={{
-                fromCurrencySign: "£",
-                toCurrencySign: "$"
-            }}/>)
+            .create(<RateSelector />)
             .toJSON()).toMatchSnapshot();
     });
 
-    it("is not rendered when props are incorrect", () => {
-        expect(renderer
-            .create(<RateSelector rate="it-is-not-a-number" currencySigns={{
-                fromCurrencySign: "£",
-                toCurrencySign: "$"
-            }}/>).toJSON())
-            .toMatchSnapshot();
+    it("is not rendered when selected and target currencies are equal", () => {
+        store.default = {
+            ...store.default,
+            ...{
+                selectedCurrency: currencies.USD.abbreviation,
+                targetCurrency: currencies.USD.abbreviation
+            }
+        };
 
         expect(renderer
-            .create(<RateSelector rate={1.457} currencySigns={{
-                fromCurrencySign: {not: "char"},
-                toCurrencySign: "$"
-            }}/>).toJSON())
-            .toMatchSnapshot();
-
-        expect(renderer
-            .create(<RateSelector rate={1.457} currencySigns={{
-                fromCurrencySign: "£",
-                toCurrencySign: {not: "char"}
-            }}/>).toJSON())
-            .toMatchSnapshot();
+            .create(<RateSelector />)
+            .toJSON()).toMatchSnapshot();
     });
 });

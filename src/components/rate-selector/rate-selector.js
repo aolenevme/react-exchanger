@@ -1,10 +1,12 @@
 import React from "react";
+import {observer} from "mobx-react-lite";
 import styled from "styled-components";
-import isArray from "lodash/isArray.js";
-import isString from "lodash/isString.js";
+import get from "lodash/get.js";
 
 import colors from "../../lib/styles/colors/colors.js";
-import rateFormatter from "../../lib/helpers/rate-formatter/rate-formatter.js";
+import formatRate from "../../lib/helpers/format-rate/format-rate.js";
+import store from "../../store/store.js";
+import currencies from "../../lib/consts/currencies/currencies.js";
 
 const Wrapper = styled.div`
     display: flex;
@@ -42,41 +44,26 @@ const TextRate = styled.span`
     text-align: center;
 `;
 
-const LastTwoRateFractions = styled.span`
-    font-size: 0.8rem;
-`;
+function calculateRate() {
+    const targetRate = get(store, "rates.target", "");
+    const selectedCurrency = get(store, "selectedCurrency", "");
+    const targetCurrency = get(store, "targetCurrency", "");
+    const selectedCurrencySymbol = get(currencies, `[${selectedCurrency}].symbol`, "");
+    const targetCurrencySymbol = get(currencies, `[${targetCurrency}].symbol`, "");
 
-function isSignValid(sign) {
-    return isString(sign) && sign.length === 1;
+    return selectedCurrency === targetCurrency
+        ? ""
+        : formatRate(targetRate, {selectedCurrencySymbol, targetCurrencySymbol});
 }
 
-function shouldShow(formattedRate, {fromCurrencySign, toCurrencySign}) {
-    const isRateValid = isArray(formattedRate) && formattedRate.length;
+function RateSelector() {
+    const rate = calculateRate();
 
-    const isFromCurrencySignValid = isSignValid(fromCurrencySign);
-    const isToCurrencySignValid = isSignValid(toCurrencySign);
-
-    return isRateValid && isFromCurrencySignValid && isToCurrencySignValid;
-}
-
-// eslint-disable-next-line no-shadow
-function Text({formattedRate, currencySigns}) {
-    const [integer, firstTwoFractions, lastTwoFractions] = formattedRate;
-    const {fromCurrencySign, toCurrencySign} = currencySigns;
-
-    const mainText = `${fromCurrencySign}1 = ${toCurrencySign}${integer}.${firstTwoFractions}`;
-
-    return <TextRate>{mainText}<LastTwoRateFractions>{lastTwoFractions}</LastTwoRateFractions></TextRate>;
-}
-
-function RateSelector({rate, currencySigns}) {
-    const formattedRate = rateFormatter(rate);
-
-    return shouldShow(formattedRate, currencySigns) ? (
+    return rate ? (
         <Wrapper>
-            <Text formattedRate={formattedRate} currencySigns={currencySigns}/>
+            <TextRate>{rate}</TextRate>
         </Wrapper>
     ) : null;
 }
 
-export default RateSelector;
+export default observer(RateSelector);

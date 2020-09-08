@@ -83,17 +83,6 @@ exports[`<Carousel /> rendering is rendered correctly 1`] = `
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background-color: #f3f6ff;
-  -webkit-transition: background-color 0.1s ease 0s;
-  transition: background-color 0.1s ease 0s;
-}
-
-.c11 {
-  display: inline-block;
-  margin: 0 0.142rem;
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
   background-color: #5591f7;
   -webkit-transition: background-color 0.1s ease 0s;
   transition: background-color 0.1s ease 0s;
@@ -112,7 +101,7 @@ exports[`<Carousel /> rendering is rendered correctly 1`] = `
   -ms-flex-pack: end;
   justify-content: flex-end;
   padding: 0;
-  width: 100%;
+  min-width: 3rem;
   height: 3rem;
   border: 0 solid transparent;
   border-right: 1px solid transparent;
@@ -172,6 +161,7 @@ exports[`<Carousel /> rendering is rendered correctly 1`] = `
           <input
             className="c6"
             disabled={false}
+            onChange={[Function]}
             onInput={[Function]}
             type="number"
             value={145.67}
@@ -212,6 +202,7 @@ exports[`<Carousel /> rendering is rendered correctly 1`] = `
           <input
             className="c6"
             disabled={false}
+            onChange={[Function]}
             onInput={[Function]}
             type="number"
             value={145.67}
@@ -252,6 +243,7 @@ exports[`<Carousel /> rendering is rendered correctly 1`] = `
           <input
             className="c6"
             disabled={false}
+            onChange={[Function]}
             onInput={[Function]}
             type="number"
             value={145.67}
@@ -281,10 +273,10 @@ exports[`<Carousel /> rendering is rendered correctly 1`] = `
       className="c10"
     />
     <span
-      className="c11"
+      className="c10"
     />
     <span
-      className="c11"
+      className="c10"
     />
   </div>
 </div>

@@ -1,4 +1,4 @@
-import store from "../store.js";
+import store from "../../store/store.js";
 
 function updateIn(currentStore, payload) {
     const [path, value] = payload;

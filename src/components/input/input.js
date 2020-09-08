@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import constant from "lodash/constant.js";
+import isNumber from "lodash/isNumber.js";
 
 import MainText from "../main-text/main-text.js";
 import colors from "../../lib/styles/colors/colors.js";
@@ -11,7 +12,7 @@ const Wrapper = styled(MainText)`
 
     padding: 0;
 
-    width: 100%;
+    min-width: 3rem;
     height: 3rem;
 
     border: 0 solid transparent;
@@ -19,7 +20,9 @@ const Wrapper = styled(MainText)`
 
     background-color: transparent;
 
-    cursor: pointer;
+    cursor: ${({isDisabled}) => (isDisabled
+                ? "initial"
+                : "pointer")};
 
     &:focus-within {
       animation: caret-pulse 1.5s cubic-bezier(.215, .61, .355, 1) forwards infinite;
@@ -53,18 +56,29 @@ const InputController = styled.input`
     }
 `;
 
+function validateValue(value) {
+    const valueNumber = Number(value);
+
+    return value !== "" && isNumber(valueNumber) && valueNumber >= 0
+        ? valueNumber
+        : "";
+}
+
 function Input({
-    isDisabled = false, prefix = constant(null), value = "", onInput = () => ({})
+    isDisabled = false, prefix = constant(null), value = "", onChange = () => ({}), onInput = () => ({})
 }) {
+    const validValue = validateValue(value);
+
     return (
-        <Wrapper as="label">
+        <Wrapper as="label" isDisabled={isDisabled}>
             {prefix()}
-            {value}
+            {validValue}
             <InputController
                 type="number"
                 disabled={isDisabled}
-                value={value}
+                value={validValue}
                 onInput={onInput}
+                onChange={onChange}
             />
         </Wrapper>);
 }

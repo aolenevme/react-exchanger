@@ -2,68 +2,11 @@
 
 exports[`<App /> is rendered correctly 1`] = `
 <app__Wrapper>
-  <app__Header>
-    <Button>
-      Cancel
-    </Button>
-    <RateSelector
-      currencySigns={
-        Object {
-          "fromCurrencySign": "£",
-          "toCurrencySign": "$",
-        }
-      }
-      rate={1.457}
-    />
-    <Button>
-      Exchange
-    </Button>
-  </app__Header>
-  <Carousel
-    pockets={
-      Array [
-        Object {
-          "balance": "You have 58.33$",
-          "currency": "USD",
-          "input": [Function],
-        },
-        Object {
-          "balance": "You have 58.33$",
-          "currency": "EUR",
-          "input": [Function],
-        },
-        Object {
-          "balance": "You have 58.33$",
-          "currency": "GBP",
-          "input": [Function],
-        },
-      ]
-    }
-  />
+  <Memo(Header) />
+  <Memo(CarouselFactory) />
   <app__Triangle />
-  <app__BottomCarousel
-    pockets={
-      Array [
-        Object {
-          "balance": "You have 58.33$",
-          "currency": "USD",
-          "input": [Function],
-          "rate": "£1 = $145.67",
-        },
-        Object {
-          "balance": "You have 58.33$",
-          "currency": "EUR",
-          "input": [Function],
-          "rate": "£1 = $145.67",
-        },
-        Object {
-          "balance": "You have 58.33$",
-          "currency": "GBP",
-          "input": [Function],
-          "rate": "£1 = $145.67",
-        },
-      ]
-    }
+  <app__TargetCarouselFactory
+    areTargetPockets={true}
   />
 </app__Wrapper>
 `;
