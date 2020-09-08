@@ -7,9 +7,8 @@ import map from "lodash/map.js";
 import store from "../../store/store.js";
 import currencies from "../../lib/consts/currencies/currencies.js";
 import formatRate from "../../lib/helpers/format-rate/format-rate.js";
-import MUTATE_STORE from "../../events/mutate-store.js";
-import {dispatch} from "../../lib/state-management/registry.js";
 
+import onScroll from "./on-scroll.js";
 import CarouselInput from "./carousel-input.js";
 // eslint-disable-next-line import/max-dependencies
 import Carousel from "./carousel.js";
@@ -91,16 +90,6 @@ function calculateRate(atp) {
         : null;
 }
 
-function setActiveCurrency(newActiveCurrency, atp) {
-    dispatch(MUTATE_STORE, () => [definedStoreMutationPath(atp), newActiveCurrency]);
-}
-
-function definedStoreMutationPath(atp) {
-    return atp
-        ? ["targetCurrency"]
-        : ["selectedCurrency"];
-}
-
 function CarouselFactory({className, areTargetPockets = false}) {
     const activeCurrency = getActiveCurrency(areTargetPockets);
     const pockets = createPockets(areTargetPockets);
@@ -109,7 +98,7 @@ function CarouselFactory({className, areTargetPockets = false}) {
         className={className}
         activeCurrency={activeCurrency}
         pockets={pockets}
-        setActiveCurrency={(newActiveCurrency) => setActiveCurrency(newActiveCurrency, areTargetPockets)}/>;
+        setActiveCurrency={(newActiveCurrency) => onScroll(newActiveCurrency, areTargetPockets)}/>;
 }
 
 export default observer(CarouselFactory);
