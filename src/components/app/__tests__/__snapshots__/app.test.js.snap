@@ -2,15 +2,7 @@
 
 exports[`<App /> is rendered correctly 1`] = `
 <app__Wrapper>
-  <app__Header>
-    <Button>
-      Cancel
-    </Button>
-    <Memo(RateSelector) />
-    <Button>
-      Exchange
-    </Button>
-  </app__Header>
+  <Memo(Header) />
   <Memo(CarouselFactory) />
   <app__Triangle />
   <app__TargetCarouselFactory

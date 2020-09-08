@@ -1,10 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import CarouselFactory from "../carousel/carousel-factory.js";
-import Button from "../button/button.js";
-import RateSelector from "../rate-selector/rate-selector.js";
 import colors from "../../lib/styles/colors/colors.js";
+import CarouselFactory from "../carousel/carousel-factory.js";
+import Header from "../header/header.js";
 
 const Wrapper = styled.div`
     display: flex;
@@ -19,16 +18,6 @@ const Wrapper = styled.div`
     border-radius: 8px;
 
     background-color: ${colors.primary};
-`;
-
-const Header = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
-    padding: 0 1rem;
-
-    height: 2rem;
 `;
 
 const Triangle = styled.div`
@@ -53,11 +42,7 @@ const TargetCarouselFactory = styled(CarouselFactory)`
 
 function App() {
     return <Wrapper>
-        <Header>
-            <Button>Cancel</Button>
-            <RateSelector />
-            <Button>Exchange</Button>
-        </Header>
+        <Header />
         <CarouselFactory />
         <Triangle />
         <TargetCarouselFactory areTargetPockets />
