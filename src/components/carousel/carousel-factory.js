@@ -91,14 +91,14 @@ function calculateRate(atp) {
         : null;
 }
 
+function setActiveCurrency(newActiveCurrency, atp) {
+    dispatch(MUTATE_STORE, () => [definedStoreMutationPath(atp), newActiveCurrency]);
+}
+
 function definedStoreMutationPath(atp) {
     return atp
         ? ["targetCurrency"]
         : ["selectedCurrency"];
-}
-
-function setActiveCurrency(newActiveCurrency, atp) {
-    dispatch(MUTATE_STORE, () => [definedStoreMutationPath(atp), newActiveCurrency]);
 }
 
 function CarouselFactory({className, areTargetPockets = false}) {

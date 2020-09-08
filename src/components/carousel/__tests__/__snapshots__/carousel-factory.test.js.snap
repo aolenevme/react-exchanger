@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CarouselFactory /> is rendered correctly 1`] = `
+exports[`<CarouselFactory /> rendering is rendered correctly 1`] = `
 .c4 {
   font-size: 3rem;
   line-height: 3rem;
@@ -275,7 +275,7 @@ exports[`<CarouselFactory /> is rendered correctly 1`] = `
 </div>
 `;
 
-exports[`<CarouselFactory /> is rendered correctly 2`] = `
+exports[`<CarouselFactory /> rendering is rendered correctly 2`] = `
 .c4 {
   font-size: 3rem;
   line-height: 3rem;
@@ -565,7 +565,7 @@ exports[`<CarouselFactory /> is rendered correctly 2`] = `
 </div>
 `;
 
-exports[`<CarouselFactory /> is rendered correctly with mocked store 1`] = `
+exports[`<CarouselFactory /> rendering is rendered correctly with mocked store 1`] = `
 .c4 {
   font-size: 3rem;
   line-height: 3rem;
@@ -855,7 +855,7 @@ exports[`<CarouselFactory /> is rendered correctly with mocked store 1`] = `
 </div>
 `;
 
-exports[`<CarouselFactory /> is rendered correctly with mocked store 2`] = `
+exports[`<CarouselFactory /> rendering is rendered correctly with mocked store 2`] = `
 .c4 {
   font-size: 3rem;
   line-height: 3rem;
