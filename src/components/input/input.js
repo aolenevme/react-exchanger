@@ -70,11 +70,12 @@ function Input({
     const validValue = validateValue(value);
 
     return (
-        <Wrapper as="label" isDisabled={isDisabled}>
+        <Wrapper as="label" tabIndex="-1" isDisabled={isDisabled}>
             {prefix()}
             {validValue}
             <InputController
                 type="number"
+                tabIndex="-1"
                 disabled={isDisabled}
                 value={validValue}
                 onInput={onInput}

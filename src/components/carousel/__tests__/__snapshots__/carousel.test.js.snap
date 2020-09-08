@@ -155,6 +155,7 @@ exports[`<Carousel /> rendering is rendered correctly 1`] = `
         </span>
         <label
           className="c5"
+          tabIndex="-1"
         >
           -
           145.67
@@ -163,6 +164,7 @@ exports[`<Carousel /> rendering is rendered correctly 1`] = `
             disabled={false}
             onChange={[Function]}
             onInput={[Function]}
+            tabIndex="-1"
             type="number"
             value={145.67}
           />
@@ -196,6 +198,7 @@ exports[`<Carousel /> rendering is rendered correctly 1`] = `
         </span>
         <label
           className="c5"
+          tabIndex="-1"
         >
           -
           145.67
@@ -204,6 +207,7 @@ exports[`<Carousel /> rendering is rendered correctly 1`] = `
             disabled={false}
             onChange={[Function]}
             onInput={[Function]}
+            tabIndex="-1"
             type="number"
             value={145.67}
           />
@@ -237,6 +241,7 @@ exports[`<Carousel /> rendering is rendered correctly 1`] = `
         </span>
         <label
           className="c5"
+          tabIndex="-1"
         >
           -
           145.67
@@ -245,6 +250,7 @@ exports[`<Carousel /> rendering is rendered correctly 1`] = `
             disabled={false}
             onChange={[Function]}
             onInput={[Function]}
+            tabIndex="-1"
             type="number"
             value={145.67}
           />
