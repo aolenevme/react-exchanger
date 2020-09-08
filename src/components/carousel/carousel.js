@@ -47,13 +47,13 @@ const Dot = styled.span`
 `;
 
 // eslint-disable-next-line max-params
-function scrollToPocket(carouselElement, onScroll, getNextPocketIdx, pockets) {
+function scrollToPocket(getNextPocketIdx, setActiveCurrency, carouselElement, pockets) {
     try {
         const nextPocketIdx = getNextPocketIdx();
         const newActiveCurrency = get(pockets, `[${nextPocketIdx}].currency`, "");
         const pocketElement = get(carouselElement, `current.children[${nextPocketIdx}]`, () => ({}));
 
-        onScroll(newActiveCurrency);
+        setActiveCurrency(newActiveCurrency);
         pocketElement.scrollIntoView({block: "start", inline: "nearest", behavior: "smooth"});
     } catch (error) {
         // eslint-disable-next-line no-console
@@ -74,7 +74,7 @@ function Dots({currentPocketIdx = 0, pockets = []}) {
 }
 
 function Carousel({
-    className, activeCurrency = "", pockets = [], onScroll = () => ({})
+    className, activeCurrency = "", pockets = [], setActiveCurrency = () => ({})
 }) {
     const currentPocketIdx = getActivePocketIdx(activeCurrency, pockets);
     const [startX, setStartX] = useState(0);
@@ -83,15 +83,15 @@ function Carousel({
     const carouselElement = useRef(null);
 
     useEffect(() => {
-        scrollToPocket(carouselElement, onScroll, () => currentPocketIdx, pockets);
+        scrollToPocket(carouselElement, setActiveCurrency, () => currentPocketIdx, pockets);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
         if (startX < endX && currentPocketIdx !== pockets.length - 1) {
-            scrollToPocket(carouselElement, onScroll, () => currentPocketIdx + 1, pockets);
+            scrollToPocket(() => currentPocketIdx + 1, setActiveCurrency, carouselElement, pockets);
         } else if (startX > endX && currentPocketIdx !== 0) {
-            scrollToPocket(carouselElement, onScroll, () => currentPocketIdx - 1, pockets);
+            scrollToPocket(() => currentPocketIdx - 1, setActiveCurrency, carouselElement, pockets);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [startX]);

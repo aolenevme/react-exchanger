@@ -85,7 +85,7 @@ function definedStoreMutationPath(atp) {
         : ["selectedCurrency"];
 }
 
-function onScroll(newActiveCurrency, atp) {
+function setActiveCurrency(newActiveCurrency, atp) {
     dispatch(MUTATE_STORE, () => [definedStoreMutationPath(atp), newActiveCurrency]);
 }
 
@@ -97,7 +97,7 @@ function CarouselFactory({className, areTargetPockets = false}) {
         className={className}
         activeCurrency={activeCurrency}
         pockets={pockets}
-        onScroll={(newActiveCurrency) => onScroll(newActiveCurrency, areTargetPockets)}/>;
+        setActiveCurrency={(newActiveCurrency) => setActiveCurrency(newActiveCurrency, areTargetPockets)}/>;
 }
 
 export default observer(CarouselFactory);
