@@ -76,7 +76,7 @@ function Input({
             <InputController
                 type="number"
                 disabled={isDisabled}
-                value={validValue}
+                defaultValue={validValue}
                 onInput={onInput}
             />
         </Wrapper>);

@@ -56,10 +56,10 @@ exports[`<Input /> is rendered correctly 1`] = `
   2020
   <input
     className="c1"
+    defaultValue={2020}
     disabled={false}
     onInput={[Function]}
     type="number"
-    value={2020}
   />
 </label>
 `;
@@ -119,10 +119,10 @@ exports[`<Input /> is rendered correctly 2`] = `
   
   <input
     className="c1"
+    defaultValue=""
     disabled={true}
     onInput={[Function]}
     type="number"
-    value=""
   />
 </label>
 `;
@@ -182,10 +182,10 @@ exports[`<Input /> is rendered correctly 3`] = `
   
   <input
     className="c1"
+    defaultValue=""
     disabled={false}
     onInput={[Function]}
     type="number"
-    value=""
   />
 </label>
 `;
@@ -245,10 +245,10 @@ exports[`<Input /> is rendered correctly 4`] = `
   2020
   <input
     className="c1"
+    defaultValue={2020}
     disabled={true}
     onInput={[Function]}
     type="number"
-    value={2020}
   />
 </label>
 `;
@@ -308,10 +308,10 @@ exports[`<Input /> is rendered correctly 5`] = `
   2020
   <input
     className="c1"
+    defaultValue={2020}
     disabled={false}
     onInput={[Function]}
     type="number"
-    value={2020}
   />
 </label>
 `;
@@ -371,10 +371,10 @@ exports[`<Input /> is rendered correctly 6`] = `
   0
   <input
     className="c1"
+    defaultValue={0}
     disabled={false}
     onInput={[Function]}
     type="number"
-    value={0}
   />
 </label>
 `;

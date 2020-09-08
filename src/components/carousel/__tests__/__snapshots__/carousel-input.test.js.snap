@@ -56,10 +56,10 @@ exports[`<CarouselInput /> rendering is rendered correctly 1`] = `
   0
   <input
     className="c1"
+    defaultValue={0}
     disabled={false}
     onInput={[Function]}
     type="number"
-    value={0}
   />
 </label>
 `;
@@ -120,10 +120,10 @@ exports[`<CarouselInput /> rendering is rendered correctly 2`] = `
   12
   <input
     className="c1"
+    defaultValue={12}
     disabled={true}
     onInput={[Function]}
     type="number"
-    value={12}
   />
 </label>
 `;
@@ -184,10 +184,10 @@ exports[`<CarouselInput /> rendering is rendered correctly 3`] = `
   0
   <input
     className="c1"
+    defaultValue={0}
     disabled={true}
     onInput={[Function]}
     type="number"
-    value={0}
   />
 </label>
 `;
