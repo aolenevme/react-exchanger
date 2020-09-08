@@ -85,7 +85,7 @@ function calculateRate(atp) {
     const selectedCurrencySymbol = get(currencies, `[${selectedCurrency}].symbol`, "");
     const targetCurrencySymbol = get(currencies, `[${targetCurrency}].symbol`, "");
 
-    return atp
+    return atp && selectedCurrency !== targetCurrency
         ? formatRate(targetRate, {selectedCurrencySymbol, targetCurrencySymbol})
         : null;
 }

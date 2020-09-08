@@ -25,6 +25,7 @@ describe("<CarouselFactory />", () => {
                     targetCurrency: currencies.USD.abbreviation
                 }
             };
+
             expect(renderer
                 .create(<CarouselFactory areTargetPockets/>).toJSON())
                 .toMatchSnapshot();
