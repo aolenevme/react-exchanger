@@ -23,7 +23,7 @@ function defineEventPayload(balance, inputEvent, value) {
             return [["exchangeAmount"], newValue];
         }
     } else {
-        if ((/^\d+\.\d{2}$/u).test(value) && newValue === "") {
+        if ((/^\d+\.\d{1,2}$/u).test(value) && newValue === "") {
             // eslint-disable-next-line fp/no-mutation,no-param-reassign
             inputEvent.target.value = "";
         }
