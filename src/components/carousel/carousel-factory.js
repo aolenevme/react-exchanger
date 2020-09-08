@@ -50,7 +50,7 @@ function calculateInputValue(atp) {
 function getTargetInputValue(exchangeAmount) {
     const targetRate = get(store, "rates.target", "");
     const targetInputValue = Number(exchangeAmount) * Number(targetRate);
-    const PRECISION = 4;
+    const PRECISION = 3;
 
     return exchangeAmount === ""
         ? exchangeAmount
