@@ -45,13 +45,28 @@ const TargetCarouselFactory = styled(CarouselFactory)`
     background-color: ${colors.primaryDark};
 `;
 
+async function getRates(selectedCurrency, targetCurrency) {
+    if (selectedCurrency !== targetCurrency) {
+        await dispatchFx(GET_RATES_FX, {base: selectedCurrency, symbol: targetCurrency});
+        await dispatchFx(GET_RATES_FX, {base: targetCurrency, symbol: selectedCurrency});
+    }
+}
+
 function App() {
     const selectedCurrency = get(store, "selectedCurrency", "");
     const targetCurrency = get(store, "targetCurrency", "");
 
     useEffect(() => {
-        dispatchFx(GET_RATES_FX, {base: selectedCurrency, symbol: targetCurrency});
-        dispatchFx(GET_RATES_FX, {base: targetCurrency, symbol: selectedCurrency});
+        getRates(selectedCurrency, targetCurrency);
+    }, [selectedCurrency, targetCurrency]);
+
+    useEffect(() => {
+        const TIMEOUT_MS = 10000;
+        const timerId = setInterval(async () => {
+            await getRates(selectedCurrency, targetCurrency);
+        }, TIMEOUT_MS);
+
+        return () => clearInterval(timerId);
     }, [selectedCurrency, targetCurrency]);
 
     return <Wrapper>
