@@ -2,15 +2,45 @@ import onScroll from "../on-scroll.js";
 import * as registry from "../../../lib/state-management/registry.js";
 import MUTATE_STORE from "../../../events/mutate-store.js";
 
+function checkMutations(dispatchIdx, goldenDispatchId, goldenMutationEvent) {
+    const [dispatchId, mutationEvent] = registry.dispatch.mock.calls[dispatchIdx];
+
+    expect(dispatchId).toEqual(goldenDispatchId);
+    expect(mutationEvent()).toEqual(goldenMutationEvent);
+}
+
 describe("onScroll", () => {
-    it("always resets typed value", () => {
+    beforeEach(() => {
         registry.dispatch = jest.fn();
+    });
+
+    afterEach(() => {
+        registry.dispatch.mockClear();
+    });
+
+    it("always resets typed value", () => {
         onScroll();
 
-        // eslint-disable-next-line prefer-destructuring
-        const [dispatchId, mutationEvent] = registry.dispatch.mock.calls[1];
+        checkMutations(1, MUTATE_STORE, [["exchangeAmount"], ""]);
+    });
 
-        expect(dispatchId).toEqual(MUTATE_STORE);
-        expect(mutationEvent()).toEqual([["exchangeAmount"], ""]);
+    describe("active currency mutations", () => {
+        it("updates targetCurrency", () => {
+            const areTargetPockets = true;
+            const newActiveCurrency = "USD";
+
+            onScroll(areTargetPockets, newActiveCurrency);
+
+            checkMutations(0, MUTATE_STORE, [["targetCurrency"], newActiveCurrency]);
+        });
+
+        it("updates selectedCurrency", () => {
+            const areTargetPockets = false;
+            const newActiveCurrency = "USD";
+
+            onScroll(areTargetPockets, newActiveCurrency);
+
+            checkMutations(0, MUTATE_STORE, [["selectedCurrency"], newActiveCurrency]);
+        });
     });
 });
