@@ -12,9 +12,15 @@ function defineEventPayload(inputEvent, value) {
     if (newValue === "") {
         // eslint-disable-next-line fp/no-mutation,no-param-reassign
         inputEvent.target.value = value;
+
+        return [["exchangeAmount"], newValue];
     }
 
-    return [["exchangeAmount"], newValue];
+    if ((/^\d+\.\d{0,2}$/u).test(newValue) || (/^\d+$/u).test(newValue)) {
+        return [["exchangeAmount"], newValue];
+    }
+
+    return [["exchangeAmount"], value];
 }
 
 function Prefix({exchangeAmount, prefixSymbol}) {

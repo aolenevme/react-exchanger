@@ -51,5 +51,15 @@ describe("<CarouselInput />", () => {
             checkStoreMutations(0, MUTATE_STORE, [["exchangeAmount"], ""]);
             expect(testInputEvent.target.value).toEqual(prevInputValue);
         });
+
+        it("doesn`t allow to use floats with more than 2 digits after the dot", () => {
+            const prevInputValue = 123.12;
+            const testInputEvent = {target: {value: 123.123}};
+
+            // eslint-disable-next-line no-magic-numbers,max-len
+            renderer.create(<CarouselInput value={prevInputValue} />).toJSON().children[2].props.onInput(testInputEvent);
+
+            checkStoreMutations(0, MUTATE_STORE, [["exchangeAmount"], prevInputValue]);
+        });
     });
 });
