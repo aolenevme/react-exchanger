@@ -6,6 +6,7 @@ import Input from "../input/input.js";
 import {dispatch} from "../../lib/state-management/registry.js";
 import MUTATE_STORE from "../../events/mutate-store.js";
 
+// eslint-disable-next-line sonarjs/cognitive-complexity,max-statements
 function defineEventPayload(balance, inputEvent, value) {
     const newValue = inputEvent.target.value;
 
@@ -25,7 +26,12 @@ function defineEventPayload(balance, inputEvent, value) {
         inputEvent.target.value = "";
     }
 
-    return [["exchangeAmount"], newValue];
+    // eslint-disable-next-line prefer-named-capture-group,security/detect-unsafe-regex,unicorn/no-unsafe-regex
+    if ((/^\d+(\.\d{0,2})?$/u).test(newValue) && Number(newValue) <= Number(balance)) {
+        return [["exchangeAmount"], newValue];
+    }
+
+    return [["exchangeAmount"], value];
 }
 
 function Prefix({exchangeAmount, prefixSymbol}) {
