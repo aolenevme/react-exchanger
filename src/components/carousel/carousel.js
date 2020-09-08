@@ -4,11 +4,12 @@ import React, {
 import {observer} from "mobx-react-lite";
 import styled from "styled-components";
 import findIndex from "lodash/findIndex.js";
-import get from "lodash/get.js";
 import map from "lodash/map.js";
 
-import Pocket from "../pocket/pocket.js";
 import colors from "../../lib/styles/colors/colors.js";
+import Pocket from "../pocket/pocket.js";
+
+import scrollToPocket from "./scroll-to-pocket.js";
 
 const PocketsWrapper = styled.div`
     display: flex;
@@ -46,21 +47,6 @@ const Dot = styled.span`
     transition: background-color 0.1s ease 0s;
 `;
 
-// eslint-disable-next-line max-params
-function scrollToPocket(getNextPocketIdx, setActiveCurrency, carouselElement, pockets) {
-    try {
-        const nextPocketIdx = getNextPocketIdx();
-        const newActiveCurrency = get(pockets, `[${nextPocketIdx}].currency`, "");
-        const pocketElement = get(carouselElement, `current.children[${nextPocketIdx}]`, () => ({}));
-
-        setActiveCurrency(newActiveCurrency);
-        pocketElement.scrollIntoView({block: "start", inline: "nearest", behavior: "smooth"});
-    } catch (error) {
-        // eslint-disable-next-line no-console
-        console.log(error);
-    }
-}
-
 function getActivePocketIdx(activeCurrency = "", pockets = []) {
     return findIndex(pockets, ({currency}) => currency === activeCurrency);
 }
@@ -83,7 +69,7 @@ function Carousel({
     const carouselElement = useRef(null);
 
     useEffect(() => {
-        scrollToPocket(carouselElement, setActiveCurrency, () => currentPocketIdx, pockets);
+        scrollToPocket(() => currentPocketIdx, setActiveCurrency, carouselElement, pockets);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
