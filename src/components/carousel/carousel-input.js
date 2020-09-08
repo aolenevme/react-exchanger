@@ -9,18 +9,23 @@ import MUTATE_STORE from "../../events/mutate-store.js";
 function defineEventPayload(balance, inputEvent, value) {
     const newValue = inputEvent.target.value;
 
-    if (newValue === "") {
+    if (!window.chrome) {
+        if (newValue === "") {
         // eslint-disable-next-line fp/no-mutation,no-param-reassign
-        inputEvent.target.value = value;
+            inputEvent.target.value = value;
 
-        return [["exchangeAmount"], newValue];
+            return [["exchangeAmount"], newValue];
+        }
+
+        if (((/^\d+\.\d{0,2}$/u).test(newValue) || (/^\d+$/u).test(newValue)) && Number(newValue) <= Number(balance)) {
+            return [["exchangeAmount"], newValue];
+        }
+    } else if (newValue === "" && (/^\d+\.\d{0,2}$/u).test(value)) {
+        // eslint-disable-next-line fp/no-mutation,no-param-reassign
+        inputEvent.target.value = "";
     }
 
-    if (((/^\d+\.\d{0,2}$/u).test(newValue) || (/^\d+$/u).test(newValue)) && Number(newValue) <= Number(balance)) {
-        return [["exchangeAmount"], newValue];
-    }
-
-    return [["exchangeAmount"], value];
+    return [["exchangeAmount"], newValue];
 }
 
 function Prefix({exchangeAmount, prefixSymbol}) {
