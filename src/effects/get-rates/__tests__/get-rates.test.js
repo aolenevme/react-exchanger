@@ -1,5 +1,6 @@
-import {preEffect} from "../get-rates.js";
+import {preEffect, effect} from "../get-rates.js";
 import currencies from "../../../lib/consts/currencies/currencies.js";
+import * as httpClient from "../../../services/http-client/http-client.js";
 
 describe("Get rates effect", () => {
     it("preEffect is correct", () => {
@@ -21,52 +22,25 @@ describe("Get rates effect", () => {
         });
     });
 
-    // describe("effect", () => {
-    //     beforeEach(() => {
-    //         global.fetch = jest.fn;
-    //     });
-    //
-    //     afterEach(() => {
-    //         httpClient.default.mockClear();
-    //     });
-    //
-    //     const mockEffectPayload = {
-    //         url: "/clients/is-exist-by-login",
-    //         options: {},
-    //     };
-    //
-    //     const bodyByScenario = {
-    //         [scenarios.UC3]: {
-    //             isExist: true,
-    //         },
-    //
-    //         [scenarios.UC1]: {},
-    //     };
-    //
-    //     forEach(bodyByScenario, (body, scenario) => {
-    //         it(`handles 200 status code flow correctly for ${scenario}`, async () => {
-    //             httpClient.default = jest.fn(() => ({
-    //                 status: 200,
-    //                 json: () => body,
-    //             }));
-    //
-    //             const fetchResponse = effect(mockEffectPayload);
-    //
-    //             await expect(fetchResponse).resolves.toEqual(scenario);
-    //         });
-    //     });
-    //
-    //     it("handles default flow correctly", async () => {
-    //         httpClient.default = jest.fn(() => ({
-    //             status: 400,
-    //             json: () => ({}),
-    //         }));
-    //
-    //         const fetchResponse = effect(mockEffectPayload);
-    //
-    //         await expect(fetchResponse).resolves.toEqual(scenarios.UC3);
-    //     });
-    // });
+    describe("effect", () => {
+        afterEach(() => {
+            httpClient.default.mockClear();
+        });
+
+        it("returns empty array if something went wrong", async () => {
+            httpClient.default = jest.fn(() => ({status: 400}));
+
+            await expect(effect({})).resolves.toEqual([]);
+        });
+
+        it("returns rate entry if everything is OK", async () => {
+            const testResponse = {status: 200, data: {rates: {USD: 1.134}}};
+
+            httpClient.default = jest.fn(() => (testResponse));
+
+            await expect(effect({})).resolves.toEqual(["USD", testResponse.data.rates.USD]);
+        });
+    });
 
     // describe("postEffect", () => {
     //     function checkMutateStore(
