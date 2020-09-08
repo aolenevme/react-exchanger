@@ -1,13 +1,7 @@
 import onScroll from "../on-scroll.js";
 import * as registry from "../../../lib/state-management/registry.js";
 import MUTATE_STORE from "../../../events/mutate-store.js";
-
-function checkMutations(dispatchIdx, goldenDispatchId, goldenMutationEvent) {
-    const [dispatchId, mutationEvent] = registry.dispatch.mock.calls[dispatchIdx];
-
-    expect(dispatchId).toEqual(goldenDispatchId);
-    expect(mutationEvent()).toEqual(goldenMutationEvent);
-}
+import checkStoreMutations from "../../../lib/tests/check-store-mutations.js";
 
 describe("onScroll", () => {
     beforeEach(() => {
@@ -21,7 +15,7 @@ describe("onScroll", () => {
     it("always resets typed value", () => {
         onScroll();
 
-        checkMutations(1, MUTATE_STORE, [["exchangeAmount"], ""]);
+        checkStoreMutations(1, MUTATE_STORE, [["exchangeAmount"], ""]);
     });
 
     describe("active currency mutations", () => {
@@ -31,7 +25,7 @@ describe("onScroll", () => {
 
             onScroll(areTargetPockets, newActiveCurrency);
 
-            checkMutations(0, MUTATE_STORE, [["targetCurrency"], newActiveCurrency]);
+            checkStoreMutations(0, MUTATE_STORE, [["targetCurrency"], newActiveCurrency]);
         });
 
         it("updates selectedCurrency", () => {
@@ -40,7 +34,7 @@ describe("onScroll", () => {
 
             onScroll(areTargetPockets, newActiveCurrency);
 
-            checkMutations(0, MUTATE_STORE, [["selectedCurrency"], newActiveCurrency]);
+            checkStoreMutations(0, MUTATE_STORE, [["selectedCurrency"], newActiveCurrency]);
         });
     });
 });

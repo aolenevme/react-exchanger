@@ -4,6 +4,7 @@ import renderer from "react-test-renderer";
 import * as registry from "../../../lib/state-management/registry.js";
 import MUTATE_STORE from "../../../events/mutate-store.js";
 import CarouselInput from "../carousel-input.js";
+import checkStoreMutations from "../../../lib/tests/check-store-mutations.js";
 
 describe("<CarouselInput />", () => {
     describe("rendering", () => {
@@ -37,11 +38,7 @@ describe("<CarouselInput />", () => {
             // eslint-disable-next-line no-magic-numbers
             renderer.create(<CarouselInput />).toJSON().children[2].props.onInput(testInputEvent);
 
-            // eslint-disable-next-line prefer-destructuring
-            const [dispatchId, mutationEvent] = registry.dispatch.mock.calls[0];
-
-            expect(dispatchId).toEqual(MUTATE_STORE);
-            expect(mutationEvent()).toEqual([["exchangeAmount"], testInputEvent.target.value]);
+            checkStoreMutations(0, MUTATE_STORE, [["exchangeAmount"], testInputEvent.target.value]);
         });
 
         it("updates the html input element with a previous input value and resets store in an emergency case", () => {
@@ -51,11 +48,7 @@ describe("<CarouselInput />", () => {
             // eslint-disable-next-line no-magic-numbers,max-len
             renderer.create(<CarouselInput value={prevInputValue} />).toJSON().children[2].props.onInput(testInputEvent);
 
-            // eslint-disable-next-line prefer-destructuring
-            const [dispatchId, mutationEvent] = registry.dispatch.mock.calls[0];
-
-            expect(dispatchId).toEqual(MUTATE_STORE);
-            expect(mutationEvent()).toEqual([["exchangeAmount"], ""]);
+            checkStoreMutations(0, MUTATE_STORE, [["exchangeAmount"], ""]);
             expect(testInputEvent.target.value).toEqual(prevInputValue);
         });
     });

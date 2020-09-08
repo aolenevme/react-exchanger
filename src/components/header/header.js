@@ -4,6 +4,8 @@ import styled from "styled-components";
 
 import Button from "../button/button.js";
 import RateSelector from "../rate-selector/rate-selector.js";
+import {dispatch} from "../../lib/state-management/registry.js";
+import MUTATE_STORE from "../../events/mutate-store.js";
 
 const Wrapper = styled.div`
     display: flex;
@@ -17,7 +19,7 @@ const Wrapper = styled.div`
 
 function Header() {
     return <Wrapper>
-        <Button>Cancel</Button>
+        <Button onClick={() => dispatch(MUTATE_STORE, () => [["exchangeAmount"], ""])}>Cancel</Button>
         <RateSelector />
         <Button>Exchange</Button>
     </Wrapper>;
