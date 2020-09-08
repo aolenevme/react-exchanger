@@ -48,12 +48,17 @@ const Dot = styled.span`
 
 // eslint-disable-next-line max-params
 function scrollToPocket(carouselElement, onScroll, getNextPocketIdx, pockets) {
-    const nextPocketIdx = getNextPocketIdx();
-    const newActiveCurrency = get(pockets, `[${nextPocketIdx}].currency`, "");
-    const scrollIntoView = get(carouselElement, `current.children[${nextPocketIdx}].scrollIntoView`, () => ({}));
+    try {
+        const nextPocketIdx = getNextPocketIdx();
+        const newActiveCurrency = get(pockets, `[${nextPocketIdx}].currency`, "");
+        const pocketElement = get(carouselElement, `current.children[${nextPocketIdx}]`, () => ({}));
 
-    onScroll(newActiveCurrency);
-    scrollIntoView({block: "start", inline: "nearest", behavior: "smooth"});
+        onScroll(newActiveCurrency);
+        pocketElement.scrollIntoView({block: "start", inline: "nearest", behavior: "smooth"});
+    } catch (error) {
+        // eslint-disable-next-line no-console
+        console.log(error);
+    }
 }
 
 function getActivePocketIdx(activeCurrency = "", pockets = []) {
@@ -79,7 +84,8 @@ function Carousel({
 
     useEffect(() => {
         scrollToPocket(carouselElement, onScroll, () => currentPocketIdx, pockets);
-    }, [currentPocketIdx, onScroll, pockets]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     useEffect(() => {
         if (startX < endX && currentPocketIdx !== pockets.length - 1) {
@@ -87,7 +93,7 @@ function Carousel({
         } else if (startX > endX && currentPocketIdx !== 0) {
             scrollToPocket(carouselElement, onScroll, () => currentPocketIdx - 1, pockets);
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [startX]);
 
     return (
