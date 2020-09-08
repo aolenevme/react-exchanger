@@ -30,10 +30,11 @@ function createPockets(atp = false) {
     return map(balances, (balance, currency) => ({
         currency,
         input: constant(<CarouselInput
+            balance={balance}
             value={inputValue}
             prefixSymbol={prefixSymbol}
             isDisabled={isInputDisabled(atp)} />),
-        balance: pocketBalance(currency),
+        balanceText: pocketBalance(currency),
         rate: calculateRate(atp)
     }));
 }

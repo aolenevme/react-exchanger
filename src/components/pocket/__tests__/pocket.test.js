@@ -25,7 +25,8 @@ describe("<Pocket />", () => {
 
     it("is fully rendered", () => {
         expect(renderer
-            .create(<Pocket currency="USD" input={constant(<input />)} balance="You have $51.12" rate="1$ = 0.69£"/>)
+            // eslint-disable-next-line max-len
+            .create(<Pocket currency="USD" input={constant(<input />)} balanceText="You have $51.12" rate="1$ = 0.69£"/>)
             .toJSON()).toMatchSnapshot();
     });
 });

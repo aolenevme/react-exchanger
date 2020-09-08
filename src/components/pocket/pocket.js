@@ -49,7 +49,7 @@ function shouldShow(currency, input) {
 }
 
 function Pocket({
-    className, currency = null, input = constant(null), balance = null, rate = null
+    className, currency = null, input = constant(null), balanceText = null, rate = null
 }) {
     return shouldShow(currency, input)
         ? <Wrapper className={className}>
@@ -59,7 +59,7 @@ function Pocket({
             </Content>
 
             <InfoWrapper>
-                <Info>{balance}</Info>
+                <Info>{balanceText}</Info>
                 <Info>{rate}</Info>
             </InfoWrapper>
         </Wrapper>

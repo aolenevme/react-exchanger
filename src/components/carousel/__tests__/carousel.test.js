@@ -10,17 +10,17 @@ describe("<Carousel />", () => {
     const pockets = [{
         currency: "USD",
         input: constant(<Input prefix={constant("-")} value={145.67} />),
-        balance: "You have 58.33$",
+        balanceText: "You have 58.33$",
         rate: "£1 = $1.45"
     }, {
         currency: "EUR",
         input: constant(<Input prefix={constant("-")} value={145.67} />),
-        balance: "You have 58.33$",
+        balanceText: "You have 58.33$",
         rate: "£1 = $1.45"
     }, {
         currency: "GBP",
         input: constant(<Input prefix={constant("-")} value={145.67} />),
-        balance: "You have 58.33$",
+        balanceText: "You have 58.33$",
         rate: "£1 = $1.45"
     }];
 
