@@ -30,7 +30,10 @@ function createPockets(atp = false) {
 
     return map(balances, (balance, currency) => ({
         currency,
-        input: constant(<CarouselInput value={inputValue} prefixSymbol={prefixSymbol} isDisabled={atp} />),
+        input: constant(<CarouselInput
+            value={inputValue}
+            prefixSymbol={prefixSymbol}
+            isDisabled={isInputDisabled(atp)} />),
         balance: pocketBalance(currency),
         rate: calculateRate(atp)
     }));
@@ -58,6 +61,15 @@ function getInputPrefix(atp) {
     return atp
         ? "+"
         : "-";
+}
+
+function isInputDisabled(atp) {
+    const selectedCurrency = get(store, "selectedCurrency", "");
+    const targetCurrency = get(store, "targetCurrency", "");
+
+    const areCurrenciesEqual = selectedCurrency === targetCurrency;
+
+    return atp || (!atp && areCurrenciesEqual);
 }
 
 function pocketBalance(currency) {
