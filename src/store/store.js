@@ -3,7 +3,7 @@ import {observable} from "mobx";
 import currencies from "../lib/consts/currencies/currencies.js";
 
 export default observable({
-    exchangeAmount: 12,
+    exchangeAmount: "",
     rates: {
         target: 1.457,
         selected: 1.457
