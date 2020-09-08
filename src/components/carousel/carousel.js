@@ -4,6 +4,7 @@ import React, {
 import {observer} from "mobx-react-lite";
 import styled from "styled-components";
 import findIndex from "lodash/findIndex.js";
+import get from "lodash/get.js";
 import map from "lodash/map.js";
 
 import Pocket from "../pocket/pocket.js";
@@ -45,13 +46,14 @@ const Dot = styled.span`
     transition: background-color 0.1s ease 0s;
 `;
 
+// eslint-disable-next-line max-params
 function scrollToPocket(carouselElement, onScroll, getNextPocketIdx, pockets) {
     const nextPocketIdx = getNextPocketIdx();
-    const newActiveCurrency = pockets[nextPocketIdx].currency;
+    const newActiveCurrency = get(pockets, `[${nextPocketIdx}].currency`, "");
+    const scrollIntoView = get(carouselElement, `current.children[${nextPocketIdx}].scrollIntoView`, () => ({}));
 
     onScroll(newActiveCurrency);
-    // eslint-disable-next-line max-len
-    carouselElement.current.children[nextPocketIdx].scrollIntoView({block: "start", inline: "nearest", behavior: "smooth"});
+    scrollIntoView({block: "start", inline: "nearest", behavior: "smooth"});
 }
 
 function getActivePocketIdx(activeCurrency = "", pockets = []) {

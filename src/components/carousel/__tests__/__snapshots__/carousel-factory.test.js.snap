@@ -400,7 +400,7 @@ exports[`<CarouselFactory /> is rendered correctly 2`] = `
   padding-bottom: 2rem;
 }
 
-.c10 {
+.c11 {
   display: inline-block;
   margin: 0 0.142rem;
   width: 0.5rem;
@@ -411,7 +411,7 @@ exports[`<CarouselFactory /> is rendered correctly 2`] = `
   transition: background-color 0.1s ease 0s;
 }
 
-.c11 {
+.c10 {
   display: inline-block;
   margin: 0 0.142rem;
   width: 0.5rem;
@@ -556,7 +556,7 @@ exports[`<CarouselFactory /> is rendered correctly 2`] = `
       className="c10"
     />
     <span
-      className="c11"
+      className="c10"
     />
     <span
       className="c11"

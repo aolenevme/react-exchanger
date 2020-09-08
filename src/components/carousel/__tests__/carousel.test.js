@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-namespace
 import * as React from "react";
 import renderer from "react-test-renderer";
 import constant from "lodash/constant.js";
@@ -42,7 +41,6 @@ describe("<Carousel />", () => {
             const endX = 1;
             const scrollIntoView = jest.fn();
 
-            // eslint-disable-next-line fp/no-mutation,no-import-assign
             React.useState = jest
                 .fn()
                 .mockReturnValue("default")
@@ -50,7 +48,6 @@ describe("<Carousel />", () => {
                 .mockReturnValueOnce([startX, jest.fn()])
                 .mockReturnValueOnce([endX, jest.fn()]);
 
-            // eslint-disable-next-line fp/no-mutation,no-import-assign
             React.useRef = jest.fn().mockReturnValue({current: {children: [{}, {}, {scrollIntoView}]}});
 
             renderer
