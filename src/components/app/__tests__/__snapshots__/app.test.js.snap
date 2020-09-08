@@ -6,15 +6,7 @@ exports[`<App /> is rendered correctly 1`] = `
     <Button>
       Cancel
     </Button>
-    <RateSelector
-      currencySymbols={
-        Object {
-          "selectedCurrencySymbol": "£",
-          "targetCurrencySymbol": "$",
-        }
-      }
-      rate={1.457}
-    />
+    <Memo(RateSelector) />
     <Button>
       Exchange
     </Button>

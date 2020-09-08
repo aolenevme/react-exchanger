@@ -55,10 +55,7 @@ function App() {
     return <Wrapper>
         <Header>
             <Button>Cancel</Button>
-            <RateSelector rate={1.457} currencySymbols={{
-                selectedCurrencySymbol: "£",
-                targetCurrencySymbol: "$"
-            }} />
+            <RateSelector />
             <Button>Exchange</Button>
         </Header>
         <CarouselFactory />

@@ -1,8 +1,12 @@
 import React from "react";
+import {observer} from "mobx-react-lite";
 import styled from "styled-components";
+import get from "lodash/get.js";
 
 import colors from "../../lib/styles/colors/colors.js";
 import formatRate from "../../lib/helpers/format-rate/format-rate.js";
+import store from "../../store/store.js";
+import currencies from "../../lib/consts/currencies/currencies.js";
 
 const Wrapper = styled.div`
     display: flex;
@@ -40,14 +44,26 @@ const TextRate = styled.span`
     text-align: center;
 `;
 
-function RateSelector({rate, currencySymbols}) {
-    const formattedRate = formatRate(rate, currencySymbols);
+function calculateRate() {
+    const targetRate = get(store, "rates.target", "");
+    const selectedCurrency = get(store, "selectedCurrency", "");
+    const targetCurrency = get(store, "targetCurrency", "");
+    const selectedCurrencySymbol = get(currencies, `[${selectedCurrency}].symbol`, "");
+    const targetCurrencySymbol = get(currencies, `[${targetCurrency}].symbol`, "");
 
-    return formattedRate ? (
+    return selectedCurrency === targetCurrency
+        ? ""
+        : formatRate(targetRate, {selectedCurrencySymbol, targetCurrencySymbol});
+}
+
+function RateSelector() {
+    const rate = calculateRate();
+
+    return rate ? (
         <Wrapper>
-            <TextRate>{formattedRate}</TextRate>
+            <TextRate>{rate}</TextRate>
         </Wrapper>
     ) : null;
 }
 
-export default RateSelector;
+export default observer(RateSelector);

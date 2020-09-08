@@ -1,38 +1,36 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
+import * as store from "../../../store/store.js";
 import RateSelector from "../rate-selector.js";
+import currencies from "../../../lib/consts/currencies/currencies.js";
 
 describe("<RateSelector />", () => {
-    it("is rendered correctly", () => {
+    it("is rendered", () => {
+        store.default = {
+            ...store.default,
+            ...{
+                selectedCurrency: currencies.USD.abbreviation,
+                targetCurrency: currencies.EUR.abbreviation
+            }
+        };
+
         expect(renderer
-            .create(<RateSelector rate={1.457} currencySymbols={{
-                selectedCurrencySymbol: "£",
-                targetCurrencySymbol: "$"
-            }}/>)
+            .create(<RateSelector />)
             .toJSON()).toMatchSnapshot();
     });
 
-    it("is not rendered when props are incorrect", () => {
-        expect(renderer
-            .create(<RateSelector rate="it-is-not-a-number" currencySymbols={{
-                selectedCurrencySymbol: "£",
-                targetCurrencySymbol: "$"
-            }}/>).toJSON())
-            .toMatchSnapshot();
+    it("is not rendered when selected and target currencies are equal", () => {
+        store.default = {
+            ...store.default,
+            ...{
+                selectedCurrency: currencies.USD.abbreviation,
+                targetCurrency: currencies.USD.abbreviation
+            }
+        };
 
         expect(renderer
-            .create(<RateSelector rate={1.457} currencySymbols={{
-                selectedCurrencySymbol: {not: "char"},
-                targetCurrencySymbol: "$"
-            }}/>).toJSON())
-            .toMatchSnapshot();
-
-        expect(renderer
-            .create(<RateSelector rate={1.457} currencySymbols={{
-                selectedCurrencySymbol: "£",
-                targetCurrencySymbol: {not: "char"}
-            }}/>).toJSON())
-            .toMatchSnapshot();
+            .create(<RateSelector />)
+            .toJSON()).toMatchSnapshot();
     });
 });
