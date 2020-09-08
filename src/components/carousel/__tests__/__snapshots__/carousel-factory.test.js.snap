@@ -564,3 +564,568 @@ exports[`<CarouselFactory /> is rendered correctly 2`] = `
   </div>
 </div>
 `;
+
+exports[`<CarouselFactory /> is rendered correctly with mocked store 1`] = `
+.c4 {
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #f3f6ff;
+}
+
+.c5 {
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #f3f6ff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 0;
+  min-width: 3rem;
+  height: 3rem;
+  border: 0 solid transparent;
+  border-right: 1px solid transparent;
+  background-color: transparent;
+  cursor: initial;
+}
+
+.c5:focus-within {
+  -webkit-animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
+  animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
+}
+
+.c6 {
+  margin: 0;
+  padding: 0;
+  width: 0;
+  height: 0;
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c6::-webkit-outer-spin-button,
+.c6::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
+.c8 {
+  font-size: 0.8rem;
+  color: #7199e6;
+}
+
+.c1 {
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 0.3rem;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.c2 {
+  -webkit-flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+
+.c10 {
+  display: inline-block;
+  margin: 0 0.142rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #5591f7;
+  -webkit-transition: background-color 0.1s ease 0s;
+  transition: background-color 0.1s ease 0s;
+}
+
+.c11 {
+  display: inline-block;
+  margin: 0 0.142rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #f3f6ff;
+  -webkit-transition: background-color 0.1s ease 0s;
+  transition: background-color 0.1s ease 0s;
+}
+
+<div>
+  <div
+    className="c0"
+    onMouseDown={[Function]}
+    onMouseUp={[Function]}
+  >
+    <div
+      className="c1 c2"
+    >
+      <div
+        className="c3"
+      >
+        <span
+          className="c4"
+        >
+          USD
+        </span>
+        <label
+          className="c5"
+        >
+          +
+          17.48
+          <input
+            className="c6"
+            disabled={true}
+            onInput={[Function]}
+            type="number"
+            value={17.48}
+          />
+        </label>
+      </div>
+      <div
+        className="c7"
+      >
+        <span
+          className="c8"
+        >
+          You have $53.45
+        </span>
+        <span
+          className="c8"
+        >
+          $1 = £1.4570
+        </span>
+      </div>
+    </div>
+    <div
+      className="c1 c2"
+    >
+      <div
+        className="c3"
+      >
+        <span
+          className="c4"
+        >
+          EUR
+        </span>
+        <label
+          className="c5"
+        >
+          +
+          17.48
+          <input
+            className="c6"
+            disabled={true}
+            onInput={[Function]}
+            type="number"
+            value={17.48}
+          />
+        </label>
+      </div>
+      <div
+        className="c7"
+      >
+        <span
+          className="c8"
+        >
+          You have €100
+        </span>
+        <span
+          className="c8"
+        >
+          $1 = £1.4570
+        </span>
+      </div>
+    </div>
+    <div
+      className="c1 c2"
+    >
+      <div
+        className="c3"
+      >
+        <span
+          className="c4"
+        >
+          GBP
+        </span>
+        <label
+          className="c5"
+        >
+          +
+          17.48
+          <input
+            className="c6"
+            disabled={true}
+            onInput={[Function]}
+            type="number"
+            value={17.48}
+          />
+        </label>
+      </div>
+      <div
+        className="c7"
+      >
+        <span
+          className="c8"
+        >
+          You have £80.15
+        </span>
+        <span
+          className="c8"
+        >
+          $1 = £1.4570
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c9"
+  >
+    <span
+      className="c10"
+    />
+    <span
+      className="c10"
+    />
+    <span
+      className="c11"
+    />
+  </div>
+</div>
+`;
+
+exports[`<CarouselFactory /> is rendered correctly with mocked store 2`] = `
+.c4 {
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #f3f6ff;
+}
+
+.c5 {
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #f3f6ff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 0;
+  min-width: 3rem;
+  height: 3rem;
+  border: 0 solid transparent;
+  border-right: 1px solid transparent;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.c5:focus-within {
+  -webkit-animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
+  animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
+}
+
+.c6 {
+  margin: 0;
+  padding: 0;
+  width: 0;
+  height: 0;
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c6::-webkit-outer-spin-button,
+.c6::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
+.c8 {
+  font-size: 0.8rem;
+  color: #7199e6;
+}
+
+.c1 {
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 0.3rem;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.c2 {
+  -webkit-flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+
+.c11 {
+  display: inline-block;
+  margin: 0 0.142rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #5591f7;
+  -webkit-transition: background-color 0.1s ease 0s;
+  transition: background-color 0.1s ease 0s;
+}
+
+.c10 {
+  display: inline-block;
+  margin: 0 0.142rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #f3f6ff;
+  -webkit-transition: background-color 0.1s ease 0s;
+  transition: background-color 0.1s ease 0s;
+}
+
+<div>
+  <div
+    className="c0"
+    onMouseDown={[Function]}
+    onMouseUp={[Function]}
+  >
+    <div
+      className="c1 c2"
+    >
+      <div
+        className="c3"
+      >
+        <span
+          className="c4"
+        >
+          USD
+        </span>
+        <label
+          className="c5"
+        >
+          -
+          12
+          <input
+            className="c6"
+            disabled={false}
+            onInput={[Function]}
+            type="number"
+            value={12}
+          />
+        </label>
+      </div>
+      <div
+        className="c7"
+      >
+        <span
+          className="c8"
+        >
+          You have $53.45
+        </span>
+      </div>
+    </div>
+    <div
+      className="c1 c2"
+    >
+      <div
+        className="c3"
+      >
+        <span
+          className="c4"
+        >
+          EUR
+        </span>
+        <label
+          className="c5"
+        >
+          -
+          12
+          <input
+            className="c6"
+            disabled={false}
+            onInput={[Function]}
+            type="number"
+            value={12}
+          />
+        </label>
+      </div>
+      <div
+        className="c7"
+      >
+        <span
+          className="c8"
+        >
+          You have €100
+        </span>
+      </div>
+    </div>
+    <div
+      className="c1 c2"
+    >
+      <div
+        className="c3"
+      >
+        <span
+          className="c4"
+        >
+          GBP
+        </span>
+        <label
+          className="c5"
+        >
+          -
+          12
+          <input
+            className="c6"
+            disabled={false}
+            onInput={[Function]}
+            type="number"
+            value={12}
+          />
+        </label>
+      </div>
+      <div
+        className="c7"
+      >
+        <span
+          className="c8"
+        >
+          You have £80.15
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c9"
+  >
+    <span
+      className="c10"
+    />
+    <span
+      className="c11"
+    />
+    <span
+      className="c11"
+    />
+  </div>
+</div>
+`;
