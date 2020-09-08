@@ -6,8 +6,8 @@ describe("Store", () => {
         expect(store).toEqual({
             exchangeAmount: "",
             rates: {
-                target: 1.457,
-                selected: 1.457
+                target: "",
+                selected: ""
             },
             selectedCurrency: currencies.USD.abbreviation,
             targetCurrency: currencies.GBP.abbreviation,

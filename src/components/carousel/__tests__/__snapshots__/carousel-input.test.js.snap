@@ -19,6 +19,7 @@ exports[`<CarouselInput /> rendering is rendered correctly 1`] = `
   border: 0 solid transparent;
   border-right: 1px solid transparent;
   background-color: transparent;
+  outline: none;
   cursor: pointer;
 }
 
@@ -86,6 +87,7 @@ exports[`<CarouselInput /> rendering is rendered correctly 2`] = `
   border: 0 solid transparent;
   border-right: 1px solid transparent;
   background-color: transparent;
+  outline: none;
   cursor: initial;
 }
 
@@ -153,6 +155,7 @@ exports[`<CarouselInput /> rendering is rendered correctly 3`] = `
   border: 0 solid transparent;
   border-right: 1px solid transparent;
   background-color: transparent;
+  outline: none;
   cursor: initial;
 }
 

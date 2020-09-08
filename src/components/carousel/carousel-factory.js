@@ -73,14 +73,14 @@ function pocketBalance(currency) {
 }
 
 function calculateRate(atp) {
-    const targetRate = get(store, "rates.target", "");
+    const selectedRate = get(store, "rates.selected", "");
     const selectedCurrency = get(store, "selectedCurrency", "");
     const targetCurrency = get(store, "targetCurrency", "");
     const selectedCurrencySymbol = get(currencies, `[${selectedCurrency}].symbol`, "");
     const targetCurrencySymbol = get(currencies, `[${targetCurrency}].symbol`, "");
 
     return atp && selectedCurrency !== targetCurrency
-        ? formatRate(targetRate, {selectedCurrencySymbol, targetCurrencySymbol})
+        ? formatRate(selectedRate, {selectedCurrencySymbol, targetCurrencySymbol})
         : null;
 }
 

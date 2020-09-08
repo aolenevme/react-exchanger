@@ -106,6 +106,7 @@ exports[`<Carousel /> rendering is rendered correctly 1`] = `
   border: 0 solid transparent;
   border-right: 1px solid transparent;
   background-color: transparent;
+  outline: none;
   cursor: pointer;
 }
 

@@ -19,6 +19,8 @@ const Wrapper = styled(MainText)`
     border-right: 1px solid transparent;
 
     background-color: transparent;
+    
+    outline: none;
 
     cursor: ${({isDisabled}) => (isDisabled
                 ? "initial"
