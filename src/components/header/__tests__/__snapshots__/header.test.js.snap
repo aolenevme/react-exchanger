@@ -7,6 +7,7 @@ exports[`<Header /> disabled rendering is rendering correctly when currencies ar
   color: #f3f6ff;
   -webkit-tap-highlight-color: transparent;
   font-size: 1rem;
+  outline: none;
   cursor: pointer;
   -webkit-transition: color 0.1s ease 0s;
   transition: color 0.1s ease 0s;
@@ -30,6 +31,7 @@ exports[`<Header /> disabled rendering is rendering correctly when currencies ar
   color: #5591f7;
   -webkit-tap-highlight-color: transparent;
   font-size: 1rem;
+  outline: none;
   cursor: pointer;
   -webkit-transition: color 0.1s ease 0s;
   transition: color 0.1s ease 0s;
@@ -93,6 +95,7 @@ exports[`<Header /> disabled rendering is rendering correctly when no exchange a
   color: #f3f6ff;
   -webkit-tap-highlight-color: transparent;
   font-size: 1rem;
+  outline: none;
   cursor: pointer;
   -webkit-transition: color 0.1s ease 0s;
   transition: color 0.1s ease 0s;
@@ -116,6 +119,7 @@ exports[`<Header /> disabled rendering is rendering correctly when no exchange a
   color: #5591f7;
   -webkit-tap-highlight-color: transparent;
   font-size: 1rem;
+  outline: none;
   cursor: pointer;
   -webkit-transition: color 0.1s ease 0s;
   transition: color 0.1s ease 0s;
@@ -179,6 +183,7 @@ exports[`<Header /> rendering is rendered correctly by default 1`] = `
   color: #f3f6ff;
   -webkit-tap-highlight-color: transparent;
   font-size: 1rem;
+  outline: none;
   cursor: pointer;
   -webkit-transition: color 0.1s ease 0s;
   transition: color 0.1s ease 0s;
