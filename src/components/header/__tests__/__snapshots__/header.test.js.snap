@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> is rendered correctly 1`] = `
+.c1 {
+  border-color: transparent;
+  background-color: transparent;
+  color: #f3f6ff;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  -webkit-transition: color 0.1s ease 0s;
+  transition: color 0.1s ease 0s;
+}
+
+.c1:active {
+  color: #5591f7;
+}
+
+.c1:disabled {
+  cursor: unset;
+}
+
+.c1:hover {
+  color: #5591f7;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0.2rem 0.5rem;
+  min-height: 2rem;
+  border: 1px solid #5591f7;
+  border-radius: 4px;
+  background-color: #2c5bcd;
+  color: #f3f6ff;
+  font-weight: 400;
+  cursor: pointer;
+  -webkit-transition: border-color 0.1s ease 0s;
+  transition: border-color 0.1s ease 0s;
+}
+
+.c2:active {
+  border-color: #f3f6ff;
+}
+
+.c2:hover {
+  border-color: #f3f6ff;
+}
+
+.c3 {
+  width: 100%;
+  text-align: center;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 1rem;
+  height: 2rem;
+}
+
+<div
+  className="c0"
+>
+  <button
+    className="c1"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    Cancel
+  </button>
+  <div
+    className="c2"
+  >
+    <span
+      className="c3"
+    >
+      $1 = £1.4570
+    </span>
+  </div>
+  <button
+    className="c1"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    Exchange
+  </button>
+</div>
+`;
