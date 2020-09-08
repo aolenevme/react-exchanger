@@ -60,7 +60,7 @@ function Dots({currentPocketIdx = 0, pockets = []}) {
 }
 
 function Carousel({
-    className, activeCurrency = "", pockets = [], setActiveCurrency = () => ({})
+    className, activeCurrency = "", pockets = [], onScroll = () => ({})
 }) {
     const currentPocketIdx = getActivePocketIdx(activeCurrency, pockets);
     const [startX, setStartX] = useState(0);
@@ -69,15 +69,15 @@ function Carousel({
     const carouselElement = useRef(null);
 
     useEffect(() => {
-        scrollToPocket(() => currentPocketIdx, setActiveCurrency, carouselElement, pockets);
+        scrollToPocket(() => currentPocketIdx, onScroll, carouselElement, pockets);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
         if (startX < endX && currentPocketIdx !== pockets.length - 1) {
-            scrollToPocket(() => currentPocketIdx + 1, setActiveCurrency, carouselElement, pockets);
+            scrollToPocket(() => currentPocketIdx + 1, onScroll, carouselElement, pockets);
         } else if (startX > endX && currentPocketIdx !== 0) {
-            scrollToPocket(() => currentPocketIdx - 1, setActiveCurrency, carouselElement, pockets);
+            scrollToPocket(() => currentPocketIdx - 1, onScroll, carouselElement, pockets);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [startX]);

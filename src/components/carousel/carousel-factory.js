@@ -98,7 +98,7 @@ function CarouselFactory({className, areTargetPockets = false}) {
         className={className}
         activeCurrency={activeCurrency}
         pockets={pockets}
-        setActiveCurrency={(newActiveCurrency) => onScroll(areTargetPockets, newActiveCurrency)}/>;
+        onScroll={(newActiveCurrency) => onScroll(areTargetPockets, newActiveCurrency)}/>;
 }
 
 export default observer(CarouselFactory);
