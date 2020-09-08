@@ -6,6 +6,8 @@ import map from "lodash/map.js";
 
 import store from "../../store/store.js";
 import currencies from "../../lib/consts/currencies/currencies.js";
+import exchangeStrategy
+    from "../../lib/helpers/exchange-strategy/exchange-strategy.js";
 import formatRate from "../../lib/helpers/format-rate/format-rate.js";
 
 import onScroll from "./on-scroll.js";
@@ -49,12 +51,8 @@ function calculateInputValue(atp) {
 
 function getTargetInputValue(exchangeAmount) {
     const targetRate = get(store, "rates.target", "");
-    const targetInputValue = Number(exchangeAmount) * Number(targetRate);
-    const PRECISION = 3;
 
-    return exchangeAmount === ""
-        ? exchangeAmount
-        : targetInputValue.toPrecision(PRECISION);
+    return exchangeStrategy(exchangeAmount, targetRate);
 }
 
 function getInputPrefix(atp) {
