@@ -1,14 +1,14 @@
 const assert = require("assert");
 
-describe("https://order.leroymerlin.ru", () => {
+describe("https://github.com/", () => {
     it("should have the right title", async () => {
-        await browser.url("https://order.leroymerlin.ru");
+        await browser.url("https://github.com/");
 
         const title = await browser.getTitle();
 
         assert.strictEqual(
             title,
-            "Статус заказа – Леруа Мерлен"
+            "The world’s leading software development platform · GitHub"
         );
     });
 });
