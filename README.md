@@ -1,5 +1,5 @@
 # React exchanger
-## Currency exchanger between USD, EUR and GBP
+## Currency exchanger between USD, EUR and GBP written with React
 
 ### Install dependencies
 ```yarn install```
