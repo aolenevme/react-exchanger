@@ -19,13 +19,17 @@ const Wrapper = styled(MainText)`
     border-right: 1px solid transparent;
 
     background-color: transparent;
+    
+    outline: none;
 
     cursor: ${({isDisabled}) => (isDisabled
                 ? "initial"
                 : "pointer")};
 
     &:focus-within {
-      animation: caret-pulse 1.5s cubic-bezier(.215, .61, .355, 1) forwards infinite;
+      animation: ${({isDisabled}) => (isDisabled
+                    ? "none"
+                    : "caret-pulse 1.5s cubic-bezier(.215, .61, .355, 1) forwards infinite")};
     }
 
     @keyframes caret-pulse {
@@ -56,31 +60,32 @@ const InputController = styled.input`
     }
 `;
 
-function validateValue(value) {
-    const valueNumber = Number(value);
-
-    return value !== "" && isNumber(valueNumber) && valueNumber >= 0
-        ? valueNumber
-        : "";
-}
-
 function Input({
     isDisabled = false, prefix = constant(null), value = "", onChange = () => ({}), onInput = () => ({})
 }) {
     const validValue = validateValue(value);
 
     return (
-        <Wrapper as="label" isDisabled={isDisabled}>
+        <Wrapper as="label" tabIndex="-1" isDisabled={isDisabled}>
             {prefix()}
             {validValue}
             <InputController
                 type="number"
+                tabIndex="-1"
                 disabled={isDisabled}
                 value={validValue}
                 onInput={onInput}
                 onChange={onChange}
             />
         </Wrapper>);
+}
+
+function validateValue(value) {
+    const valueNumber = Number(value);
+
+    return value !== "" && isNumber(valueNumber) && valueNumber >= 0
+        ? valueNumber
+        : "";
 }
 
 export default Input;

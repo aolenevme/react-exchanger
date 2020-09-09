@@ -4,9 +4,9 @@ import styled from "styled-components";
 import get from "lodash/get.js";
 
 import colors from "../../lib/styles/colors/colors.js";
+import currencies from "../../lib/consts/currencies/currencies.js";
 import formatRate from "../../lib/helpers/format-rate/format-rate.js";
 import store from "../../store/store.js";
-import currencies from "../../lib/consts/currencies/currencies.js";
 
 const Wrapper = styled.div`
     display: flex;
@@ -44,6 +44,16 @@ const TextRate = styled.span`
     text-align: center;
 `;
 
+function RateSelector() {
+    const rate = calculateRate();
+
+    return rate ? (
+        <Wrapper>
+            <TextRate>{rate}</TextRate>
+        </Wrapper>
+    ) : null;
+}
+
 function calculateRate() {
     const targetRate = get(store, "rates.target", "");
     const selectedCurrency = get(store, "selectedCurrency", "");
@@ -54,16 +64,6 @@ function calculateRate() {
     return selectedCurrency === targetCurrency
         ? ""
         : formatRate(targetRate, {selectedCurrencySymbol, targetCurrencySymbol});
-}
-
-function RateSelector() {
-    const rate = calculateRate();
-
-    return rate ? (
-        <Wrapper>
-            <TextRate>{rate}</TextRate>
-        </Wrapper>
-    ) : null;
 }
 
 export default observer(RateSelector);

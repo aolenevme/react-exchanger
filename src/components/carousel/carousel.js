@@ -6,8 +6,8 @@ import styled from "styled-components";
 import findIndex from "lodash/findIndex.js";
 import map from "lodash/map.js";
 
-import colors from "../../lib/styles/colors/colors.js";
 import Pocket from "../pocket/pocket.js";
+import colors from "../../lib/styles/colors/colors.js";
 
 import scrollToPocket from "./scroll-to-pocket.js";
 
@@ -47,18 +47,6 @@ const Dot = styled.span`
     transition: background-color 0.1s ease 0s;
 `;
 
-function getActivePocketIdx(activeCurrency = "", pockets = []) {
-    return findIndex(pockets, ({currency}) => currency === activeCurrency);
-}
-
-function Pockets({pockets = []}) {
-    return map(pockets, (pocket) => <FlexedPocket key={pocket.currency} {...pocket} />);
-}
-
-function Dots({currentPocketIdx = 0, pockets = []}) {
-    return map(pockets, (pocket, index) => <Dot key={pocket.currency} isActive={index === currentPocketIdx}/>);
-}
-
 function Carousel({
     className, activeCurrency = "", pockets = [], onScroll = () => ({})
 }) {
@@ -87,13 +75,34 @@ function Carousel({
             <PocketsWrapper
                 ref={carouselElement}
                 onMouseUp={(mouseEvent) => setStartX(mouseEvent.clientX)}
-                onMouseDown={(mouseEvent) => setEndX(mouseEvent.clientX)}>
+                onMouseDown={(mouseEvent) => setEndX(mouseEvent.clientX)}
+                onTouchStart={(touchEvent) => {
+                    touchEvent.stopPropagation();
+                    setStartX(touchEvent.changedTouches[0].pageX);
+                }}
+                onTouchEnd={(touchEvent) => {
+                    touchEvent.stopPropagation();
+                    setEndX(touchEvent.changedTouches[0].pageX);
+                }}
+            >
                 <Pockets pockets={pockets}/>
             </PocketsWrapper>
             <DotsWrapper>
                 <Dots currentPocketIdx={currentPocketIdx} pockets={pockets} />
             </DotsWrapper>
         </div>);
+}
+
+function Pockets({pockets = []}) {
+    return map(pockets, (pocket) => <FlexedPocket key={pocket.currency} {...pocket} />);
+}
+
+function Dots({currentPocketIdx = 0, pockets = []}) {
+    return map(pockets, (pocket, index) => <Dot key={pocket.currency} isActive={index === currentPocketIdx}/>);
+}
+
+function getActivePocketIdx(activeCurrency = "", pockets = []) {
+    return findIndex(pockets, ({currency}) => currency === activeCurrency);
 }
 
 export default observer(Carousel);

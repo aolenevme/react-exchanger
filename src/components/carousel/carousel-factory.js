@@ -4,16 +4,27 @@ import constant from "lodash/constant.js";
 import get from "lodash/get.js";
 import map from "lodash/map.js";
 
-import store from "../../store/store.js";
 import currencies from "../../lib/consts/currencies/currencies.js";
 import exchangeStrategy
     from "../../lib/helpers/exchange-strategy/exchange-strategy.js";
 import formatRate from "../../lib/helpers/format-rate/format-rate.js";
+import store from "../../store/store.js";
 
-import onScroll from "./on-scroll.js";
+import Carousel from "./carousel.js";
 import CarouselInput from "./carousel-input.js";
 // eslint-disable-next-line import/max-dependencies
-import Carousel from "./carousel.js";
+import onScroll from "./on-scroll.js";
+
+function CarouselFactory({className, areTargetPockets = false}) {
+    const activeCurrency = getActiveCurrency(areTargetPockets);
+    const pockets = createPockets(areTargetPockets);
+
+    return <Carousel
+        className={className}
+        activeCurrency={activeCurrency}
+        pockets={pockets}
+        onScroll={(newActiveCurrency) => onScroll(areTargetPockets, newActiveCurrency)}/>;
+}
 
 function getActiveCurrency(atp) {
     const selectedCurrency = get(store, "selectedCurrency", "");
@@ -73,26 +84,15 @@ function pocketBalance(currency) {
 }
 
 function calculateRate(atp) {
-    const targetRate = get(store, "rates.target", "");
+    const selectedRate = get(store, "rates.selected", "");
     const selectedCurrency = get(store, "selectedCurrency", "");
     const targetCurrency = get(store, "targetCurrency", "");
     const selectedCurrencySymbol = get(currencies, `[${selectedCurrency}].symbol`, "");
     const targetCurrencySymbol = get(currencies, `[${targetCurrency}].symbol`, "");
 
     return atp && selectedCurrency !== targetCurrency
-        ? formatRate(targetRate, {selectedCurrencySymbol, targetCurrencySymbol})
+        ? formatRate(selectedRate, {selectedCurrencySymbol, targetCurrencySymbol})
         : null;
-}
-
-function CarouselFactory({className, areTargetPockets = false}) {
-    const activeCurrency = getActiveCurrency(areTargetPockets);
-    const pockets = createPockets(areTargetPockets);
-
-    return <Carousel
-        className={className}
-        activeCurrency={activeCurrency}
-        pockets={pockets}
-        onScroll={(newActiveCurrency) => onScroll(areTargetPockets, newActiveCurrency)}/>;
 }
 
 export default observer(CarouselFactory);

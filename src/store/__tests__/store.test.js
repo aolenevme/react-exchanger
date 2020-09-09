@@ -1,13 +1,13 @@
-import store from "../store.js";
 import currencies from "../../lib/consts/currencies/currencies.js";
+import store from "../store.js";
 
 describe("Store", () => {
     it("is in a correct initial state", () => {
         expect(store).toEqual({
             exchangeAmount: "",
             rates: {
-                target: 1.457,
-                selected: 1.457
+                target: "",
+                selected: ""
             },
             selectedCurrency: currencies.USD.abbreviation,
             targetCurrency: currencies.GBP.abbreviation,

@@ -1,17 +1,5 @@
 import store from "../../store/store.js";
 
-function updateIn(currentStore, payload) {
-    const [path, value] = payload;
-
-    path.reduce((acc, key, index) => {
-        if (index === path.length - 1) {
-            acc[key] = value;
-        } else {
-            return acc[key];
-        }
-    }, currentStore);
-}
-
 const storeEventsRegistry = {};
 
 function dispatch(id, payload) {
@@ -30,6 +18,18 @@ function dispatch(id, payload) {
     }
 
     updateIn(store, storeEventsRegistry[id](store, payload));
+}
+
+function updateIn(currentStore, payload) {
+    const [path, value] = payload;
+
+    path.reduce((acc, key, index) => {
+        if (index === path.length - 1) {
+            acc[key] = value;
+        } else {
+            return acc[key];
+        }
+    }, currentStore);
 }
 
 function regEventStore(id, storeEvent) {

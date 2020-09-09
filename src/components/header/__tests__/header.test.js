@@ -2,11 +2,11 @@ import React from "react";
 import renderer from "react-test-renderer";
 
 import Header from "../header.js";
-import * as registry from "../../../lib/state-management/registry.js";
-import * as store from "../../../store/store.js";
+import checkStoreMutations from "../../../lib/tests/check-store-mutations.js";
 import currencies from "../../../lib/consts/currencies/currencies.js";
 import MUTATE_STORE from "../../../events/mutate-store.js";
-import checkStoreMutations from "../../../lib/tests/check-store-mutations.js";
+import * as registry from "../../../lib/state-management/registry.js";
+import * as store from "../../../store/store.js";
 
 describe("<Header />", () => {
     beforeEach(() => {

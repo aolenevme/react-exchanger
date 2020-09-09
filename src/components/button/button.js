@@ -13,6 +13,8 @@ const Wrapper = styled.button`
 
     font-size: 1rem;
 
+    outline: none;
+    
     cursor: pointer;
 
     transition: color 0.1s ease 0s;

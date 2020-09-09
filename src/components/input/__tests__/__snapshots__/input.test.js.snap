@@ -19,6 +19,7 @@ exports[`<Input /> is rendered correctly 1`] = `
   border: 0 solid transparent;
   border-right: 1px solid transparent;
   background-color: transparent;
+  outline: none;
   cursor: pointer;
 }
 
@@ -51,6 +52,7 @@ exports[`<Input /> is rendered correctly 1`] = `
 
 <label
   className="main-text__MainText-c4b6rt-0 c0"
+  tabIndex="-1"
 >
   +
   2020
@@ -59,6 +61,7 @@ exports[`<Input /> is rendered correctly 1`] = `
     disabled={false}
     onChange={[Function]}
     onInput={[Function]}
+    tabIndex="-1"
     type="number"
     value={2020}
   />
@@ -84,12 +87,13 @@ exports[`<Input /> is rendered correctly 2`] = `
   border: 0 solid transparent;
   border-right: 1px solid transparent;
   background-color: transparent;
+  outline: none;
   cursor: initial;
 }
 
 .c0:focus-within {
-  -webkit-animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
-  animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
+  -webkit-animation: none;
+  animation: none;
 }
 
 .c1 {
@@ -116,6 +120,7 @@ exports[`<Input /> is rendered correctly 2`] = `
 
 <label
   className="main-text__MainText-c4b6rt-0 c0"
+  tabIndex="-1"
 >
   
   <input
@@ -123,6 +128,7 @@ exports[`<Input /> is rendered correctly 2`] = `
     disabled={true}
     onChange={[Function]}
     onInput={[Function]}
+    tabIndex="-1"
     type="number"
     value=""
   />
@@ -148,6 +154,7 @@ exports[`<Input /> is rendered correctly 3`] = `
   border: 0 solid transparent;
   border-right: 1px solid transparent;
   background-color: transparent;
+  outline: none;
   cursor: pointer;
 }
 
@@ -180,6 +187,7 @@ exports[`<Input /> is rendered correctly 3`] = `
 
 <label
   className="main-text__MainText-c4b6rt-0 c0"
+  tabIndex="-1"
 >
   
   <input
@@ -187,6 +195,7 @@ exports[`<Input /> is rendered correctly 3`] = `
     disabled={false}
     onChange={[Function]}
     onInput={[Function]}
+    tabIndex="-1"
     type="number"
     value=""
   />
@@ -212,12 +221,13 @@ exports[`<Input /> is rendered correctly 4`] = `
   border: 0 solid transparent;
   border-right: 1px solid transparent;
   background-color: transparent;
+  outline: none;
   cursor: initial;
 }
 
 .c0:focus-within {
-  -webkit-animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
-  animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
+  -webkit-animation: none;
+  animation: none;
 }
 
 .c1 {
@@ -244,6 +254,7 @@ exports[`<Input /> is rendered correctly 4`] = `
 
 <label
   className="main-text__MainText-c4b6rt-0 c0"
+  tabIndex="-1"
 >
   2020
   <input
@@ -251,6 +262,7 @@ exports[`<Input /> is rendered correctly 4`] = `
     disabled={true}
     onChange={[Function]}
     onInput={[Function]}
+    tabIndex="-1"
     type="number"
     value={2020}
   />
@@ -276,6 +288,7 @@ exports[`<Input /> is rendered correctly 5`] = `
   border: 0 solid transparent;
   border-right: 1px solid transparent;
   background-color: transparent;
+  outline: none;
   cursor: pointer;
 }
 
@@ -308,6 +321,7 @@ exports[`<Input /> is rendered correctly 5`] = `
 
 <label
   className="main-text__MainText-c4b6rt-0 c0"
+  tabIndex="-1"
 >
   2020
   <input
@@ -315,6 +329,7 @@ exports[`<Input /> is rendered correctly 5`] = `
     disabled={false}
     onChange={[Function]}
     onInput={[Function]}
+    tabIndex="-1"
     type="number"
     value={2020}
   />
@@ -340,6 +355,7 @@ exports[`<Input /> is rendered correctly 6`] = `
   border: 0 solid transparent;
   border-right: 1px solid transparent;
   background-color: transparent;
+  outline: none;
   cursor: pointer;
 }
 
@@ -372,6 +388,7 @@ exports[`<Input /> is rendered correctly 6`] = `
 
 <label
   className="main-text__MainText-c4b6rt-0 c0"
+  tabIndex="-1"
 >
   0
   <input
@@ -379,6 +396,7 @@ exports[`<Input /> is rendered correctly 6`] = `
     disabled={false}
     onChange={[Function]}
     onInput={[Function]}
+    tabIndex="-1"
     type="number"
     value={0}
   />

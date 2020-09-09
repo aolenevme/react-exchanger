@@ -31,23 +31,6 @@ const InfoWrapper = styled.div`
     padding: 0 0.3rem;
 `;
 
-function Info({children}) {
-    return isValidString(children)
-        ? <InfoText>{children}</InfoText>
-        : null;
-}
-
-function isValidString(str) {
-    return isString(str) && str.length !== 0;
-}
-
-function shouldShow(currency, input) {
-    const isCurrencyCorrect = isValidString(currency);
-    const isInputCorrect = isFunction(input) && Boolean(input());
-
-    return isCurrencyCorrect && isInputCorrect;
-}
-
 function Pocket({
     className, currency = null, input = constant(null), balanceText = null, rate = null
 }) {
@@ -64,6 +47,23 @@ function Pocket({
             </InfoWrapper>
         </Wrapper>
         : null;
+}
+
+function Info({children}) {
+    return isValidString(children)
+        ? <InfoText>{children}</InfoText>
+        : null;
+}
+
+function isValidString(str) {
+    return isString(str) && str.length !== 0;
+}
+
+function shouldShow(currency, input) {
+    const isCurrencyCorrect = isValidString(currency);
+    const isInputCorrect = isFunction(input) && Boolean(input());
+
+    return isCurrencyCorrect && isInputCorrect;
 }
 
 export default Pocket;

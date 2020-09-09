@@ -1,9 +1,9 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import * as store from "../../../store/store.js";
-import currencies from "../../../lib/consts/currencies/currencies.js";
 import CarouselFactory from "../carousel-factory.js";
+import currencies from "../../../lib/consts/currencies/currencies.js";
+import * as store from "../../../store/store.js";
 
 describe("<CarouselFactory />", () => {
     describe("rendering", () => {
