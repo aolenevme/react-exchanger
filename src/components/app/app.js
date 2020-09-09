@@ -6,7 +6,7 @@ import get from "lodash/get.js";
 import colors from "../../lib/styles/colors/colors.js";
 import CarouselFactory from "../carousel/carousel-factory.js";
 import Header from "../header/header.js";
-import {dispatchFx} from "../../lib/state-management/registryFx.js";
+import {dispatchFx} from "../../lib/state-management/registry-fx.js";
 import GET_RATES_FX from "../../effects/get-rates/get-rates.js";
 import store from "../../store/store.js";
 

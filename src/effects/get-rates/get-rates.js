@@ -2,7 +2,7 @@ import axios from "axios";
 import get from "lodash/get.js";
 import entries from "lodash/entries.js";
 
-import {regEventFx} from "../../lib/state-management/registryFx.js";
+import {regEventFx} from "../../lib/state-management/registry-fx.js";
 import {dispatch} from "../../lib/state-management/registry.js";
 import httpClient from "../../services/http-client/http-client.js";
 import MUTATE_STORE from "../../events/mutate-store.js";
