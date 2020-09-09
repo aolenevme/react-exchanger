@@ -1,9 +1,9 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import * as store from "../../../store/store.js";
 import RateSelector from "../rate-selector.js";
 import currencies from "../../../lib/consts/currencies/currencies.js";
+import * as store from "../../../store/store.js";
 
 describe("<RateSelector />", () => {
     it("is rendered", () => {

@@ -2,19 +2,12 @@ import axios from "axios";
 import get from "lodash/get.js";
 import entries from "lodash/entries.js";
 
-import {regEventFx} from "../../lib/state-management/registry-fx.js";
-import {dispatch} from "../../lib/state-management/registry.js";
-import httpClient from "../../services/http-client/http-client.js";
 import MUTATE_STORE from "../../events/mutate-store.js";
+import httpClient from "../../services/http-client/http-client.js";
+import {dispatch} from "../../lib/state-management/registry.js";
+import {regEventFx} from "../../lib/state-management/registry-fx.js";
 
 const GET_RATES_FX = "GET_RATES_FX";
-
-function getRateEntry(responseData) {
-    const rates = get(responseData, "rates", {USD: ""});
-    const [rateEntry] = entries(rates);
-
-    return rateEntry;
-}
 
 function preEffect(store, {base = "", symbol = ""}) {
     return {
@@ -42,6 +35,13 @@ async function effect(configuration) {
     } catch {
         return [];
     }
+}
+
+function getRateEntry(responseData) {
+    const rates = get(responseData, "rates", {USD: ""});
+    const [rateEntry] = entries(rates);
+
+    return rateEntry;
 }
 
 function postEffect(store, rateEntry) {

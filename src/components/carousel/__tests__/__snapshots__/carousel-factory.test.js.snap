@@ -1,64 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CarouselFactory /> rendering is rendered correctly 1`] = `
+.c8 {
+  font-size: 0.8rem;
+  color: #7199e6;
+}
+
 .c4 {
   font-size: 3rem;
   line-height: 3rem;
   color: #f3f6ff;
-}
-
-.c5 {
-  font-size: 3rem;
-  line-height: 3rem;
-  color: #f3f6ff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  padding: 0;
-  min-width: 3rem;
-  height: 3rem;
-  border: 0 solid transparent;
-  border-right: 1px solid transparent;
-  background-color: transparent;
-  outline: none;
-  cursor: pointer;
-}
-
-.c5:focus-within {
-  -webkit-animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
-  animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
-}
-
-.c6 {
-  margin: 0;
-  padding: 0;
-  width: 0;
-  height: 0;
-  border: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.c6::-webkit-outer-spin-button,
-.c6::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.c6:invalid {
-  box-shadow: none;
-}
-
-.c8 {
-  font-size: 0.8rem;
-  color: #7199e6;
 }
 
 .c1 {
@@ -148,11 +99,62 @@ exports[`<CarouselFactory /> rendering is rendered correctly 1`] = `
   transition: background-color 0.1s ease 0s;
 }
 
+.c5 {
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #f3f6ff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 0;
+  min-width: 3rem;
+  height: 3rem;
+  border: 0 solid transparent;
+  border-right: 1px solid transparent;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.c5:focus-within {
+  -webkit-animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
+  animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
+}
+
+.c6 {
+  margin: 0;
+  padding: 0;
+  width: 0;
+  height: 0;
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c6::-webkit-outer-spin-button,
+.c6::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
 <div>
   <div
     className="c0"
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchStart={[Function]}
   >
     <div
       className="c1 c2"
@@ -286,64 +288,15 @@ exports[`<CarouselFactory /> rendering is rendered correctly 1`] = `
 `;
 
 exports[`<CarouselFactory /> rendering is rendered correctly 2`] = `
+.c8 {
+  font-size: 0.8rem;
+  color: #7199e6;
+}
+
 .c4 {
   font-size: 3rem;
   line-height: 3rem;
   color: #f3f6ff;
-}
-
-.c5 {
-  font-size: 3rem;
-  line-height: 3rem;
-  color: #f3f6ff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  padding: 0;
-  min-width: 3rem;
-  height: 3rem;
-  border: 0 solid transparent;
-  border-right: 1px solid transparent;
-  background-color: transparent;
-  outline: none;
-  cursor: initial;
-}
-
-.c5:focus-within {
-  -webkit-animation: none;
-  animation: none;
-}
-
-.c6 {
-  margin: 0;
-  padding: 0;
-  width: 0;
-  height: 0;
-  border: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.c6::-webkit-outer-spin-button,
-.c6::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.c6:invalid {
-  box-shadow: none;
-}
-
-.c8 {
-  font-size: 0.8rem;
-  color: #7199e6;
 }
 
 .c1 {
@@ -433,11 +386,62 @@ exports[`<CarouselFactory /> rendering is rendered correctly 2`] = `
   transition: background-color 0.1s ease 0s;
 }
 
+.c5 {
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #f3f6ff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 0;
+  min-width: 3rem;
+  height: 3rem;
+  border: 0 solid transparent;
+  border-right: 1px solid transparent;
+  background-color: transparent;
+  outline: none;
+  cursor: initial;
+}
+
+.c5:focus-within {
+  -webkit-animation: none;
+  animation: none;
+}
+
+.c6 {
+  margin: 0;
+  padding: 0;
+  width: 0;
+  height: 0;
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c6::-webkit-outer-spin-button,
+.c6::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
 <div>
   <div
     className="c0"
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchStart={[Function]}
   >
     <div
       className="c1 c2"
@@ -571,64 +575,15 @@ exports[`<CarouselFactory /> rendering is rendered correctly 2`] = `
 `;
 
 exports[`<CarouselFactory /> rendering is rendered correctly with mocked store 1`] = `
+.c8 {
+  font-size: 0.8rem;
+  color: #7199e6;
+}
+
 .c4 {
   font-size: 3rem;
   line-height: 3rem;
   color: #f3f6ff;
-}
-
-.c5 {
-  font-size: 3rem;
-  line-height: 3rem;
-  color: #f3f6ff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  padding: 0;
-  min-width: 3rem;
-  height: 3rem;
-  border: 0 solid transparent;
-  border-right: 1px solid transparent;
-  background-color: transparent;
-  outline: none;
-  cursor: initial;
-}
-
-.c5:focus-within {
-  -webkit-animation: none;
-  animation: none;
-}
-
-.c6 {
-  margin: 0;
-  padding: 0;
-  width: 0;
-  height: 0;
-  border: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.c6::-webkit-outer-spin-button,
-.c6::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.c6:invalid {
-  box-shadow: none;
-}
-
-.c8 {
-  font-size: 0.8rem;
-  color: #7199e6;
 }
 
 .c1 {
@@ -718,11 +673,62 @@ exports[`<CarouselFactory /> rendering is rendered correctly with mocked store 1
   transition: background-color 0.1s ease 0s;
 }
 
+.c5 {
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #f3f6ff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 0;
+  min-width: 3rem;
+  height: 3rem;
+  border: 0 solid transparent;
+  border-right: 1px solid transparent;
+  background-color: transparent;
+  outline: none;
+  cursor: initial;
+}
+
+.c5:focus-within {
+  -webkit-animation: none;
+  animation: none;
+}
+
+.c6 {
+  margin: 0;
+  padding: 0;
+  width: 0;
+  height: 0;
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c6::-webkit-outer-spin-button,
+.c6::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
 <div>
   <div
     className="c0"
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchStart={[Function]}
   >
     <div
       className="c1 c2"
@@ -856,64 +862,15 @@ exports[`<CarouselFactory /> rendering is rendered correctly with mocked store 1
 `;
 
 exports[`<CarouselFactory /> rendering is rendered correctly with mocked store 2`] = `
+.c8 {
+  font-size: 0.8rem;
+  color: #7199e6;
+}
+
 .c4 {
   font-size: 3rem;
   line-height: 3rem;
   color: #f3f6ff;
-}
-
-.c5 {
-  font-size: 3rem;
-  line-height: 3rem;
-  color: #f3f6ff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  padding: 0;
-  min-width: 3rem;
-  height: 3rem;
-  border: 0 solid transparent;
-  border-right: 1px solid transparent;
-  background-color: transparent;
-  outline: none;
-  cursor: pointer;
-}
-
-.c5:focus-within {
-  -webkit-animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
-  animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
-}
-
-.c6 {
-  margin: 0;
-  padding: 0;
-  width: 0;
-  height: 0;
-  border: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.c6::-webkit-outer-spin-button,
-.c6::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.c6:invalid {
-  box-shadow: none;
-}
-
-.c8 {
-  font-size: 0.8rem;
-  color: #7199e6;
 }
 
 .c1 {
@@ -1003,11 +960,62 @@ exports[`<CarouselFactory /> rendering is rendered correctly with mocked store 2
   transition: background-color 0.1s ease 0s;
 }
 
+.c5 {
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #f3f6ff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 0;
+  min-width: 3rem;
+  height: 3rem;
+  border: 0 solid transparent;
+  border-right: 1px solid transparent;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.c5:focus-within {
+  -webkit-animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
+  animation: caret-pulse 1.5s cubic-bezier(.215,.61,.355,1) forwards infinite;
+}
+
+.c6 {
+  margin: 0;
+  padding: 0;
+  width: 0;
+  height: 0;
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c6::-webkit-outer-spin-button,
+.c6::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
 <div>
   <div
     className="c0"
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchStart={[Function]}
   >
     <div
       className="c1 c2"

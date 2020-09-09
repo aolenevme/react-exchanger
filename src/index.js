@@ -1,6 +1,6 @@
 import React from "react";
-import styled from "styled-components";
 import ReactDOM from "react-dom";
+import styled from "styled-components";
 
 // eslint-disable-next-line import/no-unassigned-import
 import "./index.css";

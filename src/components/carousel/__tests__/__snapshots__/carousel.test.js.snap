@@ -142,6 +142,8 @@ exports[`<Carousel /> rendering is rendered correctly 1`] = `
     className="c0"
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchStart={[Function]}
   >
     <div
       className="c1 c2"
@@ -316,6 +318,8 @@ exports[`<Carousel /> rendering is rendered correctly 2`] = `
     className="c0"
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchStart={[Function]}
   />
   <div
     className="c1"

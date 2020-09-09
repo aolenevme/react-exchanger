@@ -1,5 +1,5 @@
-import store from "../store.js";
 import currencies from "../../lib/consts/currencies/currencies.js";
+import store from "../store.js";
 
 describe("Store", () => {
     it("is in a correct initial state", () => {

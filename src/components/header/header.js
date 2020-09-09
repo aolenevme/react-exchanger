@@ -5,11 +5,11 @@ import get from "lodash/get.js";
 
 import Button from "../button/button.js";
 import RateSelector from "../rate-selector/rate-selector.js";
-import {dispatch} from "../../lib/state-management/registry.js";
-import MUTATE_STORE from "../../events/mutate-store.js";
-import store from "../../store/store.js";
 import exchangeStrategy, {PRECISION}
     from "../../lib/helpers/exchange-strategy/exchange-strategy.js";
+import store from "../../store/store.js";
+import MUTATE_STORE from "../../events/mutate-store.js";
+import {dispatch} from "../../lib/state-management/registry.js";
 
 const Wrapper = styled.div`
     display: flex;
@@ -20,6 +20,14 @@ const Wrapper = styled.div`
 
     height: 2rem;
 `;
+
+function Header() {
+    return <Wrapper>
+        <Button onClick={resetExchangeAmount}>Cancel</Button>
+        <RateSelector />
+        <Button isDisabled={isExchangeDisabled()} onClick={exchangeBetweenPockets}>Exchange</Button>
+    </Wrapper>;
+}
 
 function resetExchangeAmount() {
     dispatch(MUTATE_STORE, () => [["exchangeAmount"], ""]);
@@ -50,14 +58,6 @@ function exchangeBetweenPockets() {
     dispatch(MUTATE_STORE, () => [["balances", selectedCurrency], newSelectedBalance]);
     dispatch(MUTATE_STORE, () => [["balances", targetCurrency], newTargetBalance]);
     resetExchangeAmount();
-}
-
-function Header() {
-    return <Wrapper>
-        <Button onClick={resetExchangeAmount}>Cancel</Button>
-        <RateSelector />
-        <Button isDisabled={isExchangeDisabled()} onClick={exchangeBetweenPockets}>Exchange</Button>
-    </Wrapper>;
 }
 
 export default observer(Header);

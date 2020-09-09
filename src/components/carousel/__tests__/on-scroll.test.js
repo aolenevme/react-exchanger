@@ -1,7 +1,7 @@
-import onScroll from "../on-scroll.js";
-import * as registry from "../../../lib/state-management/registry.js";
-import MUTATE_STORE from "../../../events/mutate-store.js";
 import checkStoreMutations from "../../../lib/tests/check-store-mutations.js";
+import onScroll from "../on-scroll.js";
+import MUTATE_STORE from "../../../events/mutate-store.js";
+import * as registry from "../../../lib/state-management/registry.js";
 
 describe("onScroll", () => {
     beforeEach(() => {

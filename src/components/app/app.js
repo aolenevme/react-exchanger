@@ -3,12 +3,12 @@ import {observer} from "mobx-react-lite";
 import styled from "styled-components";
 import get from "lodash/get.js";
 
-import colors from "../../lib/styles/colors/colors.js";
 import CarouselFactory from "../carousel/carousel-factory.js";
 import Header from "../header/header.js";
+import colors from "../../lib/styles/colors/colors.js";
+import store from "../../store/store.js";
 import {dispatchFx} from "../../lib/state-management/registry-fx.js";
 import GET_RATES_FX from "../../effects/get-rates/get-rates.js";
-import store from "../../store/store.js";
 
 const Wrapper = styled.div`
     display: flex;
@@ -45,13 +45,6 @@ const TargetCarouselFactory = styled(CarouselFactory)`
     background-color: ${colors.primaryDark};
 `;
 
-async function getRates(selectedCurrency, targetCurrency) {
-    if (selectedCurrency !== targetCurrency) {
-        await dispatchFx(GET_RATES_FX, {base: selectedCurrency, symbol: targetCurrency});
-        await dispatchFx(GET_RATES_FX, {base: targetCurrency, symbol: selectedCurrency});
-    }
-}
-
 function App() {
     const selectedCurrency = get(store, "selectedCurrency", "");
     const targetCurrency = get(store, "targetCurrency", "");
@@ -75,6 +68,13 @@ function App() {
         <Triangle />
         <TargetCarouselFactory areTargetPockets />
     </Wrapper>;
+}
+
+async function getRates(selectedCurrency, targetCurrency) {
+    if (selectedCurrency !== targetCurrency) {
+        await dispatchFx(GET_RATES_FX, {base: selectedCurrency, symbol: targetCurrency});
+        await dispatchFx(GET_RATES_FX, {base: targetCurrency, symbol: selectedCurrency});
+    }
 }
 
 export default observer(App);

@@ -60,14 +60,6 @@ const InputController = styled.input`
     }
 `;
 
-function validateValue(value) {
-    const valueNumber = Number(value);
-
-    return value !== "" && isNumber(valueNumber) && valueNumber >= 0
-        ? valueNumber
-        : "";
-}
-
 function Input({
     isDisabled = false, prefix = constant(null), value = "", onChange = () => ({}), onInput = () => ({})
 }) {
@@ -86,6 +78,14 @@ function Input({
                 onChange={onChange}
             />
         </Wrapper>);
+}
+
+function validateValue(value) {
+    const valueNumber = Number(value);
+
+    return value !== "" && isNumber(valueNumber) && valueNumber >= 0
+        ? valueNumber
+        : "";
 }
 
 export default Input;

@@ -1,9 +1,9 @@
-import {preEffect, effect, postEffect} from "../get-rates.js";
-import currencies from "../../../lib/consts/currencies/currencies.js";
 import * as httpClient from "../../../services/http-client/http-client.js";
 import * as registry from "../../../lib/state-management/registry.js";
 import checkStoreMutations from "../../../lib/tests/check-store-mutations.js";
+import currencies from "../../../lib/consts/currencies/currencies.js";
 import MUTATE_STORE from "../../../events/mutate-store.js";
+import {preEffect, effect, postEffect} from "../get-rates.js";
 
 describe("Get rates effect", () => {
     it("preEffect is correct", () => {
